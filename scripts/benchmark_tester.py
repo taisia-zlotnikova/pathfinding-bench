@@ -39,4 +39,4 @@ if __name__ == "__main__":
     if os.path.exists(os.path.join(config.DATA_DIR, example_scen)):
         run_scen_test(example_scen)
     else:
-        print("Пожалуйста, положите .map и .map.scen файлы в папку data/movingai/")
+        print("Пожалуйста, положите .map и .map.scen файлы в папку data/map/, data/scen")

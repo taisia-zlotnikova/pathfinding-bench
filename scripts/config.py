@@ -11,22 +11,22 @@ except ImportError:
     print(f"❌ Ошибка: Не найден модуль 'pathfinding_core'")
     sys.exit(1)
 
-# --- 2. ПУТИ К ДАННЫМ ---
+# --- 2. НАСТРОЙКИ СЕТКИ ---
+# Выбор связности: 4 (только крестом) или 8 (с диагоналями)
+CONNECTIVITY = 8
+
+# --- 3. ПУТИ К ДАННЫМ ---
 TASK_NAME = "my"
 BASE_DATA_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '../data'))
 
 MAP_DIR = os.path.join(BASE_DATA_DIR, f'map/{TASK_NAME}')
 SCEN_DIR = os.path.join(BASE_DATA_DIR, f'scen/{TASK_NAME}')
 
-# --- 3. НАСТРОЙКИ СЕТКИ ---
-# Выбор связности: 4 (только крестом) или 8 (с диагоналями)
-CONNECTIVITY = 4
-
 # --- 4. НАСТРОЙКИ СЦЕНАРИЕВ (SCENARIOS) ---
 USE_SCENARIOS = True
-TASKS_PER_SCENARIO = 300
+TASKS_PER_SCENARIO = 100
 SCENARIO_FILES = [
-    "1.scen"
+    "2.scen"
     # "maze_simple.map.scen"
     # "maze512-2-0.map.scen",
 ]

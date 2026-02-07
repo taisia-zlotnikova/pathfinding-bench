@@ -151,23 +151,55 @@ if __name__ == "__main__":
     if args.mode == 'bench':
         run_benchmark(limit=args.limit)
     elif args.mode == 'visual':
-        # 1. Если указан сценарий, а карта нет — пытаемся найти карту сами
-        if args.scen and not args.map:
+        # 1. Умная обработка пути к сценарию
+        if args.scen:
+            if not os.path.exists(args.scen):
+                args.scen = os.path.join(config.SCEN_DIR, args.scen)
+            
             tasks = MapParser.parse_scenarios(args.scen)
-            if tasks:
-                map_name = tasks[0]["map_name"]
-                # Склеиваем путь к карте на основе папки из конфига
-                args.map = os.path.join(config.MAP_DIR, map_name)
-                print(f"🔍 Авто-поиск карты: {args.map}")
+            if not tasks:
+                print(f"❌ Сценарий пуст или не найден: {args.scen}")
+                exit(1)
 
-        # 2. Проверяем наличие файла карты
-        if not args.map or not os.path.exists(args.map):
-            print(f"❌ Ошибка: Файл карты не найден.\ Укажите путь через --map или сценарий через --scen. Проверьте config.DATA_DIR и проверьте config.MAP_DIR")
+            # Авто-подбор карты из сценария
+            if not args.map:
+                map_name = tasks[0]["map_name"]
+                args.map = os.path.join(config.MAP_DIR, map_name)
+                print(f"🔍 Карта найдена в сценарии: {map_name}")
+
+            # 2. ОПРЕДЕЛЯЕМ: Рисуем одну задачу или все?
+            # Если пользователь передал --id в командной строке, рисуем только её
+            # Проверяем, был ли передан аргумент --id (по умолчанию он 0, 
+            # но мы можем проверить sys.argv, чтобы понять, вводил ли его пользователь)
+            import sys
+            user_specified_id = any(arg.startswith("--id") for arg in sys.argv)
+
+            if user_specified_id:
+                # Рисуем только одну конкретную задачу
+                run_visualization(args.map, args.algo, args.scen, args.id)
+            else:
+                # Рисуем все задачи из сценария (с учетом --limit)
+                print(f"🚀 Режим массовой визуализации сценария: {args.scen}")
+                max_tasks = args.limit if args.limit else len(tasks)
+                
+                for i in range(max_tasks):
+                    current_task_id = tasks[i]['id']
+                    print(f"\n" + "="*50)
+                    print(f"📦 ЗАДАЧА №{current_task_id} (из {len(tasks)})")
+                    
+                    run_visualization(args.map, args.algo, args.scen, current_task_id)
+                    
+                    if i < max_tasks - 1:
+                        input("\n>>> Нажмите Enter для следующей задачи (или Ctrl+C для выхода)...")
+
+        # 3. Если сценария нет, просто рисуем карту со случайными точками
         else:
-            # 3. Вызываем визуализацию со всеми параметрами
-            run_visualization(
-                map_path=args.map, 
-                algo_key=args.algo, 
-                scen_path=args.scen, 
-                task_id=args.id
-            )
+            if args.map and not os.path.exists(args.map):
+                potential_path = os.path.join(config.MAP_DIR, args.map)
+                if os.path.exists(potential_path):
+                    args.map = potential_path
+            
+            if not args.map or not os.path.exists(args.map):
+                print(f"❌ Ошибка: Укажите существующую карту (--map) или сценарий (--scen)")
+            else:
+                run_visualization(args.map, args.algo)
