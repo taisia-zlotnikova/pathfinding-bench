@@ -1,0 +1,26 @@
+# C++ / CMake build files
+build/
+cmake-build-debug/
+*.o
+*.so
+*.pyd
+*.dylib
+*.dll
+*.exe
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+.pytest_cache/
+
+# IDE settings (VS Code, CLion, etc.)
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# Data (если карты большие, их лучше не комитить, но для тестового задания мелкие карты можно оставить)
+data/movingai/*.map
