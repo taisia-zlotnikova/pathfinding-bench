@@ -1,15 +1,8 @@
 import os
 
 class MapParser:
-    def __init__(self):
-        pass
-
     @staticmethod
     def parse_map(file_path):
-        """
-        Читает файл .map (MovingAI format) и возвращает:
-        width, height, flat_grid (список int)
-        """
         if not os.path.exists(file_path):
             raise FileNotFoundError(f"Файл карты не найден: {file_path}")
 
@@ -19,7 +12,6 @@ class MapParser:
         height = 0
         width = 0
         grid = []
-        
         header_parsed = False
         map_start_index = 0
 
@@ -39,21 +31,19 @@ class MapParser:
             raise ValueError("Некорректный формат файла: не найдено ключевое слово 'map'")
 
         # 2. Парсим сетку
-        # Символы MovingAI: 
-        # . G S T(trees) @(wall) O(out of bounds)
-        # Будем считать проходимым: . G S
-        # Непроходимым: @ O T W
         passable_chars = {'.', 'G', 'S'}
-        
         current_height = 0
+        
         for i in range(map_start_index, len(lines)):
-            line = line = lines[i].strip()
+            # ОЧИЩАЕМ строку от пробелов между символами
+            line = lines[i].strip().replace(" ", "") 
+            
             if not line: 
                 continue
             
-            # Если строка длиннее ширины (бывает в некоторых файлах), обрезаем
-            if len(line) > width:
-                line = line[:width]
+            # Если в файле символов больше, чем ширина (лишние пробелы в конце и т.д.)
+            # мы берем ровно столько, сколько указано в width
+            line = line[:width]
                 
             for char in line:
                 if char in passable_chars:
@@ -69,18 +59,15 @@ class MapParser:
             raise ValueError(f"Размер сетки не совпадает. Ожидалось {width*height}, получено {len(grid)}")
 
         return width, height, grid
+
     @staticmethod
     def parse_scenarios(scen_path):
-        """
-        Парсит файл .scen и добавляет порядковый номер задачи.
-        """
         scenarios = []
         if not os.path.exists(scen_path):
             return scenarios
 
         with open(scen_path, 'r') as f:
             lines = f.readlines()
-            # Начинаем счетчик с 0 для задач (пропуская строку version)
             task_idx = 0
             for line in lines:
                 parts = line.split()
@@ -88,7 +75,7 @@ class MapParser:
                     continue
                 
                 scenarios.append({
-                    "id": task_idx, # Сохраняем номер строки/задачи
+                    "id": task_idx,
                     "map_name": parts[1],
                     "start": (int(parts[4]), int(parts[5])),
                     "goal": (int(parts[6]), int(parts[7])),

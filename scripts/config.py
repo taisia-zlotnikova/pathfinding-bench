@@ -20,13 +20,14 @@ SCEN_DIR = os.path.join(BASE_DATA_DIR, f'scen/{TASK_NAME}')
 
 # --- 3. НАСТРОЙКИ СЕТКИ ---
 # Выбор связности: 4 (только крестом) или 8 (с диагоналями)
-CONNECTIVITY = 8 
+CONNECTIVITY = 4
 
 # --- 4. НАСТРОЙКИ СЦЕНАРИЕВ (SCENARIOS) ---
 USE_SCENARIOS = True
 TASKS_PER_SCENARIO = 300
 SCENARIO_FILES = [
-    "maze_simple.map.scen"
+    "1.scen"
+    # "maze_simple.map.scen"
     # "maze512-2-0.map.scen",
 ]
 
