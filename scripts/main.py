@@ -7,7 +7,7 @@ import pathfinding_core as pfc
 from map_parser import MapParser
 
 try:
-    from visualizer import print_ascii_map
+    from visualizer import print_ascii_map, save_map_image
 except ImportError:
     print_ascii_map = None
 
@@ -130,6 +130,10 @@ def run_visualization(map_path, algo_key="astar", scen_path=None, task_id=0):
             print_ascii_map(width, height, grid, res.path, start, goal)
         else:
             print("❌ Ошибка: Функция print_ascii_map не найдена. Проверьте файл visualizer.py!")
+        if save_map_image:
+            save_map_image(width, height, grid, res.path)
+        else:
+            print("❌ Ошибка: Функция save_map_image не найдена. Проверьте файл visualizer.py!")
     else:
         print(f"❌ Путь НЕ найден. Проверьте, что точки {start} и {goal} не заблокированы стенами.")
         # Даже если путь не найден, отрисуем карту со стартом и финишем для проверки

@@ -24,11 +24,11 @@ SCEN_DIR = os.path.join(BASE_DATA_DIR, f'scen/{TASK_NAME}')
 
 # --- 4. НАСТРОЙКИ СЦЕНАРИЕВ (SCENARIOS) ---
 USE_SCENARIOS = True
-TASKS_PER_SCENARIO = 10
+TASKS_PER_SCENARIO = 100
 SCENARIO_FILES = [
     # "2.scen"
     # "maze_simple.map.scen"
-    "maze512-2-0.map.scen",
+    # "maze512-2-0.map.scen",
 ]
 
 # --- 5. ВСЕ АЛГОРИТМЫ ДЛЯ БЕНЧМАРКА ---
