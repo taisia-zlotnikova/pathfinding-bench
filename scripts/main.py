@@ -2,18 +2,16 @@ import os
 import random
 import argparse
 import config  
-import pathfinding_core as pfc # Теперь pfc доступен, так как config настроил sys.path
+import pathfinding_core as pfc
 
 from map_parser import MapParser
 
-# Пытаемся импортировать визуализатор
 try:
     from visualizer import print_ascii_map
 except ImportError:
     print_ascii_map = None
 
-def get_random_valid_points(width, height, grid, min_dist=1):
-    """Ищет две случайные свободные точки на карте."""
+def get_random_valid_points(width, height, grid, min_dist=2): # Уменьшили дистанцию
     max_attempts = 1000
     for _ in range(max_attempts):
         x1, y1 = random.randint(0, width-1), random.randint(0, height-1)
@@ -22,18 +20,18 @@ def get_random_valid_points(width, height, grid, min_dist=1):
         idx2 = y2 * width + x2
         
         if grid[idx1] == 0 and grid[idx2] == 0:
+            # Считаем Манхэттенское расстояние для простоты
             dist = abs(x1 - x2) + abs(y1 - y2)
-            if dist > min_dist:
+            if dist >= min_dist:
                 return (x1, y1), (x2, y2)
     return None, None
 
 def run_benchmark(limit=None):
-    # Добавляем проверку флага из конфига
     if config.USE_SCENARIOS:
         # --- РЕЖИМ СЦЕНАРИЕВ ---
         map_dir = config.MAP_DIR
         scen_dir = config.SCEN_DIR
-        print(f"\n🚀 Режим сценариев (Benchmark)")
+        print(f"\n🚀 Режим сценариев (Benchmark) | Связность: {config.CONNECTIVITY}")
         header = f"{'#':<4} | {'Scenario File':<20} | {'Algo':<14} | {'Len':<8} | {'Opt':<8} | {'Nodes':<7} | {'Time(ms)':<8}"
         print(header)
         print("-" * len(header))
@@ -50,27 +48,25 @@ def run_benchmark(limit=None):
             tasks = MapParser.parse_scenarios(scen_path)
             if not tasks: continue
             
-            map_filename = tasks[0]["map_name"]
-            map_path = os.path.join(map_dir, map_filename)
+            map_path = os.path.join(map_dir, tasks[0]["map_name"])
+            if not os.path.exists(map_path):
+                print(f"❌ Карта не найдена: {tasks[0]['map_name']}")
+                continue
+
+            width, height, grid = MapParser.parse_map(map_path)
+            planner = pfc.PathPlanner(width, height, grid)
             
-            try:
-                width, height, grid = MapParser.parse_map(map_path)
-                planner = pfc.PathPlanner(width, height, grid)
-                run_tasks = tasks[:config.TASKS_PER_SCENARIO]
-                
-                for task in run_tasks:
-                    for name, algo, heur, weight in config.BENCHMARK_ALGORITHMS:
-                        res = planner.find_path(task["start"][0], task["start"][1],
-                                              task["goal"][0], task["goal"][1],
-                                              algo, heur, weight, 8)
-                        time_ms = res.execution_time * 1000
-                        print(f"{task['id']:<4} | {scen_name[:20]:<20} | {name:<14} | {res.path_length:<8.1f} | {task['optimal_len']:<8.1f} | {res.expanded_nodes:<7} | {time_ms:<8.3f}")
-            except Exception as e:
-                print(f"Ошибка в {scen_name}: {e}")
+            for task in tasks[:config.TASKS_PER_SCENARIO]:
+                for name, algo, heur, weight in config.BENCHMARK_ALGORITHMS:
+                    res = planner.find_path(task["start"][0], task["start"][1],
+                                          task["goal"][0], task["goal"][1],
+                                          algo, heur, weight, config.CONNECTIVITY) # Используем конфиг
+                    time_ms = res.execution_time * 1000
+                    print(f"{task['id']:<4} | {scen_name[:20]:<20} | {name:<14} | {res.path_length:<8.1f} | {task['optimal_len']:<8.1f} | {res.expanded_nodes:<7} | {time_ms:<8.3f}")
     else:
-        # --- РЕЖИМ СЛУЧАЙНЫХ КАРТ (если USE_SCENARIOS = False) ---
+        # --- РЕЖИМ СЛУЧАЙНЫХ ТОЧЕК ---
         map_dir = config.MAP_DIR
-        print(f"\n🚀 Режим случайных точек (Benchmark)")
+        print(f"\n🚀 Режим случайных точек (Benchmark) | Связность: {config.CONNECTIVITY}")
         header = f"{'Map File':<25} | {'Algo':<14} | {'Len':<8} | {'Nodes':<7} | {'Time(ms)':<8}"
         print(header)
         print("-" * len(header))
@@ -81,22 +77,17 @@ def run_benchmark(limit=None):
 
         for map_name in map_files:
             map_path = os.path.join(map_dir, map_name)
-            try:
-                width, height, grid = MapParser.parse_map(map_path)
-                planner = pfc.PathPlanner(width, height, grid)
-                
-                points = get_random_valid_points(width, height, grid)
-                if not points:
-                    print(f"⚠️ Не удалось найти точки для {map_name}")
-                    continue
-                start, goal = points
+            width, height, grid = MapParser.parse_map(map_path)
+            planner = pfc.PathPlanner(width, height, grid)
+            
+            points = get_random_valid_points(width, height, grid)
+            if not points: continue
+            start, goal = points
 
-                for name, algo, heur, weight in config.BENCHMARK_ALGORITHMS:
-                    res = planner.find_path(start[0], start[1], goal[0], goal[1], algo, heur, weight, 8)
-                    time_ms = res.execution_time * 1000
-                    print(f"{map_name[:25]:<25} | {name:<14} | {res.path_length:<8.1f} | {res.expanded_nodes:<7} | {time_ms:<8.3f}")
-            except Exception as e:
-                print(f"Ошибка в {map_name}: {e}")
+            for name, algo, heur, weight in config.BENCHMARK_ALGORITHMS:
+                res = planner.find_path(start[0], start[1], goal[0], goal[1], algo, heur, weight, config.CONNECTIVITY) # Используем конфиг
+                time_ms = res.execution_time * 1000
+                print(f"{map_name[:25]:<25} | {name:<14} | {res.path_length:<8.1f} | {res.expanded_nodes:<7} | {time_ms:<8.3f}")
 
 def run_visualization(map_path, algo_key="astar"):
     if not os.path.exists(map_path):
@@ -122,7 +113,7 @@ def run_visualization(map_path, algo_key="astar"):
         return
     
     print(f"Start: {start} -> Goal: {goal}")
-    res = planner.find_path(start[0], start[1], goal[0], goal[1], algo_type, heur_type, weight, 8)
+    res = planner.find_path(start[0], start[1], goal[0], goal[1], algo_type, heur_type, weight, config.CONNECTIVITY)
     
     if res.found:
         print(f"✅ Путь найден! Длина: {res.path_length:.2f}, Узлов: {res.expanded_nodes}")
