@@ -16,7 +16,7 @@ except ImportError:
 CONNECTIVITY = 8
 
 # --- 3. ПУТИ К ДАННЫМ ---
-TASK_NAME = "my"
+TASK_NAME = "maze"
 BASE_DATA_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '../data'))
 
 MAP_DIR = os.path.join(BASE_DATA_DIR, f'map/{TASK_NAME}')
@@ -24,16 +24,16 @@ SCEN_DIR = os.path.join(BASE_DATA_DIR, f'scen/{TASK_NAME}')
 
 # --- 4. НАСТРОЙКИ СЦЕНАРИЕВ (SCENARIOS) ---
 USE_SCENARIOS = True
-TASKS_PER_SCENARIO = 100
+TASKS_PER_SCENARIO = 10
 SCENARIO_FILES = [
-    "2.scen"
+    # "2.scen"
     # "maze_simple.map.scen"
-    # "maze512-2-0.map.scen",
+    "maze512-2-0.map.scen",
 ]
 
 # --- 5. ВСЕ АЛГОРИТМЫ ДЛЯ БЕНЧМАРКА ---
 BENCHMARK_ALGORITHMS = [
-    ("BFS",            pfc.AlgorithmType.BFS,      pfc.HeuristicType.Zero,      1.0),
+    # ("BFS",            pfc.AlgorithmType.BFS,      pfc.HeuristicType.Zero,      1.0),
     ("Dijkstra",       pfc.AlgorithmType.Dijkstra, pfc.HeuristicType.Zero,      1.0),
     
     # A* с разными эвристиками
