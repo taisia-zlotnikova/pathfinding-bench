@@ -12,8 +12,9 @@ except ImportError:
     sys.exit(1)
 
 # --- 2. ПУТИ К ДАННЫМ ---
-TASK_NAME = "maze"
+TASK_NAME = "my"
 BASE_DATA_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '../data'))
+
 MAP_DIR = os.path.join(BASE_DATA_DIR, f'map/{TASK_NAME}')
 SCEN_DIR = os.path.join(BASE_DATA_DIR, f'scen/{TASK_NAME}')
 
@@ -22,11 +23,11 @@ SCEN_DIR = os.path.join(BASE_DATA_DIR, f'scen/{TASK_NAME}')
 CONNECTIVITY = 8 
 
 # --- 4. НАСТРОЙКИ СЦЕНАРИЕВ (SCENARIOS) ---
-USE_SCENARIOS = True 
+USE_SCENARIOS = True
 TASKS_PER_SCENARIO = 300
 SCENARIO_FILES = [
-    # "maze_simple.map.scen"
-    "maze512-2-0.map.scen",
+    "maze_simple.map.scen"
+    # "maze512-2-0.map.scen",
 ]
 
 # --- 5. ВСЕ АЛГОРИТМЫ ДЛЯ БЕНЧМАРКА ---

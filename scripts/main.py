@@ -89,52 +89,85 @@ def run_benchmark(limit=None):
                 time_ms = res.execution_time * 1000
                 print(f"{map_name[:25]:<25} | {name:<14} | {res.path_length:<8.1f} | {res.expanded_nodes:<7} | {time_ms:<8.3f}")
 
-def run_visualization(map_path, algo_key="astar"):
+def run_visualization(map_path, algo_key="astar", scen_path=None, task_id=0):
     if not os.path.exists(map_path):
-        print(f"❌ Файл не найден: {map_path}")
+        print(f"❌ Карта не найдена: {map_path}")
         return
 
-    # БЕРЕМ АЛГОРИТМ ИЗ СЛОВАРЯ В CONFIG.PY
-    if algo_key not in config.VISUAL_ALGOS:
-        print(f"⚠️ Алгоритм '{algo_key}' не найден в config.py. Использую 'astar'.")
-        algo_key = "astar"
-    
-    algo_type, heur_type, weight = config.VISUAL_ALGOS[algo_key]
+    # Получаем настройки алгоритма
+    algo_type, heur_type, weight = config.VISUAL_ALGOS.get(algo_key, config.VISUAL_ALGOS["astar"])
 
-    print(f"\n🎨 Визуализация: {os.path.basename(map_path)}")
-    print(f"⚙️  Алгоритм: {algo_key.upper()} (w={weight})")
-    
+    print(f"📖 Загрузка карты: {map_path}...")
     width, height, grid = MapParser.parse_map(map_path)
     planner = pfc.PathPlanner(width, height, grid)
 
-    start, goal = get_random_valid_points(width, height, grid)
-    if not start: 
-        print("Не удалось найти точки старта/финиша.")
+    # Выбор точек
+    if scen_path and os.path.exists(scen_path):
+        tasks = MapParser.parse_scenarios(scen_path)
+        if task_id < len(tasks):
+            task = tasks[task_id]
+            start, goal = task["start"], task["goal"]
+            print(f"📋 Задача #{task_id} из сценария: Start {start} -> Goal {goal}")
+        else:
+            print(f"⚠️ Задача #{task_id} не найдена, использую случайные точки.")
+            start, goal = get_random_valid_points(width, height, grid)
+    else:
+        start, goal = get_random_valid_points(width, height, grid)
+
+    if not start:
+        print("❌ Ошибка: не удалось найти свободные точки на карте.")
         return
-    
-    print(f"Start: {start} -> Goal: {goal}")
-    res = planner.find_path(start[0], start[1], goal[0], goal[1], algo_type, heur_type, weight, config.CONNECTIVITY)
-    
+
+    # ЗАПУСК ПОИСКА
+    print(f"🔎 Поиск пути (Алгоритм: {algo_key.upper()}, Сетка: {config.CONNECTIVITY})...")
+    res = planner.find_path(start[0], start[1], goal[0], goal[1], 
+                           algo_type, heur_type, weight, 
+                           config.CONNECTIVITY)
+
     if res.found:
-        print(f"✅ Путь найден! Длина: {res.path_length:.2f}, Узлов: {res.expanded_nodes}")
+        print(f"✅ Путь найден! Длина: {res.path_length:.2f}")
         if print_ascii_map:
             print_ascii_map(width, height, grid, res.path, start, goal)
+        else:
+            print("❌ Ошибка: Функция print_ascii_map не найдена. Проверьте файл visualizer.py!")
     else:
-        print("❌ Путь не найден.")
+        print(f"❌ Путь НЕ найден. Проверьте, что точки {start} и {goal} не заблокированы стенами.")
+        # Даже если путь не найден, отрисуем карту со стартом и финишем для проверки
+        if print_ascii_map:
+            print("\nОтрисовка карты без пути (проверка точек):")
+            print_ascii_map(width, height, grid, [], start, goal)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('mode', choices=['bench', 'visual'], help="Режим работы")
-    parser.add_argument('--map', type=str, help="Путь к файлу карты (для visual)")
-    parser.add_argument('--limit', type=int, default=None, help="Лимит карт (для bench)")
-    parser.add_argument('--algo', type=str, default='astar', help="Алгоритм для визуализации (ключ из config.py)")
-
+    parser.add_argument('mode', choices=['bench', 'visual'])
+    parser.add_argument('--map', type=str)
+    parser.add_argument('--scen', type=str)
+    parser.add_argument('--id', type=int, default=0)
+    parser.add_argument('--algo', type=str, default='astar')
+    parser.add_argument('--limit', type=int, default=None)
+    
     args = parser.parse_args()
 
     if args.mode == 'bench':
         run_benchmark(limit=args.limit)
     elif args.mode == 'visual':
-        if not args.map:
-            print("❌ Укажите карту: --map data/movingai/arena.map")
+        # 1. Если указан сценарий, а карта нет — пытаемся найти карту сами
+        if args.scen and not args.map:
+            tasks = MapParser.parse_scenarios(args.scen)
+            if tasks:
+                map_name = tasks[0]["map_name"]
+                # Склеиваем путь к карте на основе папки из конфига
+                args.map = os.path.join(config.MAP_DIR, map_name)
+                print(f"🔍 Авто-поиск карты: {args.map}")
+
+        # 2. Проверяем наличие файла карты
+        if not args.map or not os.path.exists(args.map):
+            print(f"❌ Ошибка: Файл карты не найден.\ Укажите путь через --map или сценарий через --scen. Проверьте config.DATA_DIR и проверьте config.MAP_DIR")
         else:
-            run_visualization(args.map, algo_key=args.algo)
+            # 3. Вызываем визуализацию со всеми параметрами
+            run_visualization(
+                map_path=args.map, 
+                algo_key=args.algo, 
+                scen_path=args.scen, 
+                task_id=args.id
+            )
