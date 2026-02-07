@@ -72,8 +72,7 @@ class MapParser:
     @staticmethod
     def parse_scenarios(scen_path):
         """
-        Парсит файл .scen.
-        Формат строки: bucket, map, width, height, startX, startY, goalX, goalY, optimal_length
+        Парсит файл .scen и добавляет порядковый номер задачи.
         """
         scenarios = []
         if not os.path.exists(scen_path):
@@ -81,18 +80,21 @@ class MapParser:
 
         with open(scen_path, 'r') as f:
             lines = f.readlines()
-            # Первая строка обычно содержит 'version X', пропускаем её
+            # Начинаем счетчик с 0 для задач (пропуская строку version)
+            task_idx = 0
             for line in lines:
                 parts = line.split()
                 if not parts or parts[0] == "version":
                     continue
                 
                 scenarios.append({
+                    "id": task_idx, # Сохраняем номер строки/задачи
                     "map_name": parts[1],
                     "start": (int(parts[4]), int(parts[5])),
                     "goal": (int(parts[6]), int(parts[7])),
                     "optimal_len": float(parts[8])
                 })
+                task_idx += 1
         return scenarios
 
 # Простой тест при запуске файла
