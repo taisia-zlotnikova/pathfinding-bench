@@ -14,13 +14,16 @@ except ImportError:
     sys.exit(1)
 
 # --- 2. ПУТИ К ДАННЫМ ---
-# Папка, где лежат карты (.map)
-# '../data/dragon_age_map', '../data/maze-map'
-DATA_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '../data/maze-map'))
+# Базовый путь к папке с данными
+BASE_DATA_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '../data'))
+
+# Пути к конкретным типам данных
+MAP_DIR = os.path.join(BASE_DATA_DIR, 'maze-map')
+SCEN_DIR = os.path.join(BASE_DATA_DIR, 'maze-scen')
 
 # --- 3. НАСТРОЙКИ ДЛЯ БЕНЧМАРКА (BENCHMARK) ---
 # Список алгоритмов, которые будут запускаться при режиме 'bench'
-# Формат: ("Название в отчете", ТипАлгоритма, ТипЭвристики, Вес)
+# Формат: ("Название", Алгоритм, Эвристика, Вес)
 BENCHMARK_ALGORITHMS = [
     # Классические алгоритмы
     ("BFS",            pfc.AlgorithmType.BFS,      pfc.HeuristicType.Zero,      1.0),
@@ -36,7 +39,7 @@ BENCHMARK_ALGORITHMS = [
     # ("WA* (x1.2)",     pfc.AlgorithmType.WAStar,   pfc.HeuristicType.Octile,    1.2),
     # ("WA* (x1.5)",     pfc.AlgorithmType.WAStar,   pfc.HeuristicType.Octile,    1.5),
     # ("WA* (x2.0)",     pfc.AlgorithmType.WAStar,   pfc.HeuristicType.Octile,    2.0),
-    # ("WA* (x5.0)",     pfc.AlgorithmType.WAStar,   pfc.HeuristicType.Octile,    5.0),
+    ("WA* (x5.0)",     pfc.AlgorithmType.WAStar,   pfc.HeuristicType.Octile,    5.0),
 ]
 
 # --- 4. НАСТРОЙКИ ДЛЯ ВИЗУАЛИЗАЦИИ (VISUAL) ---
@@ -49,3 +52,14 @@ VISUAL_ALGOS = {
     "wastar":   (pfc.AlgorithmType.WAStar,   pfc.HeuristicType.Octile,    1.5), # WA* с весом 1.5
     "greedy":   (pfc.AlgorithmType.WAStar,   pfc.HeuristicType.Octile,    10.0) # Очень жадный поиск
 }
+
+# --- 5. НАСТРОЙКИ СЦЕНАРИЕВ (SCENARIOS) ---
+# Если True, бенчмарк будет брать задачи из файлов .scen
+# Если False, будет генерировать случайные точки Start/Goal
+USE_SCENARIOS = True
+TASKS_PER_SCENARIO = 5
+
+# Теперь указываем только ИМЯ файла сценария
+SCENARIO_FILES = [
+    "maze512-1-0.map.scen"
+]

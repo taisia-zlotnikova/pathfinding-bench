@@ -69,6 +69,31 @@ class MapParser:
             raise ValueError(f"Размер сетки не совпадает. Ожидалось {width*height}, получено {len(grid)}")
 
         return width, height, grid
+    @staticmethod
+    def parse_scenarios(scen_path):
+        """
+        Парсит файл .scen.
+        Формат строки: bucket, map, width, height, startX, startY, goalX, goalY, optimal_length
+        """
+        scenarios = []
+        if not os.path.exists(scen_path):
+            return scenarios
+
+        with open(scen_path, 'r') as f:
+            lines = f.readlines()
+            # Первая строка обычно содержит 'version X', пропускаем её
+            for line in lines:
+                parts = line.split()
+                if not parts or parts[0] == "version":
+                    continue
+                
+                scenarios.append({
+                    "map_name": parts[1],
+                    "start": (int(parts[4]), int(parts[5])),
+                    "goal": (int(parts[6]), int(parts[7])),
+                    "optimal_len": float(parts[8])
+                })
+        return scenarios
 
 # Простой тест при запуске файла
 if __name__ == "__main__":
