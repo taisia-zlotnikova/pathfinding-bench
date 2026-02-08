@@ -66,13 +66,14 @@ def collect_metrics(task_type, output_file="results.csv"):
                         "Map": map_name,
                         "Scenario": scen_file,
                         "Algorithm": algo_name,
-                        "Heuristic": str(heur).split('.')[-1], # красивое имя эвристики
+                        "Heuristic": str(heur).split('.')[-1],
                         "Weight": weight,
-                        "Time (ms)": res.execution_time * 1000, # 
-                        "Expanded Nodes": res.expanded_nodes,   # 
-                        "Path Length": res.path_length,         # 
+                        "Connectivity": config.CONNECTIVITY,  # <--- ДОБАВИТЬ ЭТУ СТРОКУ
+                        "Time (ms)": res.execution_time * 1000,
+                        "Expanded Nodes": res.expanded_nodes,
+                        "Path Length": res.path_length,
                         "Optimal Length": optimal,
-                        "Suboptimality (%)": subopt,            # 
+                        "Suboptimality (%)": subopt,
                         "Success": True
                     })
                 else:
@@ -88,6 +89,8 @@ def collect_metrics(task_type, output_file="results.csv"):
         df = pd.DataFrame(results)
         # Сохраняем в общую папку results
         ensure_dir("results")
+        if output_file is None:
+            output_file = f"benchmark_results_{task_type}.csv"
         final_path = os.path.join("results", output_file)
         df.to_csv(final_path, index=False)
         print(f"✅ Результаты сохранены: {final_path}")
@@ -99,7 +102,7 @@ def collect_metrics(task_type, output_file="results.csv"):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--type', type=str, default="maze", help="Тип карт (maze, random, etc)")
-    parser.add_argument('--output', type=str, default="benchmark_results.csv")
+    parser.add_argument('--output', type=str, default=None, help="Имя выходного файла. Default: benchmark_results_<type>.csv")
     args = parser.parse_args()
     
     collect_metrics(args.type, args.output)

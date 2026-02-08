@@ -28,12 +28,12 @@ TASKS_PER_SCENARIO = 100
 SCENARIO_FILES = [
     # "2.scen"
     # "maze_simple.map.scen"
-    # "maze512-2-0.map.scen",
+    "maze512-2-0.map.scen",
 ]
 
 # --- 5. ВСЕ АЛГОРИТМЫ ДЛЯ БЕНЧМАРКА ---
 BENCHMARK_ALGORITHMS = [
-    # ("BFS",            pfc.AlgorithmType.BFS,      pfc.HeuristicType.Zero,      1.0),
+    ("BFS",            pfc.AlgorithmType.BFS,      pfc.HeuristicType.Zero,      1.0),
     ("Dijkstra",       pfc.AlgorithmType.Dijkstra, pfc.HeuristicType.Zero,      1.0),
     
     # A* с разными эвристиками

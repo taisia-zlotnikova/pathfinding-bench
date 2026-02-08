@@ -127,7 +127,8 @@ def run_visualization(map_path, algo_key="astar", scen_path=None, task_id=0):
     if res.found:
         print(f"✅ Путь найден! Длина: {res.path_length:.2f}")
         if print_ascii_map:
-            print_ascii_map(width, height, grid, res.path, start, goal)
+            if weight + height <= 12:
+                print_ascii_map(width, height, grid, res.path, start, goal)
         else:
             print("❌ Ошибка: Функция print_ascii_map не найдена. Проверьте файл visualizer.py!")
         if save_map_image:
@@ -137,9 +138,14 @@ def run_visualization(map_path, algo_key="astar", scen_path=None, task_id=0):
     else:
         print(f"❌ Путь НЕ найден. Проверьте, что точки {start} и {goal} не заблокированы стенами.")
         # Даже если путь не найден, отрисуем карту со стартом и финишем для проверки
+        # if print_ascii_map:
+        #     print("\nОтрисовка карты без пути (проверка точек):")
+        #     print_ascii_map(width, height, grid, [], start, goal)
         if print_ascii_map:
-            print("\nОтрисовка карты без пути (проверка точек):")
-            print_ascii_map(width, height, grid, [], start, goal)
+            if weight + height <= 12:
+                print_ascii_map(width, height, grid, res.path, start, goal)
+        else:
+            print("❌ Ошибка: Функция print_ascii_map не найдена. Проверьте файл visualizer.py!")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

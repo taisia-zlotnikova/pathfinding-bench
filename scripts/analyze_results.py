@@ -2,7 +2,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import os
-import sys
 
 def plot_metrics(csv_file):
     if not os.path.exists(csv_file):
