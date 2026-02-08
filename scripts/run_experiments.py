@@ -11,14 +11,15 @@ from datetime import datetime
 #   'first'   - Выборка первых N задач
 #   'last'    - Выборка последних N задач
 SAMPLING_MODE = 'first'  
-SAMPLING_COUNT = 10   # Используется только если mode != 'all'
+SAMPLING_COUNT = 100   # Используется только если mode != 'all'
 
 # --- 2. ФИЛЬТР ПО ОДНОЙ КАРТЕ ---
 # Если хотите протестировать ТОЛЬКО одну карту, укажите имя файла.
 # Пример: "maze512-1-0.map"
-# Если None - тестируются все карты подряд. - НЕ применять если SAMPLING_MODE = 'all'. не протестируется по времени
-# TARGET_MAP_NAME = None 
-TARGET_MAP_NAME = "maze512-1-0.map"
+# Если None - тестируются все карты подряд.
+TARGET_MAP_NAME = None 
+# TARGET_MAP_NAME = "maze512-1-1.map"
+# TARGET_MAP_NAME = "random512-10-2.map"
 
 # --- Настройка путей ---
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -72,8 +73,6 @@ def run_experiments():
     
     # Формируем имя папки
     if TARGET_MAP_NAME:
-        # Если тестируем одну карту, кладем в папку 'single_maps' или аналогичную
-        # Но чтобы анализатор нашел, лучше оставить структуру types, но уточнить имя файла
         subfolder_name = "single_map_tests"
     else:
         subfolder_name = "all_tasks" if SAMPLING_MODE == 'all' else f"{SAMPLING_MODE}_{SAMPLING_COUNT}"
@@ -86,7 +85,7 @@ def run_experiments():
         
         if not os.path.exists(scen_source_dir): continue
 
-        # 1. Сначала ищем подходящие сценарии (чтобы не создавать пустые файлы)
+        # 1. Сначала ищем подходящие сценарии
         valid_scenarios = []
         scen_files = [f for f in os.listdir(scen_source_dir) if f.endswith('.scen')]
         
@@ -106,7 +105,7 @@ def run_experiments():
                 
                 # Проверяем наличие самой карты
                 if not os.path.exists(os.path.join(map_source_dir, map_name)):
-                    print(f"   ⚠️ Карта {map_name} не найдена (но есть в сценарии).")
+                    # print(f"   ⚠️ Карта {map_name} не найдена.") # Можно раскомментировать для отладки
                     continue
                     
                 valid_scenarios.append((scen_file, map_name, tasks))
@@ -118,17 +117,24 @@ def run_experiments():
             if TARGET_MAP_NAME:
                 print(f"   ℹ️ В папке {map_type} нет сценариев для карты {TARGET_MAP_NAME}")
             continue
+        
+        # Сортируем сценарии по имени карты, чтобы группировать загрузку
+        # Это критично для эффективности кэширования
+        valid_scenarios.sort(key=lambda x: x[1])
 
-        # 2. Создаем CSV только если есть данные
+        # 2. Создаем CSV
         current_result_dir = os.path.join(RESULTS_DIR, map_type, subfolder_name)
         os.makedirs(current_result_dir, exist_ok=True)
         
-        # Если одна карта, добавляем её имя в файл. Если все - просто таймстемп.
         name_part = f"_{TARGET_MAP_NAME}" if TARGET_MAP_NAME else ""
         csv_filename = f"res_{map_type}{name_part}_{timestamp}.csv"
         csv_path = os.path.join(current_result_dir, csv_filename)
 
         print(f"🚀 Запуск тестов для {len(valid_scenarios)} сценариев. Файл: {csv_filename}")
+
+        # --- ПЕРЕМЕННЫЕ ДЛЯ КЭШИРОВАНИЯ ---
+        cached_map_name = None
+        cached_planner = None
 
         with open(csv_path, mode='w', newline='') as f:
             writer = csv.writer(f)
@@ -137,13 +143,33 @@ def run_experiments():
                              "ExpandedNodes", "TimeMS", "Suboptimality"])
 
             for scen_file, map_name, all_tasks in valid_scenarios:
-                # Загружаем карту (один раз на файл)
-                width, height, grid = MapParser.parse_map(os.path.join(map_source_dir, map_name))
-                planner = pfc.PathPlanner(width, height, grid)
                 
+                # --- ЛОГИКА КЭШИРОВАНИЯ ---
+                if map_name != cached_map_name:
+                    # Если карта изменилась, загружаем новую
+                    try:
+                        # print(f"   💾 Загрузка карты: {map_name}...") # Раскомментируйте, если хотите видеть момент загрузки
+                        width, height, grid = MapParser.parse_map(os.path.join(map_source_dir, map_name))
+                        planner = pfc.PathPlanner(width, height, grid)
+                        
+                        # Обновляем кэш
+                        cached_map_name = map_name
+                        cached_planner = planner
+                    except Exception as e:
+                        print(f"❌ Ошибка загрузки карты {map_name}: {e}")
+                        cached_map_name = None
+                        cached_planner = None
+                        continue
+                else:
+                    # Если карта та же самая, используем кэш
+                    planner = cached_planner
+                    # print(f"   ⚡ Cache hit: {map_name}") 
+                
+                if not planner: continue
+
                 # Выборка задач
                 current_tasks, desc = get_tasks_subset(all_tasks, SAMPLING_MODE, SAMPLING_COUNT)
-                print(f"   🗺️  {map_name} | {desc} (всего {len(all_tasks)})")
+                print(f"   🗺️  {map_name} | {scen_file[:20]:<20} | {desc} (Tasks: {len(all_tasks)})")
 
                 for conn in CONNECTIVITIES:
                     for algo_name, algo_enum, heur_enum, weight in ALGORITHMS:

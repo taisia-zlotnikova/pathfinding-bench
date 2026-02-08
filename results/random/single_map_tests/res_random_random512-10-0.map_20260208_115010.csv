@@ -1,0 +1,1401 @@
+MapName,Scenario,Connectivity,Algorithm,Weight,TaskID,Success,PathLength,OptimalLength,ExpandedNodes,TimeMS,Suboptimality
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,0,True,3.0000,2.41421356,20,0.0443,24.26
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,0,True,3.0000,2.41421356,18,0.0421,24.26
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,0,True,3.0000,2.41421356,6,0.0148,24.26
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,0,True,3.0000,2.41421356,6,0.0146,24.26
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,0,True,3.0000,2.41421356,6,0.0141,24.26
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,0,True,3.0000,2.41421356,4,0.0107,24.26
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,0,True,3.0000,2.41421356,4,0.0101,24.26
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,0,True,2.0000,2.41421356,17,0.0321,-17.16
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,0,True,2.4142,2.41421356,17,0.0468,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,0,True,2.4142,2.41421356,3,0.0123,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,0,True,2.4142,2.41421356,4,0.0153,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,0,True,2.4142,2.41421356,4,0.0156,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,0,True,2.4142,2.41421356,3,0.0122,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,0,True,2.4142,2.41421356,3,0.0121,0.00
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,17,True,8.0000,6.82842712,126,0.1706,17.16
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,17,True,8.0000,6.82842712,121,0.2576,17.16
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,17,True,8.0000,6.82842712,19,0.0435,17.16
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,17,True,8.0000,6.82842712,22,0.0502,17.16
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,17,True,8.0000,6.82842712,18,0.0434,17.16
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,17,True,8.0000,6.82842712,9,0.0241,17.16
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,17,True,8.0000,6.82842712,9,0.0241,17.16
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,17,True,6.0000,6.82842712,125,0.2360,-12.13
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,17,True,6.8284,6.82842712,112,0.3569,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,17,True,6.8284,6.82842712,7,0.0266,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,17,True,6.8284,6.82842712,13,0.0430,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,17,True,6.8284,6.82842712,13,0.0411,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,17,True,6.8284,6.82842712,7,0.0258,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,17,True,6.8284,6.82842712,7,0.0252,0.00
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,35,True,21.0000,15.14213562,749,0.8799,38.69
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,35,True,21.0000,15.14213562,753,1.6285,38.69
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,35,True,21.0000,15.14213562,93,0.2349,38.69
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,35,True,21.0000,15.14213562,143,0.3252,38.69
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,35,True,21.0000,15.14213562,123,0.2799,38.69
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,35,True,21.0000,15.14213562,22,0.0547,38.69
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,35,True,21.0000,15.14213562,22,0.0591,38.69
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,35,True,11.0000,15.14213562,373,0.5851,-27.36
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,35,True,15.1421,15.14213562,586,1.6339,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,35,True,15.1421,15.14213562,12,0.0648,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,35,True,15.1421,15.14213562,22,0.0835,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,35,True,15.1421,15.14213562,19,0.0790,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,35,True,15.1421,15.14213562,12,0.0551,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,35,True,15.1421,15.14213562,12,0.0540,0.00
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,53,True,28.0000,21.55634918,1277,1.4477,29.89
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,53,True,28.0000,21.55634918,1299,2.4858,29.89
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,53,True,28.0000,21.55634918,138,0.3558,29.89
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,53,True,28.0000,21.55634918,234,0.5529,29.89
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,53,True,28.0000,21.55634918,220,0.5382,29.89
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,53,True,28.0000,21.55634918,29,0.0731,29.89
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,53,True,28.0000,21.55634918,29,0.0768,29.89
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,53,True,17.0000,21.55634918,908,1.3414,-21.14
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,53,True,21.5563,21.55634918,1148,3.2555,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,53,True,23.3137,21.55634918,24,0.1102,8.15
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,53,True,21.5563,21.55634918,51,0.1629,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,53,True,21.5563,21.55634918,40,0.1312,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,53,True,21.5563,21.55634918,18,0.0853,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,53,True,21.5563,21.55634918,18,0.0794,0.00
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,71,True,34.0000,28.72792206,2110,2.2802,18.35
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,71,True,34.0000,28.72792206,2026,3.8337,18.35
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,71,True,34.0000,28.72792206,133,0.3509,18.35
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,71,True,34.0000,28.72792206,297,0.6491,18.35
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,71,True,34.0000,28.72792206,291,0.6702,18.35
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,71,True,34.0000,28.72792206,35,0.1011,18.35
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,71,True,34.0000,28.72792206,35,0.0980,18.35
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,71,True,25.0000,28.72792206,2060,2.9156,-12.98
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,71,True,28.7279,28.72792206,2099,6.0284,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,71,True,28.7279,28.72792206,32,0.1571,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,71,True,28.7279,28.72792206,168,0.6339,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,71,True,28.7279,28.72792206,119,0.4784,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,71,True,29.5563,28.72792206,28,0.1230,2.88
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,71,True,29.5563,28.72792206,28,0.1125,2.88
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,89,True,46.0000,35.45584412,3736,4.4004,29.74
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,89,True,46.0000,35.45584412,3615,6.5597,29.74
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,89,True,46.0000,35.45584412,299,0.6501,29.74
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,89,True,46.0000,35.45584412,670,1.3046,29.74
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,89,True,46.0000,35.45584412,601,1.2146,29.74
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,89,True,46.0000,35.45584412,52,0.1329,29.74
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,89,True,46.0000,35.45584412,49,0.1142,29.74
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,89,True,28.0000,35.45584412,2626,3.5185,-21.03
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,89,True,35.4558,35.45584412,3116,7.8872,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,89,True,35.4558,35.45584412,32,0.1209,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,89,True,35.4558,35.45584412,203,0.7195,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,89,True,35.4558,35.45584412,135,0.4509,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,89,True,35.4558,35.45584412,35,0.1359,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,89,True,35.4558,35.45584412,31,0.1247,0.00
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,106,True,45.0000,40.3137085,3527,3.6934,11.62
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,106,True,45.0000,40.3137085,3582,6.9341,11.62
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,106,True,45.0000,40.3137085,175,0.4238,11.62
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,106,True,45.0000,40.3137085,389,0.8832,11.62
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,106,True,45.0000,40.3137085,344,0.8102,11.62
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,106,True,45.0000,40.3137085,46,0.1459,11.62
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,106,True,45.0000,40.3137085,46,0.1377,11.62
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,106,True,37.0000,40.3137085,4607,6.7821,-8.22
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,106,True,40.3137,40.3137085,4045,11.3817,-0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,106,True,41.7279,40.3137085,65,0.3249,3.51
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,106,True,40.3137,40.3137085,229,0.7949,-0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,106,True,40.3137,40.3137085,93,0.3370,-0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,106,True,41.7279,40.3137085,45,0.1877,3.51
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,106,True,43.3848,40.3137085,42,0.1872,7.62
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,124,True,56.0000,49.55634918,5472,6.4401,13.00
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,124,True,56.0000,49.55634918,5590,12.6006,13.00
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,124,True,56.0000,49.55634918,334,0.8772,13.00
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,124,True,56.0000,49.55634918,665,1.4656,13.00
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,124,True,56.0000,49.55634918,591,1.4011,13.00
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,124,True,56.0000,49.55634918,58,0.2007,13.00
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,124,True,56.0000,49.55634918,58,0.1930,13.00
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,124,True,45.0000,49.55634918,6569,9.4904,-9.19
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,124,True,49.5563,49.55634918,6109,18.1428,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,124,True,51.5563,49.55634918,96,0.3940,4.04
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,124,True,49.5563,49.55634918,447,1.5681,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,124,True,49.5563,49.55634918,103,0.4243,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,124,True,51.7990,49.55634918,50,0.2191,4.53
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,124,True,52.3848,49.55634918,50,0.2034,5.71
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,142,True,78.0000,59.84062042,10790,12.3373,30.35
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,142,True,78.0000,59.84062042,10620,21.1097,30.35
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,142,True,78.0000,59.84062042,629,1.4444,30.35
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,142,True,78.0000,59.84062042,1903,3.8446,30.35
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,142,True,78.0000,59.84062042,1778,3.7662,30.35
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,142,True,78.0000,59.84062042,87,0.2698,30.35
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,142,True,78.0000,59.84062042,81,0.2255,30.35
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,142,True,47.0000,59.84062042,7495,10.6834,-21.46
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,142,True,59.8406,59.84062042,8948,23.9829,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,142,True,62.7696,59.84062042,56,0.2538,4.89
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,142,True,59.8406,59.84062042,550,1.9380,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,142,True,59.8406,59.84062042,278,1.0613,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,142,True,59.8406,59.84062042,53,0.2391,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,142,True,61.5980,59.84062042,51,0.2310,2.94
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,160,True,69.0000,64.3137085,8401,9.1778,7.29
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,160,True,69.0000,64.3137085,8519,16.5539,7.29
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,160,True,69.0000,64.3137085,364,0.8478,7.29
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,160,True,69.0000,64.3137085,678,1.5169,7.29
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,160,True,69.0000,64.3137085,608,1.4108,7.29
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,160,True,69.0000,64.3137085,70,0.2402,7.29
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,160,True,69.0000,64.3137085,70,0.2227,7.29
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,160,True,61.0000,64.3137085,12539,18.0548,-5.15
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,160,True,64.3137,64.3137085,10352,28.1020,-0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,160,True,65.7279,64.3137085,214,0.7391,2.20
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,160,True,64.3137,64.3137085,510,1.5529,-0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,160,True,64.3137,64.3137085,258,0.9290,-0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,160,True,67.3848,64.3137085,67,0.2687,4.78
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,160,True,67.3848,64.3137085,65,0.2725,4.78
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,178,True,90.0000,71.25483398,10386,11.4189,26.31
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,178,True,90.0000,71.25483398,10413,20.3398,26.31
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,178,True,90.0000,71.25483398,1725,3.8481,26.31
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,178,True,90.0000,71.25483398,2573,5.3665,26.31
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,178,True,90.0000,71.25483398,2418,5.0531,26.31
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,178,True,90.0000,71.25483398,165,0.5119,26.31
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,178,True,90.0000,71.25483398,104,0.2960,26.31
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,178,True,58.0000,71.25483398,8046,11.0991,-18.60
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,178,True,71.2548,71.25483398,9171,23.9815,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,178,True,73.0122,71.25483398,214,0.7521,2.47
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,178,True,71.2548,71.25483398,1284,4.1601,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,178,True,71.2548,71.25483398,996,3.0581,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,178,True,74.4264,71.25483398,94,0.3848,4.45
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,178,True,75.4975,71.25483398,73,0.3082,5.95
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,195,True,95.0000,78.0121933,10126,11.3859,21.78
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,195,True,95.0000,78.0121933,10044,19.1214,21.78
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,195,True,95.0000,78.0121933,945,2.2572,21.78
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,195,True,95.0000,78.0121933,2452,5.0449,21.78
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,195,True,95.0000,78.0121933,2254,4.9144,21.78
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,195,True,95.0000,78.0121933,100,0.3194,21.78
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,195,True,95.0000,78.0121933,98,0.2796,21.78
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,195,True,66.0000,78.0121933,9052,12.5238,-15.40
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,195,True,78.0122,78.0121933,9439,24.4845,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,195,True,82.3553,78.0121933,117,0.4370,5.57
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,195,True,78.0122,78.0121933,994,3.1225,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,195,True,78.0122,78.0121933,223,0.7741,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,195,True,81.0833,78.0121933,79,0.3369,3.94
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,195,True,84.4975,78.0121933,77,0.3188,8.31
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,213,True,91.0000,86.3137085,13563,14.6160,5.43
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,213,True,91.0000,86.3137085,13559,28.2035,5.43
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,213,True,91.0000,86.3137085,564,1.2525,5.43
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,213,True,91.0000,86.3137085,998,3.3254,5.43
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,213,True,91.0000,86.3137085,749,2.8762,5.43
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,213,True,93.0000,86.3137085,100,0.4482,7.75
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,213,True,93.0000,86.3137085,102,0.4961,7.75
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,213,True,82.0000,86.3137085,19214,28.8357,-5.00
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,213,True,86.3137,86.3137085,16472,43.3795,-0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,213,True,86.3137,86.3137085,347,1.1056,-0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,213,True,86.3137,86.3137085,956,3.0084,-0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,213,True,86.3137,86.3137085,589,1.9657,-0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,213,True,89.6274,86.3137085,101,0.4080,3.84
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,213,True,91.8701,86.3137085,96,0.4149,6.44
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,231,True,100.0000,94.72792206,17019,19.8562,5.57
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,231,True,100.0000,94.72792206,17015,33.8088,5.57
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,231,True,100.0000,94.72792206,458,1.0524,5.57
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,231,True,100.0000,94.72792206,1211,2.7552,5.57
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,231,True,100.0000,94.72792206,920,2.2013,5.57
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,231,True,100.0000,94.72792206,105,0.3500,5.57
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,231,True,100.0000,94.72792206,104,0.3202,5.57
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,231,True,91.0000,94.72792206,25844,39.5307,-3.94
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,231,True,94.7279,94.72792206,21436,57.4722,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,231,True,94.7279,94.72792206,543,1.7537,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,231,True,94.7279,94.72792206,1077,3.6002,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,231,True,94.7279,94.72792206,665,2.2759,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,231,True,101.2132,94.72792206,111,0.4251,6.85
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,231,True,102.0416,94.72792206,106,0.4105,7.72
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,249,True,107.0000,99.97056274,20225,21.5404,7.03
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,249,True,107.0000,99.97056274,20401,39.7463,7.03
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,249,True,107.0000,99.97056274,838,2.0380,7.03
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,249,True,107.0000,99.97056274,1583,3.5311,7.03
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,249,True,107.0000,99.97056274,1256,3.0244,7.03
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,249,True,107.0000,99.97056274,110,0.3629,7.03
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,249,True,107.0000,99.97056274,109,0.3421,7.03
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,249,True,95.0000,99.97056274,30601,42.1550,-4.97
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,249,True,99.9706,99.97056274,24818,65.8749,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,249,True,102.7990,99.97056274,302,0.9928,2.83
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,249,True,99.9706,99.97056274,1107,3.6012,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,249,True,99.9706,99.97056274,260,0.8591,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,249,True,104.9411,99.97056274,109,0.4653,4.97
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,249,True,105.7696,99.97056274,107,0.4341,5.80
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,267,True,111.0000,105.14213562,16820,17.7514,5.57
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,267,True,111.0000,105.14213562,16942,32.1239,5.57
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,267,True,111.0000,105.14213562,735,1.6430,5.57
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,267,True,111.0000,105.14213562,1541,3.1435,5.57
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,267,True,111.0000,105.14213562,1180,2.5000,5.57
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,267,True,111.0000,105.14213562,113,0.3725,5.57
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,267,True,111.0000,105.14213562,113,0.3656,5.57
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,267,True,100.0000,105.14213562,23557,33.4182,-4.89
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,267,True,105.1421,105.14213562,20036,53.2546,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,267,True,107.3848,105.14213562,486,1.5919,2.13
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,267,True,105.1421,105.14213562,1149,3.4358,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,267,True,105.1421,105.14213562,447,1.5850,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,267,True,108.4558,105.14213562,107,0.4660,3.15
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,267,True,109.0416,105.14213562,107,0.4620,3.71
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,284,True,119.0000,113.14213562,25043,28.7661,5.18
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,284,True,119.0000,113.14213562,25232,49.2404,5.18
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,284,True,119.0000,113.14213562,555,1.3040,5.18
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,284,True,119.0000,113.14213562,1753,3.8519,5.18
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,284,True,119.0000,113.14213562,1330,3.0869,5.18
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,284,True,119.0000,113.14213562,126,0.3979,5.18
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,284,True,121.0000,113.14213562,123,0.3807,6.95
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,284,True,108.0000,113.14213562,39459,56.1533,-4.54
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,284,True,113.1421,113.14213562,31842,84.8467,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,284,True,113.3848,113.14213562,533,1.7208,0.21
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,284,True,113.1421,113.14213562,1745,5.1031,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,284,True,113.1421,113.14213562,1013,3.4489,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,284,True,115.0416,113.14213562,123,0.4817,1.68
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,284,True,120.3553,113.14213562,122,0.4855,6.38
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,302,True,137.0000,122.94112549,33010,35.2272,11.44
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,302,True,137.0000,122.94112549,32839,62.7585,11.44
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,302,True,137.0000,122.94112549,976,2.3834,11.44
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,302,True,137.0000,122.94112549,3671,7.4749,11.44
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,302,True,137.0000,122.94112549,3267,6.7206,11.44
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,302,True,137.0000,122.94112549,138,0.4802,11.44
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,302,True,137.0000,122.94112549,138,0.4320,11.44
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,302,True,113.0000,122.94112549,42987,61.4743,-8.09
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,302,True,122.9411,122.94112549,37251,97.9970,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,302,True,127.5269,122.94112549,348,1.2539,3.73
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,302,True,122.9411,122.94112549,2252,6.9340,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,302,True,122.9411,122.94112549,398,1.3164,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,302,True,128.7401,122.94112549,130,0.5368,4.72
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,302,True,131.3259,122.94112549,131,0.5576,6.82
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,320,True,143.0000,129.52691193,21283,22.9222,10.40
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,320,True,143.0000,129.52691193,21459,41.2118,10.40
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,320,True,143.0000,129.52691193,1070,2.6183,10.40
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,320,True,143.0000,129.52691193,3657,7.6149,10.40
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,320,True,143.0000,129.52691193,3280,6.8975,10.40
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,320,True,143.0000,129.52691193,147,0.4717,10.40
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,320,True,143.0000,129.52691193,147,0.4410,10.40
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,320,True,120.0000,129.52691193,25089,34.8855,-7.36
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,320,True,129.5269,129.52691193,23161,61.9019,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,320,True,130.6985,129.52691193,592,1.8339,0.90
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,320,True,129.5269,129.52691193,2410,7.2595,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,320,True,129.5269,129.52691193,542,1.7899,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,320,True,136.1543,129.52691193,137,0.5681,5.12
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,320,True,139.5685,129.52691193,136,0.6035,7.75
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,338,True,167.0000,134.19595947,47997,53.7150,24.44
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,338,True,167.0000,134.19595947,47630,92.8642,24.44
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,338,True,167.0000,134.19595947,3368,7.3404,24.44
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,338,True,167.0000,134.19595947,8303,16.8989,24.44
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,338,True,167.0000,134.19595947,7669,15.9387,24.44
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,338,True,167.0000,134.19595947,192,0.5792,24.44
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,338,True,167.0000,134.19595947,177,0.5344,24.44
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,338,True,111.0000,134.19595947,41944,60.3510,-17.29
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,338,True,134.1960,134.19595947,45093,120.5602,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,338,True,145.3259,134.19595947,463,1.5112,8.29
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,338,True,134.1960,134.19595947,3439,10.8394,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,338,True,134.1960,134.19595947,1753,5.6295,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,338,True,137.3675,134.19595947,125,0.5777,2.36
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,338,True,140.5391,134.19595947,125,0.5173,4.73
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,356,True,153.0000,143.62741699,41750,47.6369,6.53
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,356,True,153.0000,143.62741699,41407,82.9660,6.53
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,356,True,153.0000,143.62741699,1551,3.4955,6.53
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,356,True,153.0000,143.62741699,3173,6.5537,6.53
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,356,True,153.0000,143.62741699,2632,5.7866,6.53
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,356,True,153.0000,143.62741699,156,0.4701,6.53
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,356,True,153.0000,143.62741699,156,0.4624,6.53
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,356,True,136.0000,143.62741699,63541,89.8555,-5.31
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,356,True,143.6274,143.62741699,52864,157.3720,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,356,True,148.1127,143.62741699,529,1.5788,3.12
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,356,True,143.6274,143.62741699,2556,6.7024,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,356,True,143.6274,143.62741699,1183,3.3195,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,356,True,153.6690,143.62741699,168,0.6288,6.99
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,356,True,155.9117,143.62741699,159,0.5904,8.55
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,373,True,156.0000,149.55634918,41046,42.5624,4.31
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,373,True,156.0000,149.55634918,41021,79.4443,4.31
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,373,True,156.0000,149.55634918,1233,2.7970,4.31
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,373,True,156.0000,149.55634918,2529,5.5697,4.31
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,373,True,156.0000,149.55634918,2040,4.5223,4.31
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,373,True,156.0000,149.55634918,157,0.5237,4.31
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,373,True,156.0000,149.55634918,157,0.4865,4.31
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,373,True,145.0000,149.55634918,62525,87.5574,-3.05
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,373,True,149.5563,149.55634918,52516,142.4262,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,373,True,152.9706,149.55634918,622,2.0614,2.28
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,373,True,149.5563,149.55634918,2322,7.1060,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,373,True,149.5563,149.55634918,1247,4.0291,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,373,True,162.0833,149.55634918,188,0.7670,8.38
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,373,True,163.4975,149.55634918,174,0.7086,9.32
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,391,True,208.0000,159.96551208,41381,45.0594,30.03
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,391,True,208.0000,159.96551208,41448,80.3833,30.03
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,391,True,208.0000,159.96551208,2598,5.7459,30.03
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,391,True,208.0000,159.96551208,12836,26.8960,30.03
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,391,True,208.0000,159.96551208,12217,25.9096,30.03
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,391,True,208.0000,159.96551208,241,0.7617,30.03
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,391,True,208.0000,159.96551208,221,0.6875,30.03
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,391,True,126.0000,159.96551208,30358,43.3619,-21.23
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,391,True,159.9655,159.96551208,36834,99.8019,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,391,True,164.3087,159.96551208,156,0.6778,2.72
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,391,True,159.9655,159.96551208,4102,12.8932,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,391,True,159.9655,159.96551208,2374,7.5886,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,391,True,162.5513,159.96551208,144,0.7198,1.62
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,391,True,162.7939,159.96551208,134,0.6485,1.77
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,409,True,209.0000,162.13708496,55221,61.0496,28.90
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,409,True,209.0000,162.13708496,54945,108.6013,28.90
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,409,True,209.0000,162.13708496,2782,6.0941,28.90
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,409,True,209.0000,162.13708496,13624,28.5093,28.90
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,409,True,209.0000,162.13708496,12616,26.5273,28.90
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,409,True,209.0000,162.13708496,259,0.7747,28.90
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,409,True,209.0000,162.13708496,222,0.6545,28.90
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,409,True,129.0000,162.13708496,39681,56.3556,-20.44
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,409,True,162.1371,162.13708496,47593,128.8921,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,409,True,171.1665,162.13708496,253,0.9930,5.57
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,409,True,162.1371,162.13708496,4979,15.7506,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,409,True,162.1371,162.13708496,3468,11.0823,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,409,True,162.7229,162.13708496,139,0.7021,0.36
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,409,True,163.5513,162.13708496,133,0.6287,0.87
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,427,True,225.0000,171.1076477,75683,81.4346,31.50
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,427,True,225.0000,171.1076477,75234,147.8168,31.50
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,427,True,225.0000,171.1076477,2065,4.8326,31.50
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,427,True,225.0000,171.1076477,16045,33.8227,31.50
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,427,True,225.0000,171.1076477,14853,31.5169,31.50
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,427,True,225.0000,171.1076477,296,0.8178,31.50
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,427,True,225.0000,171.1076477,243,0.6848,31.50
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,427,True,133.0000,171.1076477,56292,80.4595,-22.27
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,427,True,171.1076,171.1076477,67393,182.6678,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,427,True,178.1371,171.1076477,185,0.8307,4.11
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,427,True,171.1076,171.1076477,4768,15.4025,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,427,True,171.1076,171.1076477,3154,10.3127,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,427,True,175.2082,171.1076477,168,0.7582,2.40
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,427,True,176.0366,171.1076477,149,0.6885,2.88
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,445,True,235.0000,179.93607483,97322,109.7774,30.60
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,445,True,235.0000,179.93607483,97645,198.9088,30.60
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,445,True,235.0000,179.93607483,2341,5.1785,30.60
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,445,True,235.0000,179.93607483,17194,36.2282,30.60
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,445,True,235.0000,179.93607483,15958,33.8531,30.60
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,445,True,235.0000,179.93607483,268,0.7967,30.60
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,445,True,235.0000,179.93607483,247,0.7325,30.60
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,445,True,141.0000,179.93607483,67919,96.7349,-21.64
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,445,True,179.9361,179.93607483,82712,224.5066,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,445,True,181.1076,179.93607483,166,0.7989,0.65
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,445,True,179.9361,179.93607483,5571,18.4373,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,445,True,179.9361,179.93607483,3414,10.8479,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,445,True,185.7939,179.93607483,170,0.8989,3.26
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,445,True,188.0366,179.93607483,164,0.7755,4.50
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,462,True,218.0000,186.36753235,81128,87.2602,16.97
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,462,True,218.0000,186.36753235,80920,159.9429,16.97
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,462,True,218.0000,186.36753235,2653,6.1206,16.97
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,462,True,218.0000,186.36753235,11716,24.8596,16.97
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,462,True,218.0000,186.36753235,10656,23.3284,16.97
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,462,True,220.0000,186.36753235,238,0.7462,18.05
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,462,True,220.0000,186.36753235,224,0.7021,18.05
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,462,True,164.0000,186.36753235,91352,132.7767,-12.00
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,462,True,186.3675,186.36753235,87887,245.5765,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,462,True,192.3675,186.36753235,732,2.4310,3.22
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,462,True,186.3675,186.36753235,6557,20.5666,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,462,True,186.3675,186.36753235,2478,8.0918,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,462,True,191.6812,186.36753235,183,1.2482,2.85
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,462,True,194.1665,186.36753235,181,1.3051,4.18
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,480,True,235.0000,192.23759003,86602,101.5165,22.24
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,480,True,235.0000,192.23759003,86159,176.0748,22.24
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,480,True,235.0000,192.23759003,5035,11.3106,22.24
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,480,True,235.0000,192.23759003,15609,33.3077,22.24
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,480,True,235.0000,192.23759003,14442,31.0508,22.24
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,480,True,237.0000,192.23759003,257,0.8552,23.28
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,480,True,237.0000,192.23759003,245,0.7971,23.28
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,480,True,161.0000,192.23759003,79286,110.7266,-16.25
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,480,True,192.2376,192.23759003,84392,232.4191,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,480,True,197.9949,192.23759003,710,2.3730,2.99
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,480,True,192.2376,192.23759003,7405,24.0246,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,480,True,192.2376,192.23759003,5064,15.5332,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,480,True,199.8944,192.23759003,186,0.8352,3.98
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,480,True,203.8944,192.23759003,181,0.8329,6.06
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,498,True,216.0000,199.59797974,56884,63.5962,8.22
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,498,True,216.0000,199.59797974,56887,114.0655,8.22
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,498,True,216.0000,199.59797974,2365,5.2570,8.22
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,498,True,216.0000,199.59797974,7512,16.2563,8.22
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,498,True,216.0000,199.59797974,6349,13.8731,8.22
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,498,True,220.0000,199.59797974,227,0.7215,10.22
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,498,True,220.0000,199.59797974,224,0.7480,10.22
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,498,True,187.0000,199.59797974,74754,104.5649,-6.31
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,498,True,199.5980,199.59797974,66732,186.3319,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,498,True,206.4264,199.59797974,1767,5.8288,3.42
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,498,True,199.5980,199.59797974,5777,18.1561,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,498,True,199.5980,199.59797974,2935,8.8911,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,498,True,208.5685,199.59797974,217,0.9541,4.49
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,498,True,206.8112,199.59797974,209,0.9224,3.61
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,516,True,264.0000,207.17871551,110754,127.1889,27.43
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,516,True,264.0000,207.17871551,110904,233.1016,27.43
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,516,True,264.0000,207.17871551,5275,11.7468,27.43
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,516,True,264.0000,207.17871551,21076,45.4752,27.43
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,516,True,264.0000,207.17871551,19636,43.2382,27.43
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,516,True,264.0000,207.17871551,311,0.9887,27.43
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,516,True,264.0000,207.17871551,284,0.8854,27.43
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,516,True,167.0000,207.17871551,89866,139.6701,-19.39
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,516,True,207.1787,207.17871551,101539,281.1130,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,516,True,212.3503,207.17871551,310,1.2845,2.50
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,516,True,207.1787,207.17871551,7726,25.8879,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,516,True,207.1787,207.17871551,4683,14.7396,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,516,True,209.5219,207.17871551,194,0.9908,1.13
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,516,True,218.0071,207.17871551,189,0.8951,5.23
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,534,True,255.0000,212.82337646,79734,86.3307,19.82
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,534,True,255.0000,212.82337646,79689,157.9726,19.82
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,534,True,255.0000,212.82337646,4147,9.3500,19.82
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,534,True,255.0000,212.82337646,17398,36.5264,19.82
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,534,True,255.0000,212.82337646,16025,33.9610,19.82
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,534,True,255.0000,212.82337646,278,0.8711,19.82
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,534,True,255.0000,212.82337646,264,0.8197,19.82
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,534,True,183.0000,212.82337646,75699,109.7085,-14.01
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,534,True,212.8234,212.82337646,78757,221.4793,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,534,True,222.6812,212.82337646,1079,5.9918,4.63
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,534,True,212.8234,212.82337646,8817,27.9487,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,534,True,212.8234,212.82337646,4893,15.3043,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,534,True,219.6518,212.82337646,214,0.9224,3.21
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,534,True,223.0660,212.82337646,201,0.9043,4.81
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,551,True,292.0000,222.29141388,76945,84.2171,31.36
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,551,True,292.0000,222.29141388,77124,153.7091,31.36
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,551,True,292.0000,222.29141388,17444,39.3797,31.36
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,551,True,292.0000,222.29141388,25190,53.4558,31.36
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,551,True,292.0000,222.29141388,24070,51.5706,31.36
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,551,True,292.0000,222.29141388,478,1.3350,31.36
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,551,True,292.0000,222.29141388,330,0.9711,31.36
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,551,True,173.0000,222.29141388,55508,78.9329,-22.17
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,551,True,222.2914,222.29141388,66760,185.9749,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,551,True,223.4630,222.29141388,205,0.9680,0.53
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,551,True,222.2914,222.29141388,9404,30.0674,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,551,True,222.2914,222.29141388,6181,20.3126,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,551,True,229.9066,222.29141388,250,1.0998,3.43
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,551,True,228.1493,222.29141388,211,0.9341,2.64
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,569,True,296.0000,225.70562744,93580,107.7523,31.14
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,569,True,296.0000,225.70562744,93244,190.9970,31.14
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,569,True,296.0000,225.70562744,4954,11.1727,31.14
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,569,True,296.0000,225.70562744,27513,58.5029,31.14
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,569,True,296.0000,225.70562744,25815,58.0173,31.14
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,569,True,296.0000,225.70562744,351,1.0997,31.14
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,569,True,296.0000,225.70562744,306,0.9351,31.14
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,569,True,176.0000,225.70562744,66231,92.7584,-22.02
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,569,True,225.7056,225.70562744,81976,221.7371,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,569,True,233.5635,225.70562744,271,1.1967,3.48
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,569,True,225.7056,225.70562744,8097,25.9720,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,569,True,225.7056,225.70562744,4865,16.0040,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,569,True,233.5635,225.70562744,206,0.9670,3.48
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,569,True,234.0488,225.70562744,193,0.9538,3.70
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,587,True,246.0000,235.6984848,74032,80.9459,4.37
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,587,True,246.0000,235.6984848,74135,150.3457,4.37
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,587,True,246.0000,235.6984848,2427,5.5950,4.37
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,587,True,246.0000,235.6984848,5875,12.7661,4.37
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,587,True,246.0000,235.6984848,4042,8.6213,4.37
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,587,True,252.0000,235.6984848,267,0.8206,6.92
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,587,True,252.0000,235.6984848,260,0.8473,6.92
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,587,True,227.0000,235.6984848,108904,155.8197,-3.69
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,587,True,235.6985,235.6984848,91863,255.1542,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,587,True,236.0416,235.6984848,3711,11.4900,0.15
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,587,True,235.6985,235.6984848,5608,17.1245,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,587,True,235.6985,235.6984848,3036,9.9866,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,587,True,251.0538,235.6984848,274,1.0951,6.51
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,587,True,255.7817,235.6984848,272,1.0930,8.52
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,605,True,274.0000,240.61017303,77947,89.0140,13.88
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,605,True,274.0000,240.61017303,78279,157.9871,13.88
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,605,True,274.0000,240.61017303,5447,12.2167,13.88
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,605,True,274.0000,240.61017303,16984,37.3085,13.88
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,605,True,274.0000,240.61017303,15205,33.9083,13.88
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,605,True,274.0000,240.61017303,286,0.9355,13.88
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,605,True,274.0000,240.61017303,280,0.9029,13.88
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,605,True,216.0000,240.61017303,82918,119.1055,-10.23
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,605,True,240.6102,240.61017303,81729,226.9931,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,605,True,248.1249,240.61017303,1636,5.2594,3.12
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,605,True,240.6102,240.61017303,10887,34.6458,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,605,True,240.6102,240.61017303,9186,29.3909,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,605,True,249.8234,240.61017303,243,1.1655,3.83
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,605,True,256.3087,240.61017303,246,1.1047,6.52
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,623,True,334.0000,251.98989868,100981,115.6295,32.54
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,623,True,334.0000,251.98989868,101026,211.6285,32.54
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,623,True,334.0000,251.98989868,8637,19.5965,32.54
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,623,True,334.0000,251.98989868,33253,70.4964,32.54
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,623,True,334.0000,251.98989868,31790,74.1107,32.54
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,623,True,334.0000,251.98989868,421,1.2324,32.54
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,623,True,334.0000,251.98989868,367,1.0685,32.54
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,623,True,194.0000,251.98989868,72104,114.5060,-23.01
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,623,True,251.9899,251.98989868,86385,236.4010,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,623,True,259.0193,251.98989868,270,1.1970,2.79
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,623,True,251.9899,251.98989868,9373,31.0241,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,623,True,251.9899,251.98989868,5814,19.6865,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,623,True,254.9188,251.98989868,231,1.0451,1.16
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,623,True,255.7473,251.98989868,215,1.0465,1.49
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,640,True,338.0000,257.16147156,111114,121.5185,31.43
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,640,True,338.0000,257.16147156,111085,220.3169,31.43
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,640,True,338.0000,257.16147156,5612,12.6678,31.43
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,640,True,338.0000,257.16147156,34974,73.5735,31.43
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,640,True,338.0000,257.16147156,32830,69.2676,31.43
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,640,True,338.0000,257.16147156,429,1.3141,31.43
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,640,True,338.0000,257.16147156,357,1.0770,31.43
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,640,True,200.0000,257.16147156,80050,112.0618,-22.23
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,640,True,257.1615,257.16147156,98643,271.6593,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,640,True,265.9483,257.16147156,361,1.4606,3.42
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,640,True,257.1615,257.16147156,11337,37.0664,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,640,True,257.1615,257.16147156,7201,23.9937,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,640,True,264.1909,257.16147156,243,1.1421,2.73
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,640,True,266.1909,257.16147156,229,1.0397,3.51
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,658,True,335.0000,262.36248169,106267,117.1569,27.69
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,658,True,335.0000,262.36248169,106351,241.8509,27.69
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,658,True,335.0000,262.36248169,7893,20.0497,27.69
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,658,True,335.0000,262.36248169,33921,81.8470,27.69
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,658,True,335.0000,262.36248169,32052,67.3255,27.69
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,658,True,337.0000,262.36248169,403,1.1183,28.45
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,658,True,335.0000,262.36248169,357,1.0187,27.69
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,658,True,211.0000,262.36248169,85171,132.9932,-19.58
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,658,True,262.3625,262.36248169,95930,313.5633,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,658,True,280.1787,262.36248169,1078,3.8528,6.79
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,658,True,262.3625,262.36248169,12693,53.0289,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,658,True,262.3625,262.36248169,8505,31.0654,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,658,True,265.8772,262.36248169,236,1.3888,1.34
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,658,True,273.6346,262.36248169,243,1.2508,4.30
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,676,True,299.0000,270.88225098,125408,147.0158,10.38
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,676,True,299.0000,270.88225098,125264,269.4760,10.38
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,676,True,299.0000,270.88225098,4559,10.2007,10.38
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,676,True,299.0000,270.88225098,16747,36.6539,10.38
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,676,True,299.0000,270.88225098,14607,34.2500,10.38
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,676,True,301.0000,270.88225098,320,1.0449,11.12
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,676,True,301.0000,270.88225098,311,1.0165,11.12
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,676,True,251.0000,270.88225098,151765,238.2401,-7.34
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,676,True,270.8823,270.88225098,141338,414.8051,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,676,True,279.7107,270.88225098,2214,6.7443,3.26
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,676,True,270.8823,270.88225098,11562,38.7149,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,676,True,270.8823,270.88225098,3040,10.8191,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,676,True,283.1665,270.88225098,279,1.3473,4.53
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,676,True,289.7523,270.88225098,284,1.2789,6.97
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,694,True,325.0000,279.89444427,113329,129.8205,16.12
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,694,True,325.0000,279.89444427,113001,313.0122,16.12
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,694,True,325.0000,279.89444427,8605,19.9638,16.12
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,694,True,325.0000,279.89444427,25724,62.9437,16.12
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,694,True,325.0000,279.89444427,23326,62.2571,16.12
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,694,True,325.0000,279.89444427,366,1.2933,16.12
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,694,True,325.0000,279.89444427,338,1.0847,16.12
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,694,True,248.0000,279.89444427,123295,185.4549,-11.40
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,694,True,279.8944,279.89444427,119526,362.6725,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,694,True,291.4092,279.89444427,2845,9.4546,4.11
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,694,True,279.8944,279.89444427,14890,61.8713,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,694,True,279.8944,279.89444427,10003,41.3492,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,694,True,303.2498,279.89444427,303,1.5148,8.34
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,694,True,304.9066,279.89444427,293,1.0873,8.94
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,712,True,361.0000,284.84776306,156218,170.4128,26.73
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,712,True,361.0000,284.84776306,156164,333.7835,26.73
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,712,True,361.0000,284.84776306,9986,23.2146,26.73
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,712,True,361.0000,284.84776306,39295,122.4716,26.73
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,712,True,361.0000,284.84776306,36574,78.8948,26.73
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,712,True,361.0000,284.84776306,436,1.3125,26.73
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,712,True,361.0000,284.84776306,388,1.1757,26.73
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,712,True,231.0000,284.84776306,130060,209.6542,-18.90
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,712,True,284.8478,284.84776306,144376,439.3342,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,712,True,297.8772,284.84776306,499,1.9240,4.57
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,712,True,284.8478,284.84776306,15527,52.1083,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,712,True,284.8478,284.84776306,11437,38.8618,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,712,True,290.2620,284.84776306,258,1.3480,1.90
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,712,True,296.7473,284.84776306,253,1.2066,4.18
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,729,True,364.0000,291.94826813,189049,239.2180,24.68
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,729,True,364.0000,291.94826813,189094,441.7825,24.68
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,729,True,364.0000,291.94826813,9419,21.6448,24.68
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,729,True,364.0000,291.94826813,38964,86.9896,24.68
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,729,True,364.0000,291.94826813,36484,92.1725,24.68
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,729,True,364.0000,291.94826813,403,1.3295,24.68
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,729,True,364.0000,291.94826813,378,1.4342,24.68
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,729,True,241.0000,291.94826813,182649,284.1596,-17.45
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,729,True,291.9483,291.94826813,191735,575.5192,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,729,True,306.4924,291.94826813,867,2.9079,4.98
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,729,True,291.9483,291.94826813,16602,56.7211,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,729,True,291.9483,291.94826813,11462,37.7430,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,729,True,298.0488,291.94826813,278,1.2592,2.09
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,729,True,302.8772,291.94826813,267,1.2344,3.74
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,747,True,313.0000,297.76955261,83656,94.3005,5.11
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,747,True,313.0000,297.76955261,83819,174.3758,5.11
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,747,True,313.0000,297.76955261,3746,8.6263,5.11
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,747,True,313.0000,297.76955261,10501,23.5779,5.11
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,747,True,313.0000,297.76955261,8280,18.9941,5.11
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,747,True,321.0000,297.76955261,329,1.0347,7.80
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,747,True,321.0000,297.76955261,325,1.0154,7.80
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,747,True,287.0000,297.76955261,124343,189.0407,-3.62
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,747,True,297.7696,297.76955261,105046,366.1347,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,747,True,303.9117,297.76955261,8369,26.6794,2.06
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,747,True,297.7696,297.76955261,8363,27.1570,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,747,True,297.7696,297.76955261,4478,14.4477,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,747,True,313.6102,297.76955261,327,1.6366,5.32
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,747,True,317.5097,297.76955261,326,1.6522,6.63
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,765,True,403.0000,306.34523773,214565,253.0277,31.55
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,765,True,403.0000,306.34523773,214466,447.0412,31.55
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,765,True,403.0000,306.34523773,9015,21.1304,31.55
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,765,True,403.0000,306.34523773,51034,176.5526,31.55
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,765,True,403.0000,306.34523773,47524,121.8578,31.55
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,765,True,403.0000,306.34523773,450,1.3790,31.55
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,765,True,403.0000,306.34523773,412,1.5376,31.55
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,765,True,238.0000,306.34523773,194426,317.8790,-22.31
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,765,True,306.3452,306.34523773,217305,639.4953,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,765,True,327.9188,306.34523773,777,2.7194,7.04
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,765,True,306.3452,306.34523773,13886,44.7360,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,765,True,306.3452,306.34523773,7655,24.7403,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,765,True,316.5462,306.34523773,282,1.2824,3.33
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,765,True,321.9605,306.34523773,282,1.2911,5.10
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,783,True,362.0000,314.55129852,139678,151.8431,15.08
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,783,True,362.0000,314.55129852,139638,281.6249,15.08
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,783,True,362.0000,314.55129852,9533,21.4585,15.08
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,783,True,362.0000,314.55129852,30680,65.5234,15.08
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,783,True,362.0000,314.55129852,27744,58.7448,15.08
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,783,True,366.0000,314.55129852,406,1.2445,16.36
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,783,True,364.0000,314.55129852,375,1.1607,15.72
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,783,True,281.0000,314.55129852,146339,203.7423,-10.67
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,783,True,314.5513,314.55129852,144651,398.7830,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,783,True,326.4092,314.55129852,724,2.5078,3.77
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,783,True,314.5513,314.55129852,18315,56.7002,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,783,True,314.5513,314.55129852,9123,28.4927,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,783,True,326.1076,314.55129852,309,1.3417,3.67
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,783,True,328.1076,314.55129852,306,1.3937,4.31
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,801,True,426.0000,321.73001404,189906,219.2166,32.41
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,801,True,426.0000,321.73001404,189872,390.8780,32.41
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,801,True,426.0000,321.73001404,4985,10.5596,32.41
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,801,True,426.0000,321.73001404,57247,123.4459,32.41
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,801,True,426.0000,321.73001404,53367,114.3433,32.41
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,801,True,426.0000,321.73001404,505,1.4714,32.41
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,801,True,426.0000,321.73001404,443,1.2684,32.41
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,801,True,248.0000,321.73001404,153745,218.4397,-22.92
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,801,True,321.7300,321.73001404,176714,499.7493,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,801,True,343.3036,321.73001404,470,1.7315,6.71
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,801,True,321.7300,321.73001404,13890,44.9085,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,801,True,321.7300,321.73001404,8789,27.8850,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,801,True,329.5879,321.73001404,289,1.3066,2.44
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,801,True,335.9310,321.73001404,276,1.2774,4.41
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,818,True,375.0000,324.03657989,114109,126.5441,15.73
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,818,True,375.0000,324.03657989,114050,232.4454,15.73
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,818,True,375.0000,324.03657989,9008,19.8134,15.73
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,818,True,375.0000,324.03657989,31536,65.8487,15.73
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,818,True,375.0000,324.03657989,29426,61.4357,15.73
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,818,True,375.0000,324.03657989,433,1.3471,15.73
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,818,True,375.0000,324.03657989,398,1.2510,15.73
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,818,True,288.0000,324.03657989,131145,184.9261,-11.12
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,818,True,324.0366,324.03657989,124133,343.6996,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,818,True,336.1371,324.03657989,2023,6.6247,3.73
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,818,True,324.0366,324.03657989,19552,59.1980,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,818,True,324.0366,324.03657989,14046,45.2871,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,818,True,340.2203,324.03657989,323,1.4455,4.99
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,818,True,344.8061,324.03657989,322,1.3806,6.41
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,836,True,414.0000,335.50461731,149307,162.7083,23.40
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,836,True,414.0000,335.50461731,149497,300.0310,23.40
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,836,True,414.0000,335.50461731,10459,23.8641,23.40
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,836,True,414.0000,335.50461731,48867,108.0193,23.40
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,836,True,414.0000,335.50461731,45639,101.4938,23.40
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,836,True,414.0000,335.50461731,453,1.3836,23.40
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,836,True,414.0000,335.50461731,428,1.3548,23.40
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,836,True,280.0000,335.50461731,141330,204.8992,-16.54
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,836,True,335.5046,335.50461731,147998,413.0480,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,836,True,354.3919,335.50461731,775,2.7213,5.63
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,836,True,335.5046,335.50461731,21133,70.7116,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,836,True,335.5046,335.50461731,8960,30.6975,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,836,True,342.5757,335.50461731,311,1.5036,2.11
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,836,True,354.9188,335.50461731,320,1.9012,5.79
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,854,True,387.0000,343.06601715,133992,148.3193,12.81
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,854,True,387.0000,343.06601715,133942,269.0546,12.81
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,854,True,387.0000,343.06601715,6626,14.5864,12.81
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,854,True,387.0000,343.06601715,32201,70.5716,12.81
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,854,True,387.0000,343.06601715,28678,62.5251,12.81
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,854,True,387.0000,343.06601715,400,1.2870,12.81
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,854,True,387.0000,343.06601715,395,1.2388,12.81
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,854,True,311.0000,343.06601715,156253,227.0815,-9.35
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,854,True,343.0660,343.06601715,147817,423.0060,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,854,True,354.1371,343.06601715,3943,14.8248,3.23
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,854,True,343.0660,343.06601715,20956,83.6739,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,854,True,343.0660,343.06601715,9094,33.3030,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,854,True,358.3209,343.06601715,350,1.8630,4.45
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,854,True,363.2498,343.06601715,349,1.9135,5.88
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,872,True,456.0000,349.38686828,217435,289.2956,30.51
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,872,True,456.0000,349.38686828,217324,478.3556,30.51
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,872,True,456.0000,349.38686828,9703,22.9906,30.51
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,872,True,456.0000,349.38686828,65128,160.8331,30.51
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,872,True,456.0000,349.38686828,60651,147.8575,30.51
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,872,True,456.0000,349.38686828,542,1.6684,30.51
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,872,True,456.0000,349.38686828,486,1.5707,30.51
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,872,True,274.0000,349.38686828,196977,328.6486,-21.58
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,872,True,349.3869,349.38686828,216490,608.5733,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,872,True,361.3452,349.38686828,412,1.6674,3.42
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,872,True,349.3869,349.38686828,19897,65.6243,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,872,True,349.3869,349.38686828,12231,42.8886,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,872,True,353.1442,349.38686828,299,1.4929,1.08
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,872,True,369.2447,349.38686828,318,1.4427,5.68
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,890,True,403.0000,357.89444427,175138,207.5891,12.60
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,890,True,403.0000,357.89444427,175108,361.2670,12.60
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,890,True,403.0000,357.89444427,8705,19.3143,12.60
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,890,True,403.0000,357.89444427,34128,73.2951,12.60
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,890,True,403.0000,357.89444427,30158,64.2162,12.60
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,890,True,403.0000,357.89444427,411,1.2708,12.60
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,890,True,403.0000,357.89444427,407,1.2677,12.60
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,890,True,326.0000,357.89444427,197801,287.5950,-8.91
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,890,True,357.8944,357.89444427,190892,531.3858,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,890,True,375.4092,357.89444427,3504,11.2128,4.89
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,890,True,357.8944,357.89444427,22055,69.0088,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,890,True,357.8944,357.89444427,11082,36.5252,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,890,True,376.4214,357.89444427,376,1.7003,5.18
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,890,True,382.9066,357.89444427,365,1.6008,6.99
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,907,True,407.0000,360.13708496,102842,115.0820,13.01
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,907,True,407.0000,360.13708496,102994,205.6471,13.01
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,907,True,407.0000,360.13708496,5990,13.8000,13.01
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,907,True,407.0000,360.13708496,32966,68.7904,13.01
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,907,True,407.0000,360.13708496,31502,66.1959,13.01
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,907,True,409.0000,360.13708496,418,1.3112,13.57
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,907,True,409.0000,360.13708496,414,1.2915,13.57
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,907,True,327.0000,360.13708496,117506,166.1092,-9.20
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,907,True,360.1371,360.13708496,109947,301.3024,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,907,True,368.3797,360.13708496,4246,12.1825,2.29
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,907,True,360.1371,360.13708496,22707,69.0085,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,907,True,360.1371,360.13708496,6558,22.4761,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,907,True,378.9066,360.13708496,366,1.6006,5.21
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,907,True,383.0488,360.13708496,360,1.5424,6.36
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,925,True,427.0000,369.59292908,145679,160.5822,15.53
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,925,True,427.0000,369.59292908,145806,292.5530,15.53
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,925,True,427.0000,369.59292908,10287,22.8114,15.53
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,925,True,427.0000,369.59292908,42884,93.5844,15.53
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,925,True,427.0000,369.59292908,39059,83.7454,15.53
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,925,True,431.0000,369.59292908,480,1.6344,16.61
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,925,True,429.0000,369.59292908,443,1.4592,16.07
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,925,True,329.0000,369.59292908,151332,213.2385,-10.98
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,925,True,369.5929,369.59292908,149167,407.2985,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,925,True,381.4508,369.59292908,1623,5.4329,3.21
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,925,True,369.5929,369.59292908,25568,77.7364,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,925,True,369.5929,369.59292908,12234,38.5952,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,925,True,380.0782,369.59292908,362,1.6418,2.84
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,925,True,386.3209,369.59292908,356,1.6664,4.53
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,943,True,490.0000,376.35743103,213002,236.5972,30.20
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,943,True,490.0000,376.35743103,213075,431.7810,30.20
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,943,True,490.0000,376.35743103,46446,108.6091,30.20
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,943,True,490.0000,376.35743103,75351,158.4137,30.20
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,943,True,490.0000,376.35743103,70419,149.5977,30.20
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,943,True,490.0000,376.35743103,701,1.9901,30.20
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,943,True,490.0000,376.35743103,538,1.5724,30.20
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,943,True,296.0000,376.35743103,186052,275.5540,-21.35
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,943,True,376.3574,376.35743103,207236,661.8204,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,943,True,400.8600,376.35743103,781,3.2457,6.51
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,943,True,376.3574,376.35743103,24127,92.8410,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,943,True,376.3574,376.35743103,14844,60.5086,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,943,True,384.4579,376.35743103,357,1.7252,2.15
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,943,True,387.6295,376.35743103,324,1.6454,3.00
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,961,True,472.0000,385.30360718,170487,210.5342,22.50
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,961,True,472.0000,385.30360718,170606,371.4392,22.50
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,961,True,472.0000,385.30360718,9108,20.5202,22.50
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,961,True,472.0000,385.30360718,62939,135.4378,22.50
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,961,True,472.0000,385.30360718,58351,125.3148,22.50
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,961,True,472.0000,385.30360718,512,1.6383,22.50
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,961,True,472.0000,385.30360718,487,1.5282,22.50
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,961,True,324.0000,385.30360718,147514,209.7288,-15.91
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,961,True,385.3036,385.30360718,159082,440.5529,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,961,True,404.4335,385.30360718,2403,7.7478,4.96
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,961,True,385.3036,385.30360718,28362,90.6434,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,961,True,385.3036,385.30360718,15113,47.7670,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,961,True,394.1320,385.30360718,362,1.7746,2.29
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,961,True,402.9605,385.30360718,363,1.7528,4.58
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,979,True,437.0000,388.96551208,170799,186.4220,12.35
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,979,True,437.0000,388.96551208,170896,343.9562,12.35
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,979,True,437.0000,388.96551208,10499,23.3703,12.35
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,979,True,437.0000,388.96551208,39955,85.1433,12.35
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,979,True,437.0000,388.96551208,35307,79.1961,12.35
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,979,True,437.0000,388.96551208,455,1.5168,12.35
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,979,True,437.0000,388.96551208,447,1.4161,12.35
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,979,True,355.0000,388.96551208,193245,309.7722,-8.73
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,979,True,388.9655,388.96551208,184461,613.5381,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,979,True,402.3797,388.96551208,5353,17.3534,3.45
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,979,True,388.9655,388.96551208,26170,85.0777,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,979,True,388.9655,388.96551208,9686,33.4505,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,979,True,405.9777,388.96551208,420,1.8678,4.37
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,979,True,415.3919,388.96551208,411,1.7774,6.79
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,996,True,504.0000,399.73001404,183163,230.5426,26.09
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,996,True,504.0000,399.73001404,183166,496.2066,26.09
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,996,True,504.0000,399.73001404,9979,29.4839,26.09
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,996,True,504.0000,399.73001404,75235,165.8689,26.09
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,996,True,504.0000,399.73001404,70382,174.6419,26.09
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,996,True,504.0000,399.73001404,630,1.8936,26.09
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,996,True,504.0000,399.73001404,538,1.6782,26.09
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,996,True,324.0000,399.73001404,151149,248.9935,-18.95
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,996,True,399.7300,399.73001404,172384,550.8921,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,996,True,419.5462,399.73001404,1187,4.1579,4.96
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,996,True,399.7300,399.73001404,29357,107.3161,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,996,True,399.7300,399.73001404,17387,60.2268,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,996,True,405.7300,399.73001404,365,1.7440,1.50
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,996,True,415.9310,399.73001404,357,1.7754,4.05
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,1014,True,457.0000,406.03657989,177388,214.6337,12.55
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,1014,True,457.0000,406.03657989,177597,381.5209,12.55
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,1014,True,457.0000,406.03657989,12940,29.9162,12.55
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,1014,True,457.0000,406.03657989,44555,99.5509,12.55
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,1014,True,457.0000,406.03657989,39658,88.1487,12.55
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,1014,True,457.0000,406.03657989,470,1.6653,12.55
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,1014,True,457.0000,406.03657989,460,1.6360,12.55
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,1014,True,370.0000,406.03657989,199726,307.9511,-8.88
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,1014,True,406.0366,406.03657989,191901,603.6225,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,1014,True,419.4508,406.03657989,4340,15.4409,3.30
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,1014,True,406.0366,406.03657989,28543,119.1419,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,1014,True,406.0366,406.03657989,15465,66.4175,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,1014,True,428.8061,406.03657989,448,2.3536,5.61
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,1014,True,439.4335,406.03657989,431,3.8155,8.23
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,1032,True,548.0000,415.02647857,225924,293.1971,32.04
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,1032,True,548.0000,415.02647857,225957,546.5324,32.04
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,1032,True,548.0000,415.02647857,9285,22.1792,32.04
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,1032,True,548.0000,415.02647857,95854,236.1627,32.04
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,1032,True,548.0000,415.02647857,89495,239.5797,32.04
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,1032,True,548.0000,415.02647857,699,2.1307,32.04
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,1032,True,548.0000,415.02647857,585,1.9082,32.04
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,1032,True,321.0000,415.02647857,206037,423.8252,-22.66
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,1032,True,415.0265,415.02647857,228289,745.5900,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,1032,True,429.9138,415.02647857,439,1.7754,3.59
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,1032,True,415.0265,415.02647857,28415,100.3716,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,1032,True,415.0265,415.02647857,16998,65.4154,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,1032,True,428.7422,415.02647857,405,1.9366,3.30
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,1032,True,426.9848,415.02647857,371,1.8168,2.88
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,1050,True,523.0000,422.24473266,187630,257.9270,23.86
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,1050,True,523.0000,422.24473266,187959,480.7246,23.86
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,1050,True,523.0000,422.24473266,10908,25.7434,23.86
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,1050,True,523.0000,422.24473266,71575,188.0538,23.86
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,1050,True,523.0000,422.24473266,67898,157.3502,23.86
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,1050,True,525.0000,422.24473266,626,1.9415,24.34
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,1050,True,525.0000,422.24473266,550,2.3985,24.34
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,1050,True,350.0000,422.24473266,170713,284.3728,-17.11
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,1050,True,422.2447,422.24473266,180751,599.4480,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,1050,True,439.0315,422.24473266,2603,9.1623,3.98
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,1050,True,422.2447,422.24473266,33677,120.4697,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,1050,True,422.2447,422.24473266,17510,58.0375,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,1050,True,437.1737,422.24473266,410,1.9863,3.54
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,1050,True,444.1026,422.24473266,392,1.9760,5.18
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,1068,True,565.0000,427.34018707,209893,267.7909,32.21
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,1068,True,565.0000,427.34018707,210174,517.0389,32.21
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,1068,True,565.0000,427.34018707,17573,47.4981,32.21
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,1068,True,565.0000,427.34018707,94745,291.8263,32.21
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,1068,True,565.0000,427.34018707,90531,193.0382,32.21
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,1068,True,565.0000,427.34018707,617,1.8365,32.21
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,1068,True,565.0000,427.34018707,582,1.6768,32.21
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,1068,True,330.0000,427.34018707,166576,241.9907,-22.78
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,1068,True,427.3402,427.34018707,190612,556.8658,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,1068,True,455.9432,427.34018707,1259,3.9309,6.69
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,1068,True,427.3402,427.34018707,26360,84.5509,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,1068,True,427.3402,427.34018707,14818,46.8439,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,1068,True,436.3696,427.34018707,377,1.7563,2.11
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,1068,True,436.8549,427.34018707,362,1.8005,2.23
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,1085,True,512.0000,432.33304443,156664,170.6776,18.43
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,1085,True,512.0000,432.33304443,156619,316.9876,18.43
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,1085,True,512.0000,432.33304443,20411,50.9339,18.43
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,1085,True,512.0000,432.33304443,63525,151.4745,18.43
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,1085,True,512.0000,432.33304443,60434,150.3790,18.43
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,1085,True,512.0000,432.33304443,551,2.8730,18.43
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,1085,True,512.0000,432.33304443,530,1.9298,18.43
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,1085,True,375.0000,432.33304443,154645,229.9249,-13.26
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,1085,True,432.3330,432.33304443,155725,443.8429,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,1085,True,448.6762,432.33304443,3968,12.1917,3.78
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,1085,True,432.3330,432.33304443,36679,116.0998,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,1085,True,432.3330,432.33304443,15627,50.7084,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,1085,True,451.8894,432.33304443,448,2.0795,4.52
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,1085,True,462.3747,432.33304443,432,1.9282,6.95
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,1103,True,479.0000,442.68124084,168980,181.9603,8.20
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,1103,True,479.0000,442.68124084,168624,354.7029,8.20
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,1103,True,479.0000,442.68124084,10386,23.8997,8.20
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,1103,True,479.0000,442.68124084,36609,81.2313,8.20
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,1103,True,479.0000,442.68124084,31323,69.6492,8.20
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,1103,True,483.0000,442.68124084,497,1.6486,9.11
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,1103,True,481.0000,442.68124084,485,2.1345,8.66
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,1103,True,417.0000,442.68124084,209369,306.3892,-5.80
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,1103,True,442.6812,442.68124084,191760,532.0019,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,1103,True,451.4092,442.68124084,6718,19.9825,1.97
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,1103,True,442.6812,442.68124084,26982,82.0873,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,1103,True,442.6812,442.68124084,15319,55.2229,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,1103,True,464.0782,442.68124084,460,2.5422,4.83
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,1103,True,464.0782,442.68124084,451,2.2607,4.83
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,1121,True,469.0000,450.25483398,165542,196.8389,4.16
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,1121,True,469.0000,450.25483398,165624,429.9184,4.16
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,1121,True,469.0000,450.25483398,9084,19.5961,4.16
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,1121,True,469.0000,450.25483398,21382,47.7184,4.16
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,1121,True,469.0000,450.25483398,15257,33.7042,4.16
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,1121,True,483.0000,450.25483398,527,1.7665,7.27
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,1121,True,491.0000,450.25483398,514,1.6387,9.05
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,1121,True,436.0000,450.25483398,216254,336.1485,-3.17
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,1121,True,450.2548,450.25483398,196402,588.0103,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,1121,True,451.0833,450.25483398,8306,26.0979,0.18
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,1121,True,450.2548,450.25483398,18647,57.3269,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,1121,True,450.2548,450.25483398,9658,31.7725,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,1121,True,466.6812,450.25483398,500,2.1567,3.65
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,1121,True,469.1665,450.25483398,497,2.0995,4.20
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,1139,True,513.0000,454.4213562,156794,181.5758,12.89
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,1139,True,513.0000,454.4213562,156939,313.8668,12.89
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,1139,True,513.0000,454.4213562,13735,40.6880,12.89
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,1139,True,513.0000,454.4213562,53942,134.2827,12.89
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,1139,True,513.0000,454.4213562,49108,127.7872,12.89
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,1139,True,515.0000,454.4213562,545,3.2834,13.33
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,1139,True,515.0000,454.4213562,523,3.0935,13.33
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,1139,True,413.0000,454.4213562,185491,332.2496,-9.12
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,1139,True,454.4214,454.4213562,170372,570.5236,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,1139,True,469.0071,454.4213562,5703,28.6397,3.21
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,1139,True,454.4214,454.4213562,35542,125.3470,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,1139,True,454.4214,454.4213562,10542,39.2825,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,1139,True,474.8478,454.4213562,470,4.0379,4.50
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,1139,True,484.1615,454.4213562,475,3.8656,6.54
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,1157,True,596.0000,461.26911926,196445,325.5490,29.21
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,1157,True,596.0000,461.26911926,196559,475.5940,29.21
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,1157,True,596.0000,461.26911926,20257,53.1150,29.21
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,1157,True,596.0000,461.26911926,105283,264.8651,29.21
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,1157,True,596.0000,461.26911926,100317,265.8888,29.21
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,1157,True,596.0000,461.26911926,702,2.2962,29.21
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,1157,True,596.0000,461.26911926,630,2.1649,29.21
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,1157,True,366.0000,461.26911926,162642,284.4551,-20.65
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,1157,True,461.2691,461.26911926,191087,669.4824,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,1157,True,482.7422,461.26911926,1276,4.4834,4.66
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,1157,True,461.2691,461.26911926,34903,139.5476,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,1157,True,461.2691,461.26911926,21861,97.3134,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,1157,True,468.1981,461.26911926,403,2.2792,1.50
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,1157,True,477.1270,461.26911926,402,2.2015,3.44
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,1174,True,544.0000,468.4335495,217899,277.4521,16.13
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,1174,True,544.0000,468.4335495,217948,471.2908,16.13
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,1174,True,544.0000,468.4335495,21297,51.0714,16.13
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,1174,True,544.0000,468.4335495,71768,167.9935,16.13
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,1174,True,544.0000,468.4335495,64916,154.2550,16.13
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,1174,True,546.0000,468.4335495,602,2.0773,16.56
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,1174,True,546.0000,468.4335495,564,2.0201,16.56
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,1174,True,415.0000,468.4335495,228912,372.2389,-11.41
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,1174,True,468.4335,468.4335495,229929,741.1638,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,1174,True,490.2498,468.4335495,2871,9.8333,4.66
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,1174,True,468.4335,468.4335495,41327,137.2763,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,1174,True,468.4335,468.4335495,13358,46.5738,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,1174,True,482.7178,468.4335495,460,2.2204,3.05
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,1174,True,494.4752,468.4335495,457,2.2161,5.56
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,1192,True,497.0000,479.66904755,168650,194.3162,3.61
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,1192,True,497.0000,479.66904755,168659,370.0968,3.61
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,1192,True,497.0000,479.66904755,8406,18.8995,3.61
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,1192,True,497.0000,479.66904755,20391,47.3571,3.61
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,1192,True,497.0000,479.66904755,14340,32.4405,3.61
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,1192,True,525.0000,479.66904755,559,1.9863,9.45
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,1192,True,527.0000,479.66904755,542,2.0032,9.87
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,1192,True,465.0000,479.66904755,221675,373.2206,-3.06
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,1192,True,479.6690,479.66904755,201124,671.9347,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,1192,True,485.4680,479.66904755,25649,100.7916,1.21
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,1192,True,479.6690,479.66904755,18179,63.1309,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,1192,True,479.6690,479.66904755,9559,33.9616,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,1192,True,508.6224,479.66904755,528,2.5339,6.04
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,1192,True,512.8650,479.66904755,526,2.5288,6.92
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,1210,True,641.0000,486.35238037,218574,277.5068,31.80
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,1210,True,641.0000,486.35238037,218576,499.1810,31.80
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,1210,True,641.0000,486.35238037,10844,30.4878,31.80
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,1210,True,641.0000,486.35238037,126384,303.9611,31.80
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,1210,True,641.0000,486.35238037,119070,288.4698,31.80
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,1210,True,641.0000,486.35238037,776,2.2149,31.80
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,1210,True,641.0000,486.35238037,681,2.2235,31.80
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,1210,True,377.0000,486.35238037,193631,325.7181,-22.48
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,1210,True,486.3524,486.35238037,219663,627.6871,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,1210,True,507.5828,486.35238037,731,2.6884,4.37
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,1210,True,486.3524,486.35238037,34866,125.1109,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,1210,True,486.3524,486.35238037,20449,71.9579,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,1210,True,499.8255,486.35238037,446,2.1910,2.77
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,1210,True,498.6955,486.35238037,403,2.0015,2.54
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,1228,True,603.0000,490.5290039,222207,256.3421,22.93
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,1228,True,603.0000,490.5290039,222242,454.3737,22.93
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,1228,True,603.0000,490.5290039,26013,61.5393,22.93
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,1228,True,603.0000,490.5290039,101879,221.9111,22.93
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,1228,True,603.0000,490.5290039,95673,216.2557,22.93
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,1228,True,603.0000,490.5290039,658,2.0537,22.93
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,1228,True,603.0000,490.5290039,625,1.9690,22.93
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,1228,True,411.0000,490.5290039,212676,348.4625,-16.21
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,1228,True,490.5290,490.5290039,225545,823.2426,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,1228,True,512.2447,490.5290039,4072,12.9905,4.43
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,1228,True,490.5290,490.5290039,45521,167.2592,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,1228,True,490.5290,490.5290039,19711,67.8142,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,1228,True,508.0854,490.5290039,478,2.3606,3.58
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,1228,True,515.3991,490.5290039,460,2.2048,5.07
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,1246,True,611.0000,497.94321747,215474,251.3473,22.70
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,1246,True,611.0000,497.94321747,215568,467.5438,22.70
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,1246,True,611.0000,497.94321747,21583,50.6524,22.70
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,1246,True,611.0000,497.94321747,97580,222.1306,22.70
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,1246,True,611.0000,497.94321747,93499,210.6140,22.70
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,1246,True,611.0000,497.94321747,657,2.0312,22.70
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,1246,True,611.0000,497.94321747,626,1.9525,22.70
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,1246,True,416.0000,497.94321747,195591,320.3554,-16.46
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,1246,True,497.9432,497.94321747,210680,612.5341,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,1246,True,529.8600,497.94321747,5113,15.5470,6.41
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,1246,True,497.9432,497.94321747,47840,161.8307,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,1246,True,497.9432,497.94321747,29325,95.1167,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,1246,True,512.5706,497.94321747,482,2.2218,2.94
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,1246,True,525.3991,497.94321747,469,2.2206,5.51
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,1263,True,642.0000,506.68333282,219384,256.9546,26.71
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,1263,True,642.0000,506.68333282,219383,492.7962,26.71
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,1263,True,642.0000,506.68333282,31912,84.9499,26.71
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,1263,True,642.0000,506.68333282,122259,293.1747,26.71
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,1263,True,642.0000,506.68333282,115555,264.3652,26.71
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,1263,True,646.0000,506.68333282,786,2.5374,27.50
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,1263,True,644.0000,506.68333282,681,2.1910,27.10
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,1263,True,411.0000,506.68333282,212893,343.5245,-18.88
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,1263,True,506.6833,506.68333282,224427,687.0379,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,1263,True,534.2569,506.68333282,1550,5.2878,5.44
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,1263,True,506.6833,506.68333282,46842,166.3983,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,1263,True,506.6833,506.68333282,24180,82.2804,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,1263,True,514.4407,506.68333282,476,2.1898,1.53
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,1263,True,533.4113,506.68333282,484,2.3200,5.28
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,1281,True,678.0000,515.15137024,225264,262.7659,31.61
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,1281,True,678.0000,515.15137024,225230,471.4648,31.61
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,1281,True,678.0000,515.15137024,61804,150.3975,31.61
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,1281,True,678.0000,515.15137024,143270,319.2431,31.61
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,1281,True,678.0000,515.15137024,134503,299.3487,31.61
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,1281,True,678.0000,515.15137024,788,2.2785,31.61
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,1281,True,678.0000,515.15137024,709,2.0227,31.61
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,1281,True,400.0000,515.15137024,214283,314.6419,-22.35
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,1281,True,515.1514,515.15137024,228229,647.4670,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,1281,True,544.9260,515.15137024,738,2.9255,5.78
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,1281,True,515.1514,515.15137024,41907,153.4203,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,1281,True,515.1514,515.15137024,25042,87.9797,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,1281,True,532.3818,515.15137024,489,2.3017,3.34
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,1281,True,530.6661,515.15137024,434,2.0854,3.01
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,1299,True,586.0000,517.70562744,208847,252.3683,13.19
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,1299,True,586.0000,517.70562744,208865,445.1822,13.19
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,1299,True,586.0000,517.70562744,20674,51.1318,13.19
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,1299,True,586.0000,517.70562744,73896,166.1583,13.19
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,1299,True,586.0000,517.70562744,67766,151.6251,13.19
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,1299,True,588.0000,517.70562744,617,2.0812,13.58
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,1299,True,588.0000,517.70562744,596,1.9311,13.58
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,1299,True,467.0000,517.70562744,224957,328.0463,-9.79
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,1299,True,517.7056,517.70562744,223415,637.0582,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,1299,True,536.6346,517.70562744,14021,43.6388,3.66
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,1299,True,517.7056,517.70562744,49272,160.2028,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,1299,True,517.7056,517.70562744,30417,102.6318,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,1299,True,542.1737,517.70562744,552,2.4538,4.73
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,1299,True,553.4874,517.70562744,540,2.5024,6.91
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,1317,True,689.0000,527.90872955,208085,240.7355,30.51
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,1317,True,689.0000,527.90872955,208018,434.6096,30.51
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,1317,True,689.0000,527.90872955,18490,44.1884,30.51
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,1317,True,689.0000,527.90872955,127453,281.9483,30.51
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,1317,True,689.0000,527.90872955,124306,282.6800,30.51
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,1317,True,689.0000,527.90872955,876,2.4814,30.51
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,1317,True,689.0000,527.90872955,745,2.2181,30.51
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,1317,True,414.0000,527.90872955,181189,269.5572,-21.58
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,1317,True,527.9087,527.90872955,206775,594.4808,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,1317,True,559.6833,527.90872955,1272,4.5112,6.02
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,1317,True,527.9087,527.90872955,44838,152.6491,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,1317,True,527.9087,527.90872955,25152,83.1092,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,1317,True,545.7250,527.90872955,504,2.4865,3.37
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,1317,True,548.3524,527.90872955,458,2.3459,3.87
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,1335,True,690.0000,534.18080749,210419,264.2134,29.17
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,1335,True,690.0000,534.18080749,210349,440.6575,29.17
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,1335,True,690.0000,534.18080749,11682,27.7126,29.17
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,1335,True,690.0000,534.18080749,127834,281.1901,29.17
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,1335,True,690.0000,534.18080749,124219,274.3254,29.17
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,1335,True,690.0000,534.18080749,797,2.4072,29.17
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,1335,True,690.0000,534.18080749,718,2.1575,29.17
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,1335,True,424.0000,534.18080749,190586,283.7516,-20.63
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,1335,True,534.1808,534.18080749,210795,601.8081,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,1335,True,564.1981,534.18080749,1467,4.8257,5.62
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,1335,True,534.1808,534.18080749,47384,174.3248,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,1335,True,534.1808,534.18080749,30972,105.9895,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,1335,True,547.3107,534.18080749,497,2.4763,2.46
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,1335,True,553.0092,534.18080749,471,2.3173,3.52
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,1352,True,619.0000,540.50461731,216653,257.2540,14.52
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,1352,True,619.0000,540.50461731,216555,455.0301,14.52
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,1352,True,619.0000,540.50461731,18190,41.6598,14.52
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,1352,True,619.0000,540.50461731,86042,191.8525,14.52
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,1352,True,619.0000,540.50461731,79096,171.8733,14.52
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,1352,True,621.0000,540.50461731,660,2.2199,14.89
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,1352,True,621.0000,540.50461731,636,2.1727,14.89
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,1352,True,484.0000,540.50461731,233734,348.1234,-10.45
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,1352,True,540.5046,540.50461731,229934,655.5375,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,1352,True,564.9483,540.50461731,15549,53.3432,4.52
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,1352,True,540.5046,540.50461731,53777,195.9726,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,1352,True,540.5046,540.50461731,27618,89.5792,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,1352,True,559.2325,540.50461731,553,2.4847,3.46
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,1352,True,576.9310,540.50461731,552,2.4603,6.74
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,1370,True,733.0000,551.99199066,230322,264.6083,32.79
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,1370,True,733.0000,551.99199066,230224,484.6221,32.79
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,1370,True,733.0000,551.99199066,19279,52.0196,32.79
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,1370,True,733.0000,551.99199066,160797,378.4320,32.79
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,1370,True,733.0000,551.99199066,152253,339.4487,32.79
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,1370,True,733.0000,551.99199066,921,2.6028,32.79
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,1370,True,733.0000,551.99199066,788,2.2378,32.79
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,1370,True,424.0000,551.99199066,217231,319.7216,-23.19
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,1370,True,551.9920,551.99199066,232745,656.1504,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,1370,True,577.4234,551.99199066,586,2.4559,4.61
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,1370,True,551.9920,551.99199066,44605,158.5189,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,1370,True,551.9920,551.99199066,25773,89.8635,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,1370,True,575.0803,551.99199066,527,2.3732,4.18
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,1370,True,572.2935,551.99199066,472,2.1973,3.68
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,1388,True,739.0000,553.30569915,230493,264.7901,33.56
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,1388,True,739.0000,553.30569915,230425,480.3410,33.56
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,1388,True,739.0000,553.30569915,18462,43.9032,33.56
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,1388,True,739.0000,553.30569915,162490,361.5634,33.56
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,1388,True,739.0000,553.30569915,154200,342.8072,33.56
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,1388,True,739.0000,553.30569915,907,2.5119,33.56
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,1388,True,739.0000,553.30569915,775,2.1904,33.56
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,1388,True,422.0000,553.30569915,214133,326.2345,-23.73
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,1388,True,553.3057,553.30569915,231948,655.8340,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,1388,True,579.3229,553.30569915,585,2.3622,4.70
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,1388,True,553.3057,553.30569915,42281,144.9197,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,1388,True,553.3057,553.30569915,23901,80.8137,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,1388,True,570.8793,553.30569915,514,2.4364,3.18
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,1388,True,567.6072,553.30569915,466,2.1876,2.58
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,1406,True,744.0000,563.5777771,230927,264.4308,32.01
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,1406,True,744.0000,563.5777771,230924,480.2083,32.01
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,1406,True,744.0000,563.5777771,35789,83.4422,32.01
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,1406,True,744.0000,563.5777771,164765,364.3739,32.01
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,1406,True,744.0000,563.5777771,157922,352.2138,32.01
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,1406,True,744.0000,563.5777771,838,2.4055,32.01
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,1406,True,744.0000,563.5777771,773,2.2531,32.01
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,1406,True,436.0000,563.5777771,219291,321.4727,-22.64
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,1406,True,563.5778,563.5777771,233631,654.1334,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,1406,True,574.7077,563.5777771,558,2.4574,1.97
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,1406,True,563.5778,563.5777771,46410,155.6687,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,1406,True,563.5778,563.5777771,27264,90.2756,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,1406,True,578.2224,563.5777771,506,2.3248,2.60
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,1406,True,578.6072,563.5777771,464,2.3646,2.67
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,1424,True,714.0000,569.89653625,214595,243.5174,25.29
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,1424,True,714.0000,569.89653625,214538,435.3639,25.29
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,1424,True,714.0000,569.89653625,26430,63.0963,25.29
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,1424,True,714.0000,569.89653625,131671,287.2145,25.29
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,1424,True,714.0000,569.89653625,128490,279.2369,25.29
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,1424,True,714.0000,569.89653625,828,2.3787,25.29
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,1424,True,714.0000,569.89653625,743,2.2081,25.29
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,1424,True,468.0000,569.89653625,222184,343.5500,-17.88
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,1424,True,569.8965,569.89653625,222944,617.3855,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,1424,True,594.5412,569.89653625,2714,9.0617,4.32
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,1424,True,569.8965,569.89653625,59936,208.5734,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,1424,True,569.8965,569.89653625,24023,86.9331,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,1424,True,583.4113,569.89653625,532,2.5788,2.37
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,1424,True,594.6245,569.89653625,512,3.0694,4.34
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,1441,True,754.0000,576.50670929,221399,262.5794,30.79
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,1441,True,754.0000,576.50670929,221517,471.3068,30.79
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,1441,True,754.0000,576.50670929,20294,50.8745,30.79
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,1441,True,754.0000,576.50670929,145305,318.2868,30.79
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,1441,True,754.0000,576.50670929,141121,313.4123,30.79
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,1441,True,754.0000,576.50670929,869,2.5984,30.79
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,1441,True,754.0000,576.50670929,787,2.4411,30.79
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,1441,True,451.0000,576.50670929,207459,312.0028,-21.77
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,1441,True,576.5067,576.50670929,223452,647.2825,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,1441,True,594.5656,576.50670929,937,3.7860,3.13
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,1441,True,576.5067,576.50670929,53429,192.2709,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,1441,True,576.5067,576.50670929,31387,113.1167,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,1441,True,586.4651,576.50670929,508,2.6827,1.73
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,1441,True,598.4651,576.50670929,498,2.4838,3.81
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,1459,True,683.0000,581.65894623,207942,247.0627,17.42
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,1459,True,683.0000,581.65894623,207805,463.5994,17.42
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,1459,True,683.0000,581.65894623,11022,25.7546,17.42
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,1459,True,683.0000,581.65894623,107805,250.5809,17.42
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,1459,True,683.0000,581.65894623,102604,237.0197,17.42
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,1459,True,685.0000,581.65894623,712,2.4295,17.77
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,1459,True,685.0000,581.65894623,696,2.3414,17.77
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,1459,True,510.0000,581.65894623,233055,349.3641,-12.32
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,1459,True,581.6589,581.65894623,224346,648.9932,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,1459,True,611.7178,581.65894623,16473,52.8408,5.17
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,1459,True,581.6589,581.65894623,64440,213.3153,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,1459,True,581.6589,581.65894623,28730,99.7087,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,1459,True,609.3991,581.65894623,591,4.7342,4.77
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,1459,True,626.5706,581.65894623,598,2.8692,7.72
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,1477,True,787.0000,590.76154327,228611,311.7722,33.22
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,1477,True,787.0000,590.76154327,228591,542.1490,33.22
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,1477,True,787.0000,590.76154327,22878,74.2781,33.22
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,1477,True,787.0000,590.76154327,167424,428.6667,33.22
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,1477,True,787.0000,590.76154327,162399,365.1319,33.22
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,1477,True,787.0000,590.76154327,1004,2.7872,33.22
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,1477,True,787.0000,590.76154327,837,2.3334,33.22
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,1477,True,452.0000,590.76154327,209375,292.6834,-23.49
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,1477,True,590.7615,590.76154327,229713,674.4628,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,1477,True,611.5067,590.76154327,607,2.5395,3.51
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,1477,True,590.7615,590.76154327,51451,167.4863,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,1477,True,590.7615,590.76154327,30713,100.0994,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,1477,True,611.1636,590.76154327,549,2.4775,3.45
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,1477,True,607.5483,590.76154327,504,2.3465,2.84
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,1495,True,781.0000,599.40620422,233943,261.1489,30.30
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,1495,True,781.0000,599.40620422,233958,457.1517,30.30
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,1495,True,781.0000,599.40620422,21123,46.5307,30.30
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,1495,True,781.0000,599.40620422,171382,357.3805,30.30
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,1495,True,781.0000,599.40620422,165459,337.7771,30.30
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,1495,True,783.0000,599.40620422,936,2.5561,30.63
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,1495,True,783.0000,599.40620422,825,2.2483,30.63
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,1495,True,471.0000,599.40620422,226261,305.5750,-21.42
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,1495,True,599.4062,599.40620422,236921,615.9715,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,1495,True,629.7666,599.40620422,1719,5.8673,5.07
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,1495,True,599.4062,599.40620422,55522,171.6497,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,1495,True,599.4062,599.40620422,30600,91.4414,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,1495,True,608.7788,599.40620422,533,2.3237,1.56
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,1495,True,621.9920,599.40620422,520,2.4340,3.77
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,1513,True,805.0000,604.07525177,227556,237.7617,33.26
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,1513,True,805.0000,604.07525177,227543,430.6275,33.26
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,1513,True,805.0000,604.07525177,22180,50.1626,33.26
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,1513,True,805.0000,604.07525177,171102,343.1322,33.26
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,1513,True,805.0000,604.07525177,167841,342.8340,33.26
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,1513,True,805.0000,604.07525177,970,2.6604,33.26
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,1513,True,805.0000,604.07525177,852,2.3263,33.26
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,1513,True,462.0000,604.07525177,215640,292.9227,-23.52
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,1513,True,604.0753,604.07525177,229167,594.9194,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,1513,True,623.6488,604.07525177,595,2.4160,3.24
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,1513,True,604.0753,604.07525177,51856,171.7226,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,1513,True,604.0753,604.07525177,30706,100.4916,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,1513,True,626.3351,604.07525177,568,2.5092,3.68
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,1513,True,620.2763,604.07525177,514,2.5073,2.68
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,1530,True,815.0000,613.48946533,235884,251.4870,32.85
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,1530,True,815.0000,613.48946533,235883,453.1655,32.85
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,1530,True,815.0000,613.48946533,20055,47.4021,32.85
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,1530,True,815.0000,613.48946533,202859,439.8285,32.85
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,1530,True,815.0000,613.48946533,192905,446.6591,32.85
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,1530,True,817.0000,613.48946533,949,2.5800,33.17
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,1530,True,815.0000,613.48946533,854,2.3663,32.85
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,1530,True,471.0000,613.48946533,235860,325.9679,-23.23
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,1530,True,613.4895,613.48946533,239812,710.9055,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,1530,True,647.7077,613.48946533,1255,4.2544,5.58
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,1530,True,613.4895,613.48946533,53566,178.6093,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,1530,True,613.4895,613.48946533,30990,102.4433,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,1530,True,634.5778,613.48946533,580,2.6391,3.44
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,1530,True,631.3057,613.48946533,510,2.7888,2.90
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,1548,True,802.0000,618.06305847,234252,280.6497,29.76
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,1548,True,802.0000,618.06305847,234300,488.9160,29.76
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,1548,True,802.0000,618.06305847,36658,99.6210,29.76
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,1548,True,802.0000,618.06305847,184790,439.6703,29.76
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,1548,True,802.0000,618.06305847,177826,418.3728,29.76
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,1548,True,802.0000,618.06305847,941,2.8960,29.76
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,1548,True,802.0000,618.06305847,838,4.1699,29.76
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,1548,True,488.0000,618.06305847,235119,368.2535,-21.04
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,1548,True,618.0631,618.06305847,237727,662.5588,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,1548,True,650.0803,618.06305847,1428,4.9350,5.18
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,1548,True,618.0631,618.06305847,62267,217.7145,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,1548,True,618.0631,618.06305847,35260,117.1795,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,1548,True,632.9504,618.06305847,560,2.7501,2.41
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,1548,True,654.4062,618.06305847,573,2.6536,5.88
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,1566,True,807.0000,625.40620422,229511,280.1981,29.04
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,1566,True,807.0000,625.40620422,229597,472.6024,29.04
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,1566,True,807.0000,625.40620422,20337,49.8869,29.04
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,1566,True,807.0000,625.40620422,170990,377.6836,29.04
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,1566,True,807.0000,625.40620422,166750,362.2766,29.04
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,1566,True,809.0000,625.40620422,957,2.6948,29.36
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,1566,True,809.0000,625.40620422,847,2.4357,29.36
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,1566,True,496.0000,625.40620422,227430,361.2449,-20.69
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,1566,True,625.4062,625.40620422,233731,663.3216,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,1566,True,645.4651,625.40620422,1600,5.5548,3.21
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,1566,True,625.4062,625.40620422,65719,227.3798,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,1566,True,625.4062,625.40620422,36644,123.0932,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,1566,True,632.6783,625.40620422,549,2.5885,1.16
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,1566,True,648.3351,625.40620422,540,2.4686,3.67
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,1584,True,825.0000,634.61940765,232552,266.9669,30.00
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,1584,True,825.0000,634.61940765,232530,474.8475,30.00
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,1584,True,825.0000,634.61940765,130061,326.2921,30.00
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,1584,True,825.0000,634.61940765,184806,425.7909,30.00
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,1584,True,825.0000,634.61940765,180230,408.1435,30.00
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,1584,True,825.0000,634.61940765,972,2.8337,30.00
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,1584,True,825.0000,634.61940765,863,2.5145,30.00
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,1584,True,500.0000,634.61940765,234634,344.6916,-21.21
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,1584,True,634.6194,634.61940765,236066,782.5895,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,1584,True,673.6661,634.61940765,4806,21.2105,6.15
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,1584,True,634.6194,634.61940765,67153,292.6507,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,1584,True,634.6194,634.61940765,38678,183.4416,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,1584,True,651.5067,634.61940765,595,3.4194,2.66
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,1584,True,662.8204,634.61940765,553,3.3183,4.44
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,1602,True,837.0000,643.10468902,231370,309.3841,30.15
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,1602,True,837.0000,643.10468902,231371,554.5458,30.15
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,1602,True,837.0000,643.10468902,18277,54.9295,30.15
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,1602,True,837.0000,643.10468902,182117,453.2983,30.15
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,1602,True,837.0000,643.10468902,178375,423.5108,30.15
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,1602,True,839.0000,643.10468902,974,2.9846,30.46
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,1602,True,839.0000,643.10468902,876,2.7966,30.46
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,1602,True,506.0000,643.10468902,233483,365.7278,-21.32
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,1602,True,643.1047,643.10468902,235163,722.5937,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,1602,True,669.3646,643.10468902,1027,4.5410,4.08
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,1602,True,643.1047,643.10468902,65196,247.5601,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,1602,True,643.1047,643.10468902,36939,129.0001,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,1602,True,649.7910,643.10468902,558,3.0071,1.04
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,1602,True,673.0631,643.10468902,562,2.7510,4.66
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,1619,True,833.0000,646.9625534,220303,283.3000,28.76
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,1619,True,833.0000,646.9625534,220294,594.1915,28.76
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,1619,True,833.0000,646.9625534,20796,56.7090,28.76
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,1619,True,833.0000,646.9625534,148934,435.7366,28.76
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,1619,True,833.0000,646.9625534,148329,434.1194,28.76
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,1619,True,833.0000,646.9625534,992,3.7097,28.76
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,1619,True,833.0000,646.9625534,884,2.8794,28.76
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,1619,True,514.0000,646.9625534,226988,393.9709,-20.55
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,1619,True,646.9626,646.9625534,225128,780.9173,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,1619,True,683.3229,646.9625534,2648,10.2126,5.62
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,1619,True,646.9626,646.9625534,67290,300.7648,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,1619,True,646.9626,646.9625534,39793,169.4448,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,1619,True,659.5067,646.9625534,585,3.2000,1.94
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,1619,True,671.8915,646.9625534,570,3.1750,3.85
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,1637,True,870.0000,652.6732315,234704,320.6307,33.30
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,1637,True,870.0000,652.6732315,234686,526.6337,33.30
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,1637,True,870.0000,652.6732315,21161,52.6111,33.30
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,1637,True,870.0000,652.6732315,204803,479.6444,33.30
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,1637,True,870.0000,652.6732315,201333,481.6277,33.30
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,1637,True,870.0000,652.6732315,1025,3.1331,33.30
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,1637,True,870.0000,652.6732315,923,2.8012,33.30
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,1637,True,499.0000,652.6732315,234573,418.4717,-23.55
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,1637,True,652.6732,652.6732315,237339,774.2817,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,1637,True,673.6610,652.6732315,938,3.9951,3.22
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,1637,True,652.6732,652.6732315,61018,231.5133,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,1637,True,652.6732,652.6732315,35145,136.7522,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,1637,True,669.0753,652.6732315,587,3.0512,2.51
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,1637,True,666.6316,652.6732315,540,2.8615,2.14
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,1655,True,867.0000,660.21738739,233587,339.9171,31.32
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,1655,True,867.0000,660.21738739,233569,524.8333,31.32
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,1655,True,867.0000,660.21738739,24364,60.7906,31.32
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,1655,True,867.0000,660.21738739,194688,532.9623,31.32
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,1655,True,867.0000,660.21738739,191160,490.1895,31.32
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,1655,True,867.0000,660.21738739,1006,3.0625,31.32
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,1655,True,867.0000,660.21738739,911,3.1139,31.32
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,1655,True,514.0000,660.21738739,234043,392.8182,-22.15
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,1655,True,660.2174,660.21738739,236576,752.4157,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,1655,True,700.0925,660.21738739,1325,5.7353,6.04
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,1655,True,660.2174,660.21738739,67405,251.8333,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,1655,True,660.2174,660.21738739,40739,206.6992,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,1655,True,678.8620,660.21738739,624,3.2597,2.82
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,1655,True,674.5605,660.21738739,568,3.3344,2.17
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,1673,True,895.0000,670.05800781,234227,289.3923,33.57
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,1673,True,895.0000,670.05800781,234204,534.5843,33.57
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,1673,True,895.0000,670.05800781,24818,61.9551,33.57
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,1673,True,895.0000,670.05800781,203909,490.3904,33.57
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,1673,True,895.0000,670.05800781,201736,555.9403,33.57
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,1673,True,895.0000,670.05800781,1095,3.8138,33.57
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,1673,True,895.0000,670.05800781,943,2.9826,33.57
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,1673,True,511.0000,670.05800781,233812,379.8343,-23.74
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,1673,True,670.0580,670.05800781,236732,822.9947,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,1673,True,688.2174,670.05800781,607,3.6627,2.71
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,1673,True,670.0580,670.05800781,61236,290.9400,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,1673,True,670.0580,670.05800781,34437,171.3409,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,1673,True,689.6316,670.05800781,615,4.0031,2.92
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,1673,True,686.3595,670.05800781,562,3.9961,2.43
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,1691,True,901.0000,679.57272644,234637,361.4382,32.58
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,1691,True,901.0000,679.57272644,234644,585.1495,32.58
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,1691,True,901.0000,679.57272644,22494,65.7639,32.58
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,1691,True,901.0000,679.57272644,206777,580.9316,32.58
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,1691,True,901.0000,679.57272644,204002,566.6218,32.58
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,1691,True,901.0000,679.57272644,1114,4.1081,32.58
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,1691,True,901.0000,679.57272644,964,3.5423,32.58
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,1691,True,523.0000,679.57272644,234714,425.0101,-23.04
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,1691,True,679.5727,679.57272644,237127,828.0836,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,1691,True,712.2763,679.57272644,905,4.5662,4.81
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,1691,True,679.5727,679.57272644,71286,290.1184,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,1691,True,679.5727,679.57272644,43151,175.6319,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,1691,True,700.6610,679.57272644,653,3.6480,3.10
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,1691,True,696.2174,679.57272644,573,3.7643,2.45
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,1708,True,903.0000,680.40115356,235828,330.4361,32.72
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,1708,True,903.0000,680.40115356,235828,590.5587,32.72
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,1708,True,903.0000,680.40115356,19834,56.6381,32.72
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,1708,True,903.0000,680.40115356,219147,574.2099,32.72
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,1708,True,903.0000,680.40115356,214260,583.6242,32.72
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,1708,True,903.0000,680.40115356,1123,4.0279,32.72
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,1708,True,903.0000,680.40115356,954,4.3236,32.72
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,1708,True,523.0000,680.40115356,235818,404.1552,-23.13
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,1708,True,680.4012,680.40115356,238758,856.9337,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,1708,True,695.6316,680.40115356,618,4.5180,2.24
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,1708,True,680.4012,680.40115356,69637,301.8790,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,1708,True,680.4012,680.40115356,40302,181.1451,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,1708,True,699.6316,680.40115356,631,3.7574,2.83
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,1708,True,696.8448,680.40115356,574,4.1191,2.42
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,1726,True,916.0000,689.30064849,234546,333.0401,32.89
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,1726,True,916.0000,689.30064849,234547,647.5996,32.89
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,1726,True,916.0000,689.30064849,70725,242.4320,32.89
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,1726,True,916.0000,689.30064849,206457,624.6837,32.89
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,1726,True,916.0000,689.30064849,204634,586.8711,32.89
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,1726,True,916.0000,689.30064849,1060,3.7793,32.89
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,1726,True,916.0000,689.30064849,960,3.5316,32.89
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,1726,True,529.0000,689.30064849,234805,417.1986,-23.26
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,1726,True,689.3006,689.30064849,236772,875.1643,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,1726,True,724.3473,689.30064849,1640,7.8934,5.08
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,1726,True,689.3006,689.30064849,68442,274.0709,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,1726,True,689.3006,689.30064849,41540,158.8566,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,1726,True,708.8742,689.30064849,619,4.5247,2.84
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,1726,True,702.9159,689.30064849,568,3.2765,1.98
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,1744,True,925.0000,697.12907562,235515,323.9651,32.69
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,1744,True,925.0000,697.12907562,235526,576.8395,32.69
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,1744,True,925.0000,697.12907562,20320,50.3020,32.69
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,1744,True,925.0000,697.12907562,216248,502.6096,32.69
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,1744,True,925.0000,697.12907562,213029,581.2963,32.69
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,1744,True,925.0000,697.12907562,1187,4.0268,32.69
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,1744,True,925.0000,697.12907562,1009,3.3835,32.69
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,1744,True,536.0000,697.12907562,235474,445.1095,-23.11
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,1744,True,697.1291,697.12907562,238119,733.1008,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,1744,True,712.9453,697.12907562,638,3.1103,2.27
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,1744,True,697.1291,697.12907562,69941,253.2988,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,1744,True,697.1291,697.12907562,40010,140.0348,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,1744,True,736.8620,697.12907562,703,3.2720,5.70
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,1744,True,724.8032,697.12907562,611,3.1142,3.97
+random512-10-0.map,random512-10-0.map.scen,4,BFS,1.0,1762,True,937.0000,705.02857055,233436,284.3309,32.90
+random512-10-0.map,random512-10-0.map.scen,4,Dijkstra,1.0,1762,True,937.0000,705.02857055,233465,520.8906,32.90
+random512-10-0.map,random512-10-0.map.scen,4,A* (Manhattan),1.0,1762,True,937.0000,705.02857055,19683,56.9570,32.90
+random512-10-0.map,random512-10-0.map.scen,4,A* (Euclid),1.0,1762,True,937.0000,705.02857055,200979,525.5314,32.90
+random512-10-0.map,random512-10-0.map.scen,4,A* (Octile),1.0,1762,True,937.0000,705.02857055,200054,501.7984,32.90
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x1.5),1.5,1762,True,937.0000,705.02857055,1097,3.2776,32.90
+random512-10-0.map,random512-10-0.map.scen,4,WA* (x2.0),2.0,1762,True,937.0000,705.02857055,988,2.9916,32.90
+random512-10-0.map,random512-10-0.map.scen,8,BFS,1.0,1762,True,541.0000,705.02857055,234002,387.3265,-23.27
+random512-10-0.map,random512-10-0.map.scen,8,Dijkstra,1.0,1762,True,705.0286,705.02857055,235806,730.3083,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Manhattan),1.0,1762,True,726.1169,705.02857055,701,3.0254,2.99
+random512-10-0.map,random512-10-0.map.scen,8,A* (Euclid),1.0,1762,True,705.0286,705.02857055,71826,280.1101,0.00
+random512-10-0.map,random512-10-0.map.scen,8,A* (Octile),1.0,1762,True,705.0286,705.02857055,43355,168.0834,0.00
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x1.5),1.5,1762,True,722.0164,705.02857055,625,3.5999,2.41
+random512-10-0.map,random512-10-0.map.scen,8,WA* (x2.0),2.0,1762,True,724.1585,705.02857055,591,3.0925,2.71
