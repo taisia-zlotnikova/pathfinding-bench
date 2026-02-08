@@ -4,16 +4,21 @@ import csv
 import random
 from datetime import datetime
 
-# --- 1. НАСТРОЙКИ ВЫБОРКИ (SAMPLING) ---
-# Доступные режимы:
-#   'all'     - Все задачи (осторожно, может быть долго!)
-#   'first'   - Первые N задач (обычно самые легкие/короткие)
-#   'last'    - Последние N задач (обычно самые сложные)
-#   'uniform' - N задач, равномерно распределенных по всему файлу
-#   'random'  - N случайных задач
-
+# --- 1. НАСТРОЙКИ ТЕСТИРОВАНИЯ ---
+# Режим выборки задач:
+#   'all'     - Все задачи из сценария (для глубокого анализа одной карты)
+#   'uniform' - Равномерная выборка (например, 100 задач разной сложности)
+#   'first'   - Выборка первых N задач
+#   'last'    - Выборка последних N задач
 SAMPLING_MODE = 'first'  
-SAMPLING_COUNT = 100       # Количество задач (игнорируется, если mode='all')
+SAMPLING_COUNT = 10   # Используется только если mode != 'all'
+
+# --- 2. ФИЛЬТР ПО ОДНОЙ КАРТЕ ---
+# Если хотите протестировать ТОЛЬКО одну карту, укажите имя файла.
+# Пример: "maze512-1-0.map"
+# Если None - тестируются все карты подряд. - НЕ применять если SAMPLING_MODE = 'all'. не протестируется по времени
+# TARGET_MAP_NAME = None 
+TARGET_MAP_NAME = "maze512-1-0.map"
 
 # --- Настройка путей ---
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -31,7 +36,7 @@ except ImportError as e:
     print(f"❌ Ошибка импорта: {e}")
     sys.exit(1)
 
-# --- Конфигурация алгоритмов ---
+# --- Алгоритмы ---
 MAP_TYPES = ['maze', 'random', 'my']
 CONNECTIVITIES = [4, 8]
 
@@ -46,102 +51,102 @@ ALGORITHMS = [
 ]
 
 def get_tasks_subset(tasks, mode, count):
-    """Возвращает подмножество задач в зависимости от режима"""
     total = len(tasks)
     if mode == 'all' or total <= count:
         return tasks, "All"
-    
     if mode == 'first':
         return tasks[:count], f"First {count}"
-    
     elif mode == 'last':
         return tasks[-count:], f"Last {count}"
-    
     elif mode == 'uniform':
         step = total / count
-        indices = [int(i * step) for i in range(count)]
-        # Убираем дубликаты индексов, если шаг < 1
-        indices = sorted(list(set(indices)))
+        indices = sorted(list(set([int(i * step) for i in range(count)])))
         return [tasks[i] for i in indices], f"Uniform {len(indices)}"
-    
     elif mode == 'random':
-        random.seed(42) # Фиксируем seed для воспроизводимости
+        random.seed(42)
         return random.sample(tasks, count), f"Random {count}"
-    
     return tasks, "Unknown"
 
 def run_experiments():
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     
-    # Формируем имя подпапки на основе режима: "uniform_100" или "all"
-    if SAMPLING_MODE == 'all':
-        subfolder_name = "all_tasks"
+    # Формируем имя папки
+    if TARGET_MAP_NAME:
+        # Если тестируем одну карту, кладем в папку 'single_maps' или аналогичную
+        # Но чтобы анализатор нашел, лучше оставить структуру types, но уточнить имя файла
+        subfolder_name = "single_map_tests"
     else:
-        subfolder_name = f"{SAMPLING_MODE}_{SAMPLING_COUNT}"
+        subfolder_name = "all_tasks" if SAMPLING_MODE == 'all' else f"{SAMPLING_MODE}_{SAMPLING_COUNT}"
 
-    print(f"🎯 Режим тестирования: {SAMPLING_MODE.upper()} (Count: {SAMPLING_COUNT})")
-    print(f"📂 Результаты будут в подпапках: .../{subfolder_name}/")
+    print(f"🎯 Режим: {SAMPLING_MODE.upper()} | Карта: {TARGET_MAP_NAME if TARGET_MAP_NAME else 'ВСЕ'}")
 
     for map_type in MAP_TYPES:
-        print(f"\n🚀 --- ТИП КАРТЫ: {map_type.upper()} ---")
-        
         scen_source_dir = os.path.join(DATA_DIR, 'scen', map_type)
         map_source_dir = os.path.join(DATA_DIR, 'map', map_type)
         
-        # Создаем папку: results/maze/uniform_100/
+        if not os.path.exists(scen_source_dir): continue
+
+        # 1. Сначала ищем подходящие сценарии (чтобы не создавать пустые файлы)
+        valid_scenarios = []
+        scen_files = [f for f in os.listdir(scen_source_dir) if f.endswith('.scen')]
+        
+        print(f"\n🔍 Сканирование папки {map_type} ({len(scen_files)} файлов)...")
+        
+        for scen_file in scen_files:
+            full_path = os.path.join(scen_source_dir, scen_file)
+            try:
+                tasks = MapParser.parse_scenarios(full_path)
+                if not tasks: continue
+                
+                map_name = tasks[0]["map_name"]
+                
+                # ГЛАВНЫЙ ФИЛЬТР
+                if TARGET_MAP_NAME and map_name != TARGET_MAP_NAME:
+                    continue
+                
+                # Проверяем наличие самой карты
+                if not os.path.exists(os.path.join(map_source_dir, map_name)):
+                    print(f"   ⚠️ Карта {map_name} не найдена (но есть в сценарии).")
+                    continue
+                    
+                valid_scenarios.append((scen_file, map_name, tasks))
+                
+            except Exception:
+                continue
+
+        if not valid_scenarios:
+            if TARGET_MAP_NAME:
+                print(f"   ℹ️ В папке {map_type} нет сценариев для карты {TARGET_MAP_NAME}")
+            continue
+
+        # 2. Создаем CSV только если есть данные
         current_result_dir = os.path.join(RESULTS_DIR, map_type, subfolder_name)
         os.makedirs(current_result_dir, exist_ok=True)
         
-        csv_filename = f"res_{map_type}_{subfolder_name}_{timestamp}.csv"
+        # Если одна карта, добавляем её имя в файл. Если все - просто таймстемп.
+        name_part = f"_{TARGET_MAP_NAME}" if TARGET_MAP_NAME else ""
+        csv_filename = f"res_{map_type}{name_part}_{timestamp}.csv"
         csv_path = os.path.join(current_result_dir, csv_filename)
 
-        if not os.path.exists(scen_source_dir):
-            print(f"⚠️ Папка {scen_source_dir} не найдена. Пропуск.")
-            continue
+        print(f"🚀 Запуск тестов для {len(valid_scenarios)} сценариев. Файл: {csv_filename}")
 
         with open(csv_path, mode='w', newline='') as f:
             writer = csv.writer(f)
-            headers = [
-                "MapName", "Scenario", "Connectivity", 
-                "Algorithm", "Weight", "TaskID", 
-                "Success", "PathLength", "OptimalLength", 
-                "ExpandedNodes", "TimeMS", "Suboptimality"
-            ]
-            writer.writerow(headers)
+            writer.writerow(["MapName", "Scenario", "Connectivity", "Algorithm", "Weight", 
+                             "TaskID", "Success", "PathLength", "OptimalLength", 
+                             "ExpandedNodes", "TimeMS", "Suboptimality"])
 
-            scen_files = [f for f in os.listdir(scen_source_dir) if f.endswith('.scen')]
-            
-            for scen_file in scen_files:
-                scen_full_path = os.path.join(scen_source_dir, scen_file)
-                try:
-                    all_tasks = MapParser.parse_scenarios(scen_full_path)
-                except Exception as e:
-                    print(f"❌ Ошибка сценария {scen_file}: {e}")
-                    continue
+            for scen_file, map_name, all_tasks in valid_scenarios:
+                # Загружаем карту (один раз на файл)
+                width, height, grid = MapParser.parse_map(os.path.join(map_source_dir, map_name))
+                planner = pfc.PathPlanner(width, height, grid)
                 
-                if not all_tasks: continue
-
-                map_name = all_tasks[0]["map_name"]
-                map_path = os.path.join(map_source_dir, map_name)
-                
-                if not os.path.exists(map_path):
-                    print(f"⚠️ Карта {map_name} не найдена. Пропуск.")
-                    continue
-
-                try:
-                    width, height, grid = MapParser.parse_map(map_path)
-                    planner = pfc.PathPlanner(width, height, grid)
-                except Exception as e:
-                    print(f"❌ Ошибка карты: {e}")
-                    continue
-
-                # --- ПРИМЕНЯЕМ ВЫБОРКУ ---
+                # Выборка задач
                 current_tasks, desc = get_tasks_subset(all_tasks, SAMPLING_MODE, SAMPLING_COUNT)
-                print(f"   🗺️  {map_name[:20]:<20} | {desc} (из {len(all_tasks)})")
+                print(f"   🗺️  {map_name} | {desc} (всего {len(all_tasks)})")
 
                 for conn in CONNECTIVITIES:
                     for algo_name, algo_enum, heur_enum, weight in ALGORITHMS:
-                        
                         for task in current_tasks:
                             res = planner.find_path(
                                 task["start"][0], task["start"][1], 
@@ -154,17 +159,11 @@ def run_experiments():
                                 subopt = (res.path_length - task["optimal_len"]) / task["optimal_len"] * 100
                             
                             writer.writerow([
-                                map_name, scen_file, conn,
-                                algo_name, weight, task["id"],
-                                res.found, 
-                                f"{res.path_length:.4f}", 
-                                task["optimal_len"],
-                                res.expanded_nodes, 
-                                f"{res.execution_time * 1000:.4f}",
-                                f"{subopt:.2f}"
+                                map_name, scen_file, conn, algo_name, weight, task["id"],
+                                res.found, f"{res.path_length:.4f}", task["optimal_len"],
+                                res.expanded_nodes, f"{res.execution_time * 1000:.4f}", f"{subopt:.2f}"
                             ])
-        
-        print(f"✅ Сохранено: {csv_path}")
+        print("✅ Готово.")
 
 if __name__ == "__main__":
     run_experiments()
