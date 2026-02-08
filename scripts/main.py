@@ -1,215 +1,186 @@
-import os
-import random
 import argparse
-import config  
-import pathfinding_core as pfc
+import os
+import sys
+import random
 
+# Подключаем наши модули
+import config
+from run_experiments import run_experiments_logic
 from map_parser import MapParser
+import pathfinding_core as pfc
 
 try:
     from visualizer import print_ascii_map, save_map_image
 except ImportError:
     print_ascii_map = None
 
-def get_random_valid_points(width, height, grid, min_dist=2): # Уменьшили дистанцию
+# --- ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ---
+def get_random_valid_points(width, height, grid, min_dist=2):
     max_attempts = 1000
     for _ in range(max_attempts):
         x1, y1 = random.randint(0, width-1), random.randint(0, height-1)
         x2, y2 = random.randint(0, width-1), random.randint(0, height-1)
         idx1 = y1 * width + x1
         idx2 = y2 * width + x2
-        
         if grid[idx1] == 0 and grid[idx2] == 0:
-            # Считаем Манхэттенское расстояние для простоты
             dist = abs(x1 - x2) + abs(y1 - y2)
             if dist >= min_dist:
                 return (x1, y1), (x2, y2)
     return None, None
 
-def run_benchmark(limit=None):
-    if config.USE_SCENARIOS:
-        # --- РЕЖИМ СЦЕНАРИЕВ ---
-        map_dir = config.MAP_DIR
-        scen_dir = config.SCEN_DIR
-        print(f"\n🚀 Режим сценариев (Benchmark) | Связность: {config.CONNECTIVITY}")
-        header = f"{'#':<4} | {'Scenario File':<20} | {'Algo':<14} | {'Len':<8} | {'Opt':<8} | {'Nodes':<7} | {'Time(ms)':<8}"
-        print(header)
-        print("-" * len(header))
+def run_visual_logic(args):
+    """Логика режима visual"""
+    # 1. Определяем пути
+    map_path = args.map
+    scen_path = args.scen
 
-        scen_files = config.SCENARIO_FILES
-        if limit: scen_files = scen_files[:limit]
-
-        for scen_name in scen_files:
-            scen_path = os.path.join(scen_dir, scen_name)
-            if not os.path.exists(scen_path):
-                print(f"⚠️ Файл не найден: {scen_path}")
-                continue
-            
+    # Если карта не указана, но есть сценарий -> берем карту из сценария
+    if scen_path and not map_path:
+        if not os.path.exists(scen_path):
+             # Попытка найти в дефолтной папке
+             scen_path = os.path.join(config.DATA_DIR, 'scen', config.DEFAULT_SCEN.split('/')[0], scen_path)
+        
+        if os.path.exists(scen_path):
             tasks = MapParser.parse_scenarios(scen_path)
-            if not tasks: continue
-            
-            map_path = os.path.join(map_dir, tasks[0]["map_name"])
-            if not os.path.exists(map_path):
-                print(f"❌ Карта не найдена: {tasks[0]['map_name']}")
-                continue
+            if tasks:
+                map_name = tasks[0]["map_name"]
+                # Пытаемся найти карту рекурсивно или в известном месте
+                # Упрощение: ищем в config.DATA_DIR/map/<тип>/<имя>
+                # Но так как мы не знаем тип, попробуем найти
+                for m_type in config.MAP_TYPES:
+                    potential = os.path.join(config.DATA_DIR, 'map', m_type, map_name)
+                    if os.path.exists(potential):
+                        map_path = potential
+                        break
+    
+    # Если карта всё еще не найдена или не указана, берем дефолт
+    if not map_path or not os.path.exists(map_path):
+         print(f"⚠️ Карта не указана или не найдена. Использую дефолтную: {config.DEFAULT_MAP}")
+         map_path = os.path.join(config.DATA_DIR, 'map', config.DEFAULT_MAP)
 
-            width, height, grid = MapParser.parse_map(map_path)
-            planner = pfc.PathPlanner(width, height, grid)
-            
-            for task in tasks[:config.TASKS_PER_SCENARIO]:
-                for name, algo, heur, weight in config.BENCHMARK_ALGORITHMS:
-                    res = planner.find_path(task["start"][0], task["start"][1],
-                                          task["goal"][0], task["goal"][1],
-                                          algo, heur, weight, config.CONNECTIVITY) # Используем конфиг
-                    time_ms = res.execution_time * 1000
-                    print(f"{task['id']:<4} | {scen_name[:20]:<20} | {name:<14} | {res.path_length:<8.1f} | {task['optimal_len']:<8.1f} | {res.expanded_nodes:<7} | {time_ms:<8.3f}")
-    else:
-        # --- РЕЖИМ СЛУЧАЙНЫХ ТОЧЕК ---
-        map_dir = config.MAP_DIR
-        print(f"\n🚀 Режим случайных точек (Benchmark) | Связность: {config.CONNECTIVITY}")
-        header = f"{'Map File':<25} | {'Algo':<14} | {'Len':<8} | {'Nodes':<7} | {'Time(ms)':<8}"
-        print(header)
-        print("-" * len(header))
-
-        map_files = [f for f in os.listdir(map_dir) if f.endswith('.map')]
-        map_files.sort()
-        if limit: map_files = map_files[:limit]
-
-        for map_name in map_files:
-            map_path = os.path.join(map_dir, map_name)
-            width, height, grid = MapParser.parse_map(map_path)
-            planner = pfc.PathPlanner(width, height, grid)
-            
-            points = get_random_valid_points(width, height, grid)
-            if not points: continue
-            start, goal = points
-
-            for name, algo, heur, weight in config.BENCHMARK_ALGORITHMS:
-                res = planner.find_path(start[0], start[1], goal[0], goal[1], algo, heur, weight, config.CONNECTIVITY) # Используем конфиг
-                time_ms = res.execution_time * 1000
-                print(f"{map_name[:25]:<25} | {name:<14} | {res.path_length:<8.1f} | {res.expanded_nodes:<7} | {time_ms:<8.3f}")
-
-def run_visualization(map_path, algo_key="astar", scen_path=None, task_id=0):
     if not os.path.exists(map_path):
-        print(f"❌ Карта не найдена: {map_path}")
+        print(f"❌ Критическая ошибка: Карта не найдена по пути {map_path}")
         return
 
-    # Получаем настройки алгоритма
-    algo_type, heur_type, weight = config.VISUAL_ALGOS.get(algo_key, config.VISUAL_ALGOS["astar"])
+    # 2. Настройка алгоритма
+    algo_key = args.algo
+    if algo_key not in config.ALGO_REGISTRY:
+        print(f"❌ Алгоритм '{algo_key}' не найден. Доступные: {list(config.ALGO_REGISTRY.keys())}")
+        return
+    algo_type, heur_type, weight = config.ALGO_REGISTRY[algo_key]
 
-    print(f"📖 Загрузка карты: {map_path}...")
+    # 3. Загрузка
+    print(f"📖 Map: {os.path.basename(map_path)}")
     width, height, grid = MapParser.parse_map(map_path)
     planner = pfc.PathPlanner(width, height, grid)
 
-    # Выбор точек
+    # 4. Определение точек
+    tasks_to_run = []
+    
     if scen_path and os.path.exists(scen_path):
         tasks = MapParser.parse_scenarios(scen_path)
-        if task_id < len(tasks):
-            task = tasks[task_id]
-            start, goal = task["start"], task["goal"]
-            print(f"📋 Задача #{task_id} из сценария: Start {start} -> Goal {goal}")
+        if args.id is not None:
+             # Одна конкретная задача
+             if 0 <= args.id < len(tasks):
+                 tasks_to_run = [tasks[args.id]]
+             else:
+                 print(f"❌ ID {args.id} вне диапазона (0-{len(tasks)-1})")
         else:
-            print(f"⚠️ Задача #{task_id} не найдена, использую случайные точки.")
-            start, goal = get_random_valid_points(width, height, grid)
+            # Лимит задач
+            limit = args.limit if args.limit else len(tasks)
+            tasks_to_run = tasks[:limit]
     else:
+        # Случайные точки
         start, goal = get_random_valid_points(width, height, grid)
-
-    if not start:
-        print("❌ Ошибка: не удалось найти свободные точки на карте.")
-        return
-
-    # ЗАПУСК ПОИСКА
-    print(f"🔎 Поиск пути (Алгоритм: {algo_key.upper()}, Сетка: {config.CONNECTIVITY})...")
-    res = planner.find_path(start[0], start[1], goal[0], goal[1], 
-                           algo_type, heur_type, weight, 
-                           config.CONNECTIVITY)
-
-    if res.found:
-        print(f"✅ Путь найден! Длина: {res.path_length:.2f}")
-        if print_ascii_map:
-            if weight + height <= 12:
-                print_ascii_map(width, height, grid, res.path, start, goal)
-        else:
-            print("❌ Ошибка: Функция print_ascii_map не найдена. Проверьте файл visualizer.py!")
-        if save_map_image:
-            save_map_image(width, height, grid, res.path)
-        else:
-            print("❌ Ошибка: Функция save_map_image не найдена. Проверьте файл visualizer.py!")
-    else:
-        print(f"❌ Путь НЕ найден. Проверьте, что точки {start} и {goal} не заблокированы стенами.")
-        # Даже если путь не найден, отрисуем карту со стартом и финишем для проверки
-        # if print_ascii_map:
-        #     print("\nОтрисовка карты без пути (проверка точек):")
-        #     print_ascii_map(width, height, grid, [], start, goal)
-        if print_ascii_map:
-            if weight + height <= 12:
-                print_ascii_map(width, height, grid, res.path, start, goal)
-        else:
-            print("❌ Ошибка: Функция print_ascii_map не найдена. Проверьте файл visualizer.py!")
-
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument('mode', choices=['bench', 'visual'])
-    parser.add_argument('--map', type=str)
-    parser.add_argument('--scen', type=str)
-    parser.add_argument('--id', type=int, default=0)
-    parser.add_argument('--algo', type=str, default='astar')
-    parser.add_argument('--limit', type=int, default=None)
+        if start:
+            tasks_to_run = [{"id": "rnd", "start": start, "goal": goal}]
     
+    # 5. Исполнение
+    for task in tasks_to_run:
+        start, goal = task["start"], task["goal"]
+        print(f"\n🚀 Run Task #{task['id']}: {start} -> {goal} using {algo_key.upper()}")
+        
+        res = planner.find_path(start[0], start[1], goal[0], goal[1], 
+                               algo_type, heur_type, weight, config.CONNECTIVITY)
+
+        if res.found:
+            print(f"✅ Found! Len: {res.path_length:.2f} | Nodes: {res.expanded_nodes} | Time: {res.execution_time*1000:.2f}ms")
+            if print_ascii_map and (width + height < 150): # Рисуем только если карта не гигантская
+                print_ascii_map(width, height, grid, res.path, start, goal)
+        else:
+            print("❌ Path Not Found")
+
+def run_bench_logic(args):
+    """Логика режима bench (быстрый тест в консоль)"""
+    limit = args.limit if args.limit else config.BENCH_LIMIT
+    print(f"🚀 BENCHMARK MODE (Limit: {limit} tasks/scen)")
+    print(f"{'Map':<20} | {'Algo':<12} | {'Len':<8} | {'Nodes':<7} | {'Time(ms)':<8}")
+    print("-" * 65)
+
+    # Для примера берем первую попавшуюся карту из конфига или ищем
+    # Упрощенная логика: берем все .scen из data/scen/maze (как пример)
+    
+    # Сканируем типы из конфига
+    for m_type in config.MAP_TYPES:
+        scen_dir = os.path.join(config.DATA_DIR, 'scen', m_type)
+        map_dir = os.path.join(config.DATA_DIR, 'map', m_type)
+        if not os.path.exists(scen_dir): continue
+
+        scen_files = [f for f in os.listdir(scen_dir) if f.endswith('.scen')][:1] # Берем 1 файл для теста
+        
+        for s_file in scen_files:
+            tasks = MapParser.parse_scenarios(os.path.join(scen_dir, s_file))
+            if not tasks: continue
+            
+            map_name = tasks[0]["map_name"]
+            if not os.path.exists(os.path.join(map_dir, map_name)): continue
+            
+            width, height, grid = MapParser.parse_map(os.path.join(map_dir, map_name))
+            planner = pfc.PathPlanner(width, height, grid)
+            
+            # Тестируем несколько алгоритмов
+            for name, algo, heur, w_val in config.EXPERIMENT_ALGORITHMS[:3]: # Берем первые 3 алгоритма
+                for task in tasks[:limit]:
+                    res = planner.find_path(task["start"][0], task["start"][1],
+                                          task["goal"][0], task["goal"][1],
+                                          algo, heur, w_val, config.CONNECTIVITY)
+                    print(f"{map_name[:20]:<20} | {name:<12} | {res.path_length:<8.1f} | {res.expanded_nodes:<7} | {res.execution_time*1000:<8.3f}")
+
+def main():
+    parser = argparse.ArgumentParser(description="Grid Pathfinding Tool")
+    subparsers = parser.add_subparsers(dest='command', required=True, help='Mode')
+
+    # --- 1. VISUAL ---
+    vis_parser = subparsers.add_parser('visual', help='Visualize a path')
+    vis_parser.add_argument('--map', type=str, help='Path to .map file')
+    vis_parser.add_argument('--scen', type=str, help='Path to .scen file')
+    vis_parser.add_argument('--algo', type=str, default=config.DEFAULT_ALGO, choices=config.ALGO_REGISTRY.keys())
+    vis_parser.add_argument('--id', type=int, help='Task ID from scenario')
+    vis_parser.add_argument('--limit', type=int, help='Run N tasks sequentially')
+
+    # --- 2. BENCH ---
+    bench_parser = subparsers.add_parser('bench', help='Quick console benchmark')
+    bench_parser.add_argument('--limit', type=int, default=10, help='Tasks per scenario')
+
+    # --- 3. EXP (EXPERIMENTS) ---
+    exp_parser = subparsers.add_parser('exp', help='Run full experiments (CSV)')
+    exp_parser.add_argument('--mode', type=str, choices=['uniform', 'all', 'first', 'last'], help='Sampling mode')
+    exp_parser.add_argument('--count', type=int, help='Tasks count per map')
+    exp_parser.add_argument('--map', type=str, help='Target map name (e.g. maze512-1-0.map)')
+
     args = parser.parse_args()
 
-    if args.mode == 'bench':
-        run_benchmark(limit=args.limit)
-    elif args.mode == 'visual':
-        # 1. Умная обработка пути к сценарию
-        if args.scen:
-            if not os.path.exists(args.scen):
-                args.scen = os.path.join(config.SCEN_DIR, args.scen)
-            
-            tasks = MapParser.parse_scenarios(args.scen)
-            if not tasks:
-                print(f"❌ Сценарий пуст или не найден: {args.scen}")
-                exit(1)
+    if args.command == 'visual':
+        run_visual_logic(args)
+    elif args.command == 'bench':
+        run_bench_logic(args)
+    elif args.command == 'exp':
+        # Передаем аргументы, если они есть. Если нет - там внутри подхватятся дефолты из config
+        run_experiments_logic(
+            sampling_mode=args.mode,
+            sampling_count=args.count,
+            target_map=args.map
+        )
 
-            # Авто-подбор карты из сценария
-            if not args.map:
-                map_name = tasks[0]["map_name"]
-                args.map = os.path.join(config.MAP_DIR, map_name)
-                print(f"🔍 Карта найдена в сценарии: {map_name}")
-
-            # 2. ОПРЕДЕЛЯЕМ: Рисуем одну задачу или все?
-            # Если пользователь передал --id в командной строке, рисуем только её
-            # Проверяем, был ли передан аргумент --id (по умолчанию он 0, 
-            # но мы можем проверить sys.argv, чтобы понять, вводил ли его пользователь)
-            import sys
-            user_specified_id = any(arg.startswith("--id") for arg in sys.argv)
-
-            if user_specified_id:
-                # Рисуем только одну конкретную задачу
-                run_visualization(args.map, args.algo, args.scen, args.id)
-            else:
-                # Рисуем все задачи из сценария (с учетом --limit)
-                print(f"🚀 Режим массовой визуализации сценария: {args.scen}")
-                max_tasks = args.limit if args.limit else len(tasks)
-                
-                for i in range(max_tasks):
-                    current_task_id = tasks[i]['id']
-                    print(f"\n" + "="*50)
-                    print(f"📦 ЗАДАЧА №{current_task_id} (из {len(tasks)})")
-                    
-                    run_visualization(args.map, args.algo, args.scen, current_task_id)
-                    
-                    if i < max_tasks - 1:
-                        input("\n>>> Нажмите Enter для следующей задачи (или Ctrl+C для выхода)...")
-
-        # 3. Если сценария нет, просто рисуем карту со случайными точками
-        else:
-            if args.map and not os.path.exists(args.map):
-                potential_path = os.path.join(config.MAP_DIR, args.map)
-                if os.path.exists(potential_path):
-                    args.map = potential_path
-            
-            if not args.map or not os.path.exists(args.map):
-                print(f"❌ Ошибка: Укажите существующую карту (--map) или сценарий (--scen)")
-            else:
-                run_visualization(args.map, args.algo)
+if __name__ == "__main__":
+    main()
