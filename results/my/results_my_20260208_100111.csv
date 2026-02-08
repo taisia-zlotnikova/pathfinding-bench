@@ -1,0 +1,91 @@
+MapName,Scenario,Connectivity,Algorithm,Weight,TaskID,Success,PathLength,OptimalLength,ExpandedNodes,TimeMS,Suboptimality
+maze_simple.map,maze_simple.map.scen,4,BFS,1.0,0,True,16.0000,10.0,17,0.0265,60.00
+maze_simple.map,maze_simple.map.scen,4,Dijkstra,1.0,0,True,16.0000,10.0,17,0.0256,60.00
+maze_simple.map,maze_simple.map.scen,4,A* (Manhattan),1.0,0,True,16.0000,10.0,17,0.0237,60.00
+maze_simple.map,maze_simple.map.scen,4,A* (Euclid),1.0,0,True,16.0000,10.0,17,0.0239,60.00
+maze_simple.map,maze_simple.map.scen,4,A* (Octile),1.0,0,True,16.0000,10.0,17,0.0237,60.00
+maze_simple.map,maze_simple.map.scen,4,WA* (x1.5),1.5,0,True,16.0000,10.0,17,0.0239,60.00
+maze_simple.map,maze_simple.map.scen,4,WA* (x2.0),2.0,0,True,16.0000,10.0,17,0.0231,60.00
+maze_simple.map,maze_simple.map.scen,4,WA* (x5.0),2.0,0,True,16.0000,10.0,17,0.0240,60.00
+maze_simple.map,maze_simple.map.scen,4,WA* (x10.0),2.0,0,True,16.0000,10.0,17,0.0233,60.00
+maze_simple.map,maze_simple.map.scen,8,BFS,1.0,0,True,16.0000,10.0,17,0.0198,60.00
+maze_simple.map,maze_simple.map.scen,8,Dijkstra,1.0,0,True,16.0000,10.0,17,0.0240,60.00
+maze_simple.map,maze_simple.map.scen,8,A* (Manhattan),1.0,0,True,16.0000,10.0,17,0.0247,60.00
+maze_simple.map,maze_simple.map.scen,8,A* (Euclid),1.0,0,True,16.0000,10.0,17,0.0238,60.00
+maze_simple.map,maze_simple.map.scen,8,A* (Octile),1.0,0,True,16.0000,10.0,17,0.0254,60.00
+maze_simple.map,maze_simple.map.scen,8,WA* (x1.5),1.5,0,True,16.0000,10.0,17,0.0242,60.00
+maze_simple.map,maze_simple.map.scen,8,WA* (x2.0),2.0,0,True,16.0000,10.0,17,0.0241,60.00
+maze_simple.map,maze_simple.map.scen,8,WA* (x5.0),2.0,0,True,16.0000,10.0,17,0.0242,60.00
+maze_simple.map,maze_simple.map.scen,8,WA* (x10.0),2.0,0,True,16.0000,10.0,17,0.0249,60.00
+1.map,1.scen,4,BFS,1.0,0,True,8.0000,5.0,25,0.0307,60.00
+1.map,1.scen,4,BFS,1.0,1,True,4.0000,5.0,15,0.0192,-20.00
+1.map,1.scen,4,Dijkstra,1.0,0,True,8.0000,5.0,25,0.0430,60.00
+1.map,1.scen,4,Dijkstra,1.0,1,True,4.0000,5.0,12,0.0230,-20.00
+1.map,1.scen,4,A* (Manhattan),1.0,0,True,8.0000,5.0,20,0.0382,60.00
+1.map,1.scen,4,A* (Manhattan),1.0,1,True,4.0000,5.0,5,0.0116,-20.00
+1.map,1.scen,4,A* (Euclid),1.0,0,True,8.0000,5.0,22,0.0405,60.00
+1.map,1.scen,4,A* (Euclid),1.0,1,True,4.0000,5.0,5,0.0114,-20.00
+1.map,1.scen,4,A* (Octile),1.0,0,True,8.0000,5.0,22,0.0393,60.00
+1.map,1.scen,4,A* (Octile),1.0,1,True,4.0000,5.0,5,0.0114,-20.00
+1.map,1.scen,4,WA* (x1.5),1.5,0,True,8.0000,5.0,9,0.0230,60.00
+1.map,1.scen,4,WA* (x1.5),1.5,1,True,4.0000,5.0,5,0.0112,-20.00
+1.map,1.scen,4,WA* (x2.0),2.0,0,True,8.0000,5.0,9,0.0223,60.00
+1.map,1.scen,4,WA* (x2.0),2.0,1,True,4.0000,5.0,5,0.0117,-20.00
+1.map,1.scen,4,WA* (x5.0),2.0,0,True,8.0000,5.0,9,0.0219,60.00
+1.map,1.scen,4,WA* (x5.0),2.0,1,True,4.0000,5.0,5,0.0112,-20.00
+1.map,1.scen,4,WA* (x10.0),2.0,0,True,8.0000,5.0,9,0.0218,60.00
+1.map,1.scen,4,WA* (x10.0),2.0,1,True,4.0000,5.0,5,0.0114,-20.00
+1.map,1.scen,8,BFS,1.0,0,True,4.0000,5.0,25,0.0344,-20.00
+1.map,1.scen,8,BFS,1.0,1,True,4.0000,5.0,21,0.0306,-20.00
+1.map,1.scen,8,Dijkstra,1.0,0,True,5.6569,5.0,25,0.0596,13.14
+1.map,1.scen,8,Dijkstra,1.0,1,True,4.0000,5.0,16,0.0414,-20.00
+1.map,1.scen,8,A* (Manhattan),1.0,0,True,5.6569,5.0,5,0.0206,13.14
+1.map,1.scen,8,A* (Manhattan),1.0,1,True,4.0000,5.0,5,0.0134,-20.00
+1.map,1.scen,8,A* (Euclid),1.0,0,True,5.6569,5.0,5,0.0206,13.14
+1.map,1.scen,8,A* (Euclid),1.0,1,True,4.0000,5.0,5,0.0136,-20.00
+1.map,1.scen,8,A* (Octile),1.0,0,True,5.6569,5.0,5,0.0208,13.14
+1.map,1.scen,8,A* (Octile),1.0,1,True,4.0000,5.0,5,0.0134,-20.00
+1.map,1.scen,8,WA* (x1.5),1.5,0,True,5.6569,5.0,5,0.0203,13.14
+1.map,1.scen,8,WA* (x1.5),1.5,1,True,4.0000,5.0,5,0.0139,-20.00
+1.map,1.scen,8,WA* (x2.0),2.0,0,True,5.6569,5.0,5,0.0203,13.14
+1.map,1.scen,8,WA* (x2.0),2.0,1,True,4.0000,5.0,5,0.0131,-20.00
+1.map,1.scen,8,WA* (x5.0),2.0,0,True,5.6569,5.0,5,0.0201,13.14
+1.map,1.scen,8,WA* (x5.0),2.0,1,True,4.0000,5.0,5,0.0136,-20.00
+1.map,1.scen,8,WA* (x10.0),2.0,0,True,5.6569,5.0,5,0.0203,13.14
+1.map,1.scen,8,WA* (x10.0),2.0,1,True,4.0000,5.0,5,0.0135,-20.00
+2.map,2.scen,4,BFS,1.0,0,True,8.0000,5.0,22,0.0273,60.00
+2.map,2.scen,4,BFS,1.0,1,True,4.0000,5.0,13,0.0157,-20.00
+2.map,2.scen,4,Dijkstra,1.0,0,True,8.0000,5.0,22,0.0350,60.00
+2.map,2.scen,4,Dijkstra,1.0,1,True,4.0000,5.0,11,0.0220,-20.00
+2.map,2.scen,4,A* (Manhattan),1.0,0,True,8.0000,5.0,22,0.0387,60.00
+2.map,2.scen,4,A* (Manhattan),1.0,1,True,4.0000,5.0,5,0.0108,-20.00
+2.map,2.scen,4,A* (Euclid),1.0,0,True,8.0000,5.0,19,0.0333,60.00
+2.map,2.scen,4,A* (Euclid),1.0,1,True,4.0000,5.0,5,0.0103,-20.00
+2.map,2.scen,4,A* (Octile),1.0,0,True,8.0000,5.0,19,0.0328,60.00
+2.map,2.scen,4,A* (Octile),1.0,1,True,4.0000,5.0,5,0.0103,-20.00
+2.map,2.scen,4,WA* (x1.5),1.5,0,True,8.0000,5.0,10,0.0209,60.00
+2.map,2.scen,4,WA* (x1.5),1.5,1,True,4.0000,5.0,5,0.0107,-20.00
+2.map,2.scen,4,WA* (x2.0),2.0,0,True,8.0000,5.0,10,0.0208,60.00
+2.map,2.scen,4,WA* (x2.0),2.0,1,True,4.0000,5.0,5,0.0106,-20.00
+2.map,2.scen,4,WA* (x5.0),2.0,0,True,8.0000,5.0,10,0.0207,60.00
+2.map,2.scen,4,WA* (x5.0),2.0,1,True,4.0000,5.0,5,0.0103,-20.00
+2.map,2.scen,4,WA* (x10.0),2.0,0,True,8.0000,5.0,10,0.0211,60.00
+2.map,2.scen,4,WA* (x10.0),2.0,1,True,4.0000,5.0,5,0.0102,-20.00
+2.map,2.scen,8,BFS,1.0,0,True,6.0000,5.0,22,0.0269,20.00
+2.map,2.scen,8,BFS,1.0,1,True,4.0000,5.0,16,0.0218,-20.00
+2.map,2.scen,8,Dijkstra,1.0,0,True,6.8284,5.0,22,0.0533,36.57
+2.map,2.scen,8,Dijkstra,1.0,1,True,4.0000,5.0,12,0.0368,-20.00
+2.map,2.scen,8,A* (Manhattan),1.0,0,True,6.8284,5.0,8,0.0211,36.57
+2.map,2.scen,8,A* (Manhattan),1.0,1,True,4.0000,5.0,5,0.0122,-20.00
+2.map,2.scen,8,A* (Euclid),1.0,0,True,6.8284,5.0,14,0.0329,36.57
+2.map,2.scen,8,A* (Euclid),1.0,1,True,4.0000,5.0,5,0.0121,-20.00
+2.map,2.scen,8,A* (Octile),1.0,0,True,6.8284,5.0,14,0.0321,36.57
+2.map,2.scen,8,A* (Octile),1.0,1,True,4.0000,5.0,5,0.0116,-20.00
+2.map,2.scen,8,WA* (x1.5),1.5,0,True,6.8284,5.0,8,0.0218,36.57
+2.map,2.scen,8,WA* (x1.5),1.5,1,True,4.0000,5.0,5,0.0115,-20.00
+2.map,2.scen,8,WA* (x2.0),2.0,0,True,6.8284,5.0,8,0.0208,36.57
+2.map,2.scen,8,WA* (x2.0),2.0,1,True,4.0000,5.0,5,0.0153,-20.00
+2.map,2.scen,8,WA* (x5.0),2.0,0,True,6.8284,5.0,8,0.0249,36.57
+2.map,2.scen,8,WA* (x5.0),2.0,1,True,4.0000,5.0,5,0.0118,-20.00
+2.map,2.scen,8,WA* (x10.0),2.0,0,True,6.8284,5.0,8,0.0210,36.57
+2.map,2.scen,8,WA* (x10.0),2.0,1,True,4.0000,5.0,5,0.0115,-20.00

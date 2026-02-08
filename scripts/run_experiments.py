@@ -35,6 +35,9 @@ ALGORITHMS = [
     ("A* (Octile)",    pfc.AlgorithmType.AStar,    pfc.HeuristicType.Octile,    1.0),
     ("WA* (x1.5)",     pfc.AlgorithmType.WAStar,   pfc.HeuristicType.Octile,    1.5),
     ("WA* (x2.0)",     pfc.AlgorithmType.WAStar,   pfc.HeuristicType.Octile,    2.0),
+    ("WA* (x5.0)",     pfc.AlgorithmType.WAStar,   pfc.HeuristicType.Octile,    2.0),
+    ("WA* (x10.0)",     pfc.AlgorithmType.WAStar,   pfc.HeuristicType.Octile,    2.0),
+
 ]
 
 def run_experiments():
@@ -99,7 +102,7 @@ def run_experiments():
                     continue
 
                 # Ограничиваем кол-во задач для скорости (например, 50)
-                limit_tasks = 50
+                limit_tasks = 100
                 current_tasks = tasks[:limit_tasks]
 
                 for conn in CONNECTIVITIES:
