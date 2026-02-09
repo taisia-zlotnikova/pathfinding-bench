@@ -158,5 +158,4 @@ def run_experiments_logic(sampling_mode=None, sampling_count=None, target_map=No
         print("✅ Done.")
 
 if __name__ == "__main__":
-    # Если запущен напрямую, используем дефолтные настройки
     run_experiments_logic()
