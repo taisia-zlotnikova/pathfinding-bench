@@ -2,6 +2,7 @@ import argparse
 import os
 import sys
 import random
+from pathlib import Path
 
 # Подключаем наши модули
 import config
@@ -30,37 +31,44 @@ def get_random_valid_points(width, height, grid, min_dist=2):
 
 def run_visual_logic(args):
     """Логика режима visual"""
-    # 1. Определяем пути
+    # 1. Определяем пути (если не заданы в аргументах - берутся дефолты из конфига,
+    #    которые мы прописали в argparse, но для карт логика поиска сложнее)
     map_path = args.map
     scen_path = args.scen
 
-    # Если карта не указана, но есть сценарий -> берем карту из сценария
-    if scen_path and not map_path:
+    # Логика "умного поиска" карты, если она не задана явно, но есть сценарий
+    if scen_path and (not map_path or map_path == config.DEFAULT_MAP):
+        # Если путь к сценарию относительный и файла нет, ищем в дефолтной папке
         if not os.path.exists(scen_path):
-             # Попытка найти в дефолтной папке
-             scen_path = os.path.join(config.DATA_DIR, 'scen', config.DEFAULT_SCEN.split('/')[0], scen_path)
+             scen_part = config.DEFAULT_SCEN.split('/')[0] # 'maze'
+             potential_scen = os.path.join(config.DATA_DIR, 'scen', scen_part, scen_path)
+             if os.path.exists(potential_scen):
+                 scen_path = potential_scen
         
         if os.path.exists(scen_path):
-            tasks = MapParser.parse_scenarios(scen_path)
-            if tasks:
-                map_name = tasks[0]["map_name"]
-                # Пытаемся найти карту рекурсивно или в известном месте
-                # Упрощение: ищем в config.DATA_DIR/map/<тип>/<имя>
-                # Но так как мы не знаем тип, попробуем найти
-                for m_type in config.MAP_TYPES:
-                    potential = os.path.join(config.DATA_DIR, 'map', m_type, map_name)
-                    if os.path.exists(potential):
-                        map_path = potential
-                        break
+            try:
+                tasks = MapParser.parse_scenarios(scen_path)
+                if tasks:
+                    map_name = tasks[0]["map_name"]
+                    # Ищем карту по всем папкам типов
+                    for m_type in config.MAP_TYPES:
+                        potential = os.path.join(config.DATA_DIR, 'map', m_type, map_name)
+                        if os.path.exists(potential):
+                            map_path = potential
+                            break
+            except Exception:
+                pass # Если не вышло распарсить, остаемся с map_path из аргументов/конфига
     
-    # Если карта всё еще не найдена или не указана, берем дефолт
+    # Финальная проверка карты
     if not map_path or not os.path.exists(map_path):
-         print(f"⚠️ Карта не указана или не найдена. Использую дефолтную: {config.DEFAULT_MAP}")
-         map_path = os.path.join(config.DATA_DIR, 'map', config.DEFAULT_MAP)
-
-    if not os.path.exists(map_path):
-        print(f"❌ Критическая ошибка: Карта не найдена по пути {map_path}")
-        return
+         # Пробуем добавить полный путь к дефолтной карте
+         if map_path == config.DEFAULT_MAP:
+             map_path = os.path.join(config.DATA_DIR, 'map', config.DEFAULT_MAP)
+         
+         if not os.path.exists(map_path):
+            print(f"❌ Ошибка: Карта не найдена по пути {map_path}")
+            print(f"   Проверьте config.py или передайте --map")
+            return
 
     # 2. Настройка алгоритма
     algo_key = args.algo
@@ -69,25 +77,41 @@ def run_visual_logic(args):
         return
     algo_type, heur_type, weight = config.ALGO_REGISTRY[algo_key]
 
-    # 3. Загрузка
-    print(f"📖 Map: {os.path.basename(map_path)}")
+    # Проверка карты и сценария
+    base_map_name = os.path.basename(map_path) if map_path else None
+    base_scen_name = os.path.basename(scen_path) if scen_path else None
+    if base_scen_name.endswith('.scen'):
+            derived_scen_name = base_scen_name[:-5]
+            if base_map_name != derived_scen_name:
+                print(f"⚠️ Карта {base_map_name} не совпадает с сценарием {base_scen_name}")
+                print(f"Берем карту из сценария.")
+                map_path = os.path.join(config.DATA_DIR, 'map', derived_scen_name)
+
+    # 3. Загрузка 
+    # print(f"📖 Map: {os.path.basename(map_path)}")
+    print(f"📖 Map: {Path(map_path).parent.name}/{Path(map_path).name}")
+
     width, height, grid = MapParser.parse_map(map_path)
     planner = pfc.PathPlanner(width, height, grid)
 
     # 4. Определение точек
     tasks_to_run = []
+    # print(f"📖 Scenarios: {os.path.basename(scen_path)}")
+    print(f"📖 Scenarios: {Path(scen_path).parent.name}/{Path(scen_path).name}")
     
     if scen_path and os.path.exists(scen_path):
         tasks = MapParser.parse_scenarios(scen_path)
+        
+        # ЛОГИКА ВЫБОРА ЗАДАЧ:
+        # Приоритет 1: Если задан ID (в конфиге или аргументах)
         if args.id is not None:
-             # Одна конкретная задача
              if 0 <= args.id < len(tasks):
                  tasks_to_run = [tasks[args.id]]
              else:
                  print(f"❌ ID {args.id} вне диапазона (0-{len(tasks)-1})")
+        # Приоритет 2: Иначе берем LIMIT (из конфига или аргументов)
         else:
-            # Лимит задач
-            limit = args.limit if args.limit else len(tasks)
+            limit = args.limit # Гарантированно есть число (дефолт из конфига)
             tasks_to_run = tasks[:limit]
     else:
         # Случайные точки
@@ -96,6 +120,10 @@ def run_visual_logic(args):
             tasks_to_run = [{"id": "rnd", "start": start, "goal": goal}]
     
     # 5. Исполнение
+    if not tasks_to_run:
+        print("⚠️ Нет задач для выполнения.")
+        return
+
     for task in tasks_to_run:
         start, goal = task["start"], task["goal"]
         print(f"\n🚀 Run Task #{task['id']}: {start} -> {goal} using {algo_key.upper()}")
@@ -105,28 +133,25 @@ def run_visual_logic(args):
 
         if res.found:
             print(f"✅ Found! Len: {res.path_length:.2f} | Nodes: {res.expanded_nodes} | Time: {res.execution_time*1000:.2f}ms")
-            if print_ascii_map and (width + height < 150): # Рисуем только если карта не гигантская
+            save_map_image(width, height, grid, res.path)
+            if print_ascii_map and (width + height < 150): 
                 print_ascii_map(width, height, grid, res.path, start, goal)
         else:
             print("❌ Path Not Found")
 
 def run_bench_logic(args):
-    """Логика режима bench (быстрый тест в консоль)"""
-    limit = args.limit if args.limit else config.BENCH_LIMIT
+    """Логика режима bench"""
+    limit = args.limit # Берется из аргументов или конфига автоматически
     print(f"🚀 BENCHMARK MODE (Limit: {limit} tasks/scen)")
     print(f"{'Map':<20} | {'Algo':<12} | {'Len':<8} | {'Nodes':<7} | {'Time(ms)':<8}")
     print("-" * 65)
 
-    # Для примера берем первую попавшуюся карту из конфига или ищем
-    # Упрощенная логика: берем все .scen из data/scen/maze (как пример)
-    
-    # Сканируем типы из конфига
     for m_type in config.MAP_TYPES:
         scen_dir = os.path.join(config.DATA_DIR, 'scen', m_type)
         map_dir = os.path.join(config.DATA_DIR, 'map', m_type)
         if not os.path.exists(scen_dir): continue
 
-        scen_files = [f for f in os.listdir(scen_dir) if f.endswith('.scen')][:1] # Берем 1 файл для теста
+        scen_files = [f for f in os.listdir(scen_dir) if f.endswith('.scen')][:1]
         
         for s_file in scen_files:
             tasks = MapParser.parse_scenarios(os.path.join(scen_dir, s_file))
@@ -138,8 +163,7 @@ def run_bench_logic(args):
             width, height, grid = MapParser.parse_map(os.path.join(map_dir, map_name))
             planner = pfc.PathPlanner(width, height, grid)
             
-            # Тестируем несколько алгоритмов
-            for name, algo, heur, w_val in config.EXPERIMENT_ALGORITHMS[:3]: # Берем первые 3 алгоритма
+            for name, algo, heur, w_val in config.EXPERIMENT_ALGORITHMS[:3]:
                 for task in tasks[:limit]:
                     res = planner.find_path(task["start"][0], task["start"][1],
                                           task["goal"][0], task["goal"][1],
@@ -152,21 +176,33 @@ def main():
 
     # --- 1. VISUAL ---
     vis_parser = subparsers.add_parser('visual', help='Visualize a path')
-    vis_parser.add_argument('--map', type=str, help='Path to .map file')
-    vis_parser.add_argument('--scen', type=str, help='Path to .scen file')
-    vis_parser.add_argument('--algo', type=str, default=config.DEFAULT_ALGO, choices=config.ALGO_REGISTRY.keys())
-    vis_parser.add_argument('--id', type=int, help='Task ID from scenario')
-    vis_parser.add_argument('--limit', type=int, help='Run N tasks sequentially')
+    
+    # ЗДЕСЬ МЫ СВЯЗЫВАЕМ АРГУМЕНТЫ С CONFIG.PY
+    # Если пользователь не введет флаг, argparse подставит значение из config
+    vis_parser.add_argument('--map', type=str, default=config.DEFAULT_MAP, 
+                            help='Path to .map file')
+    vis_parser.add_argument('--scen', type=str, default=config.DEFAULT_SCEN, 
+                            help='Path to .scen file')
+    vis_parser.add_argument('--algo', type=str, default=config.DEFAULT_ALGO, 
+                            choices=config.ALGO_REGISTRY.keys())
+    vis_parser.add_argument('--id', type=int, default=config.DEFAULT_VISUAL_ID, 
+                            help='Task ID from scenario (overrides limit)')
+    vis_parser.add_argument('--limit', type=int, default=config.DEFAULT_VISUAL_LIMIT, 
+                            help='Run N tasks sequentially')
 
     # --- 2. BENCH ---
     bench_parser = subparsers.add_parser('bench', help='Quick console benchmark')
-    bench_parser.add_argument('--limit', type=int, default=10, help='Tasks per scenario')
+    bench_parser.add_argument('--limit', type=int, default=config.BENCH_LIMIT, 
+                              help='Tasks per scenario')
 
     # --- 3. EXP (EXPERIMENTS) ---
     exp_parser = subparsers.add_parser('exp', help='Run full experiments (CSV)')
-    exp_parser.add_argument('--mode', type=str, choices=['uniform', 'all', 'first', 'last'], help='Sampling mode')
-    exp_parser.add_argument('--count', type=int, help='Tasks count per map')
-    exp_parser.add_argument('--map', type=str, help='Target map name (e.g. maze512-1-0.map)')
+    exp_parser.add_argument('--mode', type=str, choices=['uniform', 'all', 'first', 'last'], 
+                            default=config.EXP_SAMPLING_MODE, help='Sampling mode')
+    exp_parser.add_argument('--count', type=int, default=config.EXP_SAMPLING_COUNT, 
+                            help='Tasks count per map')
+    exp_parser.add_argument('--map', type=str, default=config.EXP_TARGET_MAP, 
+                            help='Target map name (e.g. maze512-1-0.map)')
 
     args = parser.parse_args()
 
@@ -175,7 +211,7 @@ def main():
     elif args.command == 'bench':
         run_bench_logic(args)
     elif args.command == 'exp':
-        # Передаем аргументы, если они есть. Если нет - там внутри подхватятся дефолты из config
+        # Передаем аргументы напрямую, они уже заполнены дефолтами из конфига
         run_experiments_logic(
             sampling_mode=args.mode,
             sampling_count=args.count,

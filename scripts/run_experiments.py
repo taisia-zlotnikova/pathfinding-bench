@@ -135,7 +135,7 @@ def run_experiments_logic(sampling_mode=None, sampling_count=None, target_map=No
 
                 # Запуск алгоритмов
                 # Используем алгоритмы из config.py
-                connectivities = [4, 8] # Можно вынести в конфиг, но обычно тестируем оба
+                connectivities = config.EXPERIMENT_CONNECTIVITIES
                 
                 for conn in connectivities:
                     for algo_name, algo_enum, heur_enum, weight in config.EXPERIMENT_ALGORITHMS:
