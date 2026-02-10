@@ -38,10 +38,10 @@ DEFAULT_SCEN = os.path.join(DATA_DIR, 'scen', DEFAULT_SCEN_NAME)
 BENCH_LIMIT = 10 # Лимит задач на сценарий
 
 # [EXPERIMENTS MODE]
-EXP_SAMPLING_MODE = 'first'  # 'all', 'uniform', 'first', 'last'
-EXP_SAMPLING_COUNT = 10
-EXP_TARGET_MAP = None          # Имя карты или None (все)
-EXPERIMENT_CONNECTIVITIES = [4, 8]
+EXP_SAMPLING_MODE = 'all'  # 'all', 'uniform', 'first', 'last'
+EXP_SAMPLING_COUNT = 20000
+EXP_TARGET_MAP = "random512-30-0.map"       # Имя карты или None (все). ["maze512-1-0.map", "random512-40-0.map"]
+EXPERIMENT_CONNECTIVITIES = [4, 8]            # [4, 8]. Для лабиринта лучше ставить 4
 
 # --- 4. РЕЕСТР АЛГОРИТМОВ ---
 if pfc:
@@ -59,9 +59,9 @@ if pfc:
         ("BFS",            pfc.AlgorithmType.BFS,      pfc.HeuristicType.Zero,      1.0),
         ("Dijkstra",       pfc.AlgorithmType.Dijkstra, pfc.HeuristicType.Zero,      1.0),
         ("A* (Octile)",    pfc.AlgorithmType.AStar,    pfc.HeuristicType.Octile,    1.0),
-        # ("WA* (x1.5)",     pfc.AlgorithmType.WAStar,   pfc.HeuristicType.Octile,    1.5),
+        ("WA* (x1.5)",     pfc.AlgorithmType.WAStar,   pfc.HeuristicType.Octile,    1.5),
         ("WA* (x2.0)",     pfc.AlgorithmType.WAStar,   pfc.HeuristicType.Octile,    2.0),
-        # ("WA* (x5.0)",     pfc.AlgorithmType.WAStar,   pfc.HeuristicType.Octile,    5.0),
+        ("WA* (x5.0)",     pfc.AlgorithmType.WAStar,   pfc.HeuristicType.Octile,    5.0),
         ("WA* (x10.0)",     pfc.AlgorithmType.WAStar,   pfc.HeuristicType.Octile,    10.0),
 
     ]
