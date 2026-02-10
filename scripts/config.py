@@ -23,11 +23,11 @@ MAP_TYPES = ['maze', 'random', 'street']
 # --- 3. НАСТРОЙКИ ПО УМОЛЧАНИЮ (DEFAULTS) ---
 
 # [VISUAL MODE]
-DEFAULT_MAP_NAME = "maze/maze512-1-0.map"
-DEFAULT_SCEN_NAME = "maze/maze512-1-0.map.scen"
+DEFAULT_MAP_NAME = "street/Moscow_0_1024.map"
+DEFAULT_SCEN_NAME = "street/Moscow_0_1024.map.scen"
 DEFAULT_ALGO = "astar"
 # Если ID = None, то визуализатор переходит в режим показа серии задач (LIMIT)
-DEFAULT_VISUAL_ID = None  
+DEFAULT_VISUAL_ID = 1500
 # Сколько задач показывать подряд, если ID не задан
 DEFAULT_VISUAL_LIMIT = 1  
 
@@ -40,7 +40,7 @@ BENCH_LIMIT = 10 # Лимит задач на сценарий
 # [EXPERIMENTS MODE]
 EXP_SAMPLING_MODE = 'all'  # 'all', 'uniform', 'first', 'last'
 EXP_SAMPLING_COUNT = 20000
-EXP_TARGET_MAP = "Moscow_0_256.map"       # Имя карты или None (все). ["maze512-1-0.map", "random512-40-0.map"]
+EXP_TARGET_MAP = "Moscow_0_1024.map"       # Имя карты или None (все). ["maze512-1-0.map", "random512-40-0.map"]
 EXPERIMENT_CONNECTIVITIES = [4, 8]            # [4, 8]. Для лабиринта лучше ставить 4
 
 # --- 4. РЕЕСТР АЛГОРИТМОВ ---
