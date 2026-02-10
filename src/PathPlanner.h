@@ -7,10 +7,10 @@
 #include <unordered_map>
 #include <vector>
 
-// Типы алгоритмов [cite: 7]
+// Типы алгоритмов
 enum class AlgorithmType { BFS, Dijkstra, AStar, WAStar };
 
-// Типы эвристик [cite: 14]
+// Типы эвристик
 enum class HeuristicType {
   Manhattan,
   Euclidean,
@@ -22,9 +22,9 @@ enum class HeuristicType {
 struct SearchResult {
   std::vector<std::pair<int, int>> path;
   bool found;
-  int expanded_nodes;     // [cite: 47]
-  double path_length;     // [cite: 45]
-  double execution_time;  // [cite: 46]
+  int expanded_nodes;
+  double path_length;
+  double execution_time;
 };
 
 // Узел графа для Priority Queue
@@ -45,9 +45,7 @@ class PathPlanner {
   SearchResult findPath(int start_x, int start_y, int goal_x, int goal_y,
                         AlgorithmType algo,
                         HeuristicType heuristic = HeuristicType::Manhattan,
-                        double weight = 1.0,  // [cite: 18]
-                        int connectivity = 4  // [cite: 20]
-  );
+                        double weight = 1.0, int connectivity = 4);
 
  private:
   int width_, height_;

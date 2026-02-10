@@ -24,8 +24,7 @@ double PathPlanner::calculateHeuristic(int idx1, int idx2, HeuristicType type) {
   }
 }
 
-// Пока реализуем базовые 4 соседа, 8-связность и corner cutting добавим в Этапе
-// 3
+// соседи URDL
 std::vector<int> PathPlanner::getNeighbors(int current_id, int connectivity) {
   std::vector<int> neighbors;
   auto [cx, cy] = toCoord(current_id);
@@ -105,7 +104,7 @@ SearchResult PathPlanner::findPath(int start_x, int start_y, int goal_x,
   if (algo == AlgorithmType::BFS) {
     return runBFS(start_id, goal_id, connectivity);
   } else {
-    // Dijkstra - это A* с h=0 [cite: 8]
+    // Dijkstra - это A* с h=0
     if (algo == AlgorithmType::Dijkstra) {
       heuristic = HeuristicType::Zero;
       weight = 0.0;
@@ -131,7 +130,7 @@ SearchResult PathPlanner::runBFS(int start_id, int goal_id, int connectivity) {
   while (!q.empty()) {
     int current = q.front();
     q.pop();
-    expanded_nodes++;  // [cite: 47]
+    expanded_nodes++;
 
     if (current == goal_id) {
       found = true;
@@ -142,8 +141,8 @@ SearchResult PathPlanner::runBFS(int start_id, int goal_id, int connectivity) {
       if (came_from.find(next) == came_from.end()) {
         came_from[next] = current;
         // В BFS на гриде вес ребра всегда 1.0 (для 4-связности)
-        // Для 8-связности BFS не гарантирует кратчайший путь, если есть
-        // диагонали sqrt(2) Но реализуем классический BFS по графу
+        // Для 8-связности BFS не гарантирует кратчайший путь, если есть.
+        // Диагонали sqrt(2) Но реализуем классический BFS по графу
         dist_so_far[next] = dist_so_far[current] + 1.0;
         q.push(next);
       }

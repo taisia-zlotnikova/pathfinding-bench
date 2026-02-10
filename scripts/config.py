@@ -13,12 +13,11 @@ sys.path.append(BUILD_DIR)
 try:
     import pathfinding_core as pfc
 except ImportError:
-    # print(f"❌ Warning: Не найден модуль 'pathfinding_core' в {BUILD_DIR}")
     pfc = None
 
 # --- 2. ОБЩИЕ НАСТРОЙКИ ---
-CONNECTIVITY = 8  # 4 или 8
-MAP_TYPES = ['maze', 'random', 'street'] 
+CONNECTIVITY = 8                            # 4 или 8
+MAP_TYPES = ['maze', 'random', 'street']    # Типы карт. Добавьте свое, если положили в data
 
 # --- 3. НАСТРОЙКИ ПО УМОЛЧАНИЮ (DEFAULTS) ---
 
@@ -38,13 +37,14 @@ DEFAULT_SCEN = os.path.join(DATA_DIR, 'scen', DEFAULT_SCEN_NAME)
 BENCH_LIMIT = 10 # Лимит задач на сценарий
 
 # [EXPERIMENTS MODE]
-EXP_SAMPLING_MODE = 'all'  # 'all', 'uniform', 'first', 'last'
-EXP_SAMPLING_COUNT = 20000
+EXP_SAMPLING_MODE = 'all'                 # 'all', 'uniform', 'first', 'last'
+EXP_SAMPLING_COUNT = 20000                # Количество задач
 EXP_TARGET_MAP = "Moscow_0_512.map"       # Имя карты или None (все). ["maze512-1-0.map", "random512-40-0.map"]
-EXPERIMENT_CONNECTIVITIES = [8]            # [4, 8]. Для лабиринта лучше ставить 4
+EXPERIMENT_CONNECTIVITIES = [8]           # [4, 8]. Для лабиринта лучше ставить 4
 
 # --- 4. РЕЕСТР АЛГОРИТМОВ ---
 if pfc:
+    # Реестр алгоритмов
     ALGO_REGISTRY = {
         "bfs":      (pfc.AlgorithmType.BFS,      pfc.HeuristicType.Zero,      1.0),
         "dijkstra": (pfc.AlgorithmType.Dijkstra, pfc.HeuristicType.Zero,      1.0),

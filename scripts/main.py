@@ -170,7 +170,44 @@ def run_bench_logic(args):
                                           algo, heur, w_val, config.CONNECTIVITY)
                     print(f"{map_name[:20]:<20} | {name:<12} | {res.path_length:<8.1f} | {res.expanded_nodes:<7} | {res.execution_time*1000:<8.3f}")
 
+def print_hints():
+    # Цвета для консоли
+    C_RESET  = "\033[0m"
+    C_BOLD   = "\033[1m"
+    C_GREEN  = "\033[32m"
+    C_YELLOW = "\033[33m"
+    C_CYAN   = "\033[36m"
+
+    print(f"\n{C_BOLD}💡Нелья запускать без аргументов. \nВнимательно прочитайте README.md и изучите файл config.py.\n")
+
+    print(f"\n{C_BOLD} Краткая подсказка:{C_RESET}")
+    print(f"{C_CYAN}{'-'*60}{C_RESET}")
+
+    print(f"{C_BOLD}1. 👁️  Визуализация (Visual Mode){C_RESET}")
+    print(f"   Посмотреть, как A* ищет путь на лабиринте:")
+    print(f"   {C_GREEN}python3 scripts/main.py visual --map data/map/maze/maze512-1-0.map --algo astar{C_RESET}")
+    print(f"   Сравнить с WA* (вес 2.0):")
+    print(f"   {C_GREEN}python3 scripts/main.py visual --map data/map/random/random512-10-0.map --algo wastar --weight 2.0{C_RESET}")
+
+    print(f"\n{C_BOLD}2. ⏱️  Бенчмарк (Bench Mode){C_RESET}")
+    print(f"   Быстрый тест производительности в консоли:")
+    print(f"   {C_GREEN}python3 scripts/main.py bench --limit 20{C_RESET}")
+
+    print(f"\n{C_BOLD}3. 🧪 Эксперименты (Exp Mode){C_RESET}")
+    print(f"   Запустить массовые тесты для сбора статистики (CSV):")
+    print(f"   {C_GREEN}python3 scripts/main.py exp --mode uniform --count 50{C_RESET}")
+    print(f"   Тест конкретной карты:")
+    print(f"   {C_GREEN}python3 scripts/main.py exp --map random512-10-0.map --count 100{C_RESET}")
+
+    print(f"\n{C_BOLD}4. 📊 Аналитика (Analyze){C_RESET}")
+    print(f"   Построить графики по результатам:")
+    print(f"   {C_GREEN}python3 scripts/analyze_results.py{C_RESET}")
+    
+    print(f"{C_CYAN}{'-'*60}{C_RESET}\n")
+
 def main():
+    if len(sys.argv) == 1:
+        print_hints()
     parser = argparse.ArgumentParser(description="Grid Pathfinding Tool")
     subparsers = parser.add_subparsers(dest='command', required=True, help='Mode')
 

@@ -157,64 +157,107 @@ def plot_tradeoff(df, output_dir, file_tag):
 # --- SCATTER PLOTS (Зависимость от сложности) ---
 
 def plot_time_vs_length(df, output_dir, file_tag):
-    """Строит график зависимости Времени от Длины пути."""
-    plt.figure(figsize=(12, 7))
+    unique_conns = sorted(df['Connectivity'].unique())
+    n_cols = len(unique_conns)
+    
+    if n_cols == 0: return
+
+    fig, axes = plt.subplots(1, n_cols, figsize=(7 * n_cols, 7), sharey=True)
+    
+    # Если связность одна, axes это не список, превращаем в список для унификации
+    if n_cols == 1: axes = [axes]
+    
     sns.set_style("whitegrid")
     
-    # Берем макс. связность (обычно 8), чтобы не мешать всё в кучу
-    conn = df['Connectivity'].max()
-    data = df[df['Connectivity'] == conn]
-    
-    # Ограничиваем список алгоритмов для читаемости (без самых медленных, если их много)
-    # Но пока оставим все
-    
-    sns.scatterplot(
-        data=data, 
-        x='OptimalLength', 
-        y='TimeMS', 
-        hue='Algorithm', 
-        style='Algorithm',
-        alpha=0.7,
-        palette='tab10',
-        s=60
-    )
-    
-    plt.title(get_plot_title(f'Сложность: Время vs Длина пути (Conn={conn})', df, file_tag))
-    plt.xlabel('Оптимальная длина пути')
-    plt.ylabel('Время (мс)')
-    plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
+    for i, conn in enumerate(unique_conns):
+        ax = axes[i] # Берем "свой" квадратик для рисования
+        data = df[df['Connectivity'] == conn]
+        
+        # 2. Рисуем на конкретной оси ax=ax
+        sns.scatterplot(
+            data=data, 
+            x='OptimalLength', 
+            y='TimeMS', 
+            hue='Algorithm', 
+            style='Algorithm',
+            alpha=0.7,
+            palette='tab10',
+            s=60,
+            ax=ax, 
+            legend=(i == n_cols - 1)
+        )
+        
+        ax.set_title(f'Связность: {conn}')
+        ax.set_xlabel('Оптимальная длина пути')
+        
+        if i == 0:
+            ax.set_ylabel('Время (мс)')
+        else:
+            ax.set_ylabel('')
+
+    # Выносим легенду наружу последнего графика
+    if n_cols > 0:
+        axes[-1].legend(bbox_to_anchor=(1.05, 1), loc='upper left')
+
+    plt.suptitle(get_plot_title('Сложность: Время vs Длина', df, file_tag))
     plt.tight_layout()
+    
+    # 3. Сохраняем ОДИН раз ПОСЛЕ цикла
     plt.savefig(os.path.join(output_dir, f'{file_tag}_5_scatter_time.png'))
     plt.close()
 
 def plot_nodes_vs_length(df, output_dir, file_tag):
-    """Строит график зависимости Раскрытых вершин от Длины пути."""
-    plt.figure(figsize=(12, 7))
+    """Строит графики зависимости: Раскрытые вершины vs Длина пути (для каждой связности рядом)."""
+    unique_conns = sorted(df['Connectivity'].unique())
+    n_cols = len(unique_conns)
+    
+    if n_cols == 0: return
+
+    fig, axes = plt.subplots(1, n_cols, figsize=(7 * n_cols, 7), sharey=True)
+    
+    # Если график всего один, axes не список - делаем списком
+    if n_cols == 1: axes = [axes]
+    
     sns.set_style("whitegrid")
     
-    conn = df['Connectivity'].max()
-    data = df[df['Connectivity'] == conn]
-    
-    sns.scatterplot(
-        data=data, 
-        x='OptimalLength', 
-        y='ExpandedNodes', 
-        hue='Algorithm', 
-        style='Algorithm',
-        alpha=0.7,
-        palette='tab10',
-        s=60
-    )
-    
-    plt.title(get_plot_title(f'Сложность: Вершины vs Длина пути (Conn={conn})', df, file_tag))
-    plt.xlabel('Оптимальная длина пути')
-    plt.ylabel('Раскрытые вершины (log scale)')
-    plt.yscale('log') # Логарифм обязателен, иначе Dijkstra всё сплющит
-    plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
+    for i, conn in enumerate(unique_conns):
+        ax = axes[i]
+        data = df[df['Connectivity'] == conn]
+        
+        # 2. Рисуем на конкретной оси (ax=ax)
+        sns.scatterplot(
+            data=data, 
+            x='OptimalLength', 
+            y='ExpandedNodes', 
+            hue='Algorithm', 
+            style='Algorithm',
+            alpha=0.7,
+            palette='tab10',
+            s=60,
+            ax=ax,
+            legend=(i == n_cols - 1) # Легенда только на последнем
+        )
+        
+        ax.set_title(f'Связность: {conn}')
+        ax.set_xlabel('Оптимальная длина пути')
+        
+        ax.set_yscale('log')
+        
+        if i == 0:
+            ax.set_ylabel('Раскрытые вершины (log scale)')
+        else:
+            ax.set_ylabel('')
+
+    # Легенда справа от последнего графика
+    if n_cols > 0:
+        axes[-1].legend(bbox_to_anchor=(1.05, 1), loc='upper left')
+
+    plt.suptitle(get_plot_title('Сложность: Вершины vs Длина', df, file_tag))
     plt.tight_layout()
+    
+    # 3. Сохраняем один раз
     plt.savefig(os.path.join(output_dir, f'{file_tag}_6_scatter_nodes.png'))
     plt.close()
-
 def analyze_recursive(force=False):
     print(f"🔍 Сканирование папки: {RESULTS_DIR}")
     if force:
@@ -244,6 +287,9 @@ def analyze_recursive(force=False):
                 if 'Success' not in df.columns: continue
                 
                 df_success = df[df['Success'] == True]
+
+                # убрать bfs из 8-связности, так как он считает длину диагонали за 1
+                df_success = df_success[~((df_success['Algorithm'] == 'BFS') & (df_success['Connectivity'] == 8))]
                 if df_success.empty: continue
                 
                 # Генерируем 6 артефактов
