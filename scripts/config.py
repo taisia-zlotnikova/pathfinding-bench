@@ -40,8 +40,8 @@ BENCH_LIMIT = 10 # Лимит задач на сценарий
 # [EXPERIMENTS MODE]
 EXP_SAMPLING_MODE = 'all'  # 'all', 'uniform', 'first', 'last'
 EXP_SAMPLING_COUNT = 20000
-EXP_TARGET_MAP = "Moscow_0_1024.map"       # Имя карты или None (все). ["maze512-1-0.map", "random512-40-0.map"]
-EXPERIMENT_CONNECTIVITIES = [4, 8]            # [4, 8]. Для лабиринта лучше ставить 4
+EXP_TARGET_MAP = "Moscow_0_512.map"       # Имя карты или None (все). ["maze512-1-0.map", "random512-40-0.map"]
+EXPERIMENT_CONNECTIVITIES = [8]            # [4, 8]. Для лабиринта лучше ставить 4
 
 # --- 4. РЕЕСТР АЛГОРИТМОВ ---
 if pfc:
