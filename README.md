@@ -251,7 +251,7 @@ python3 scripts/analyze_results.py
 
 - общие настройки
     - CONNECTIVITY ( для визуализации и тестирования bench)
-    - MAP_TYPES
+    - MAP_TYPES (названия типов карт. необходимо добавить при добавлении новой карты)
 - настройки запусков --mode
     - visual
     - bench
