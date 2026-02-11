@@ -84,8 +84,8 @@ def run_visual_logic(args):
             derived_scen_name = base_scen_name[:-5]
             if base_map_name != derived_scen_name:
                 print(f"⚠️ Карта {base_map_name} не совпадает с сценарием {base_scen_name}")
-                print(f"Берем карту из сценария.")
-                map_path = os.path.join(config.DATA_DIR, 'map', derived_scen_name)
+                print(f"-- Проверьте config.py или передайте --scen и --map")
+                return
 
     # 3. Загрузка 
     # print(f"📖 Map: {os.path.basename(map_path)}")
