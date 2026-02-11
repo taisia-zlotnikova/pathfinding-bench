@@ -333,10 +333,10 @@ python3 scripts/analyze_results.py
     - На random картах же просадка оптимальности WA*10 доходит до 15% на сложных сценариях.
 - Иногда WA\* с бо`льшим коэффициентом проигрывает по времени и числу раскрытых вершин. Возможно, из-жа жадной переоценки и рассматривания плохих путей.
 
-- Для сравнения график tradeoff.png для карты лабиринтов, случайных, улиц (maze, randomб street): 
-![alt text](image.png)
-![alt text](image-1.png)
-![alt text](image-2.png)
+- Для сравнения график tradeoff.png для карты лабиринтов, случайных, улиц (maze, random, street): 
+<img src="pic/image.png" width="300" alt="maze">
+<img src="pic/image-1.png" width="300" alt="random">
+<img src="pic/image-2.png" width="300" alt="street">
 ---
 
 ## Структура проекта
