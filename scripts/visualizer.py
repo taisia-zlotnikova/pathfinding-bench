@@ -1,55 +1,55 @@
 from PIL import Image, ImageDraw
 
-def save_map_image(width, height, grid, path, filename="path_viz.png"):
+def save_map_image(width, height, grid, path=None, start=None, goal=None, filename="path_viz.png"):
     """
-    Генерирует изображение карты с путем.
+    Визуализация карты, где путь закрашивается целыми клетками.
     """
-    cell_size = 10  # Размер одной клетки в пикселях
+    # 1. Настройка масштаба (cell_size пикселей на одну клетку)
+    if width > 512 or height > 512:
+        cell_size = 2  # Совсем мелкие клетки для гигантских карт
+    elif width > 256:
+        cell_size = 5
+    else:
+        cell_size = 10
+        
     img_width = width * cell_size
     img_height = height * cell_size
     
-    # Цвета (RGB)
-    COLOR_WALL = (0, 0, 0)       # Черный
-    COLOR_FREE = (255, 255, 255) # Белый
-    COLOR_PATH = (255, 0, 0)     # Красный
-    COLOR_START = (0, 255, 0)    # Зеленый
-    COLOR_GOAL = (0, 0, 255)     # Синий
+    # Цвета
+    COLOR_WALL = (40, 40, 40)       # Стены (темные)
+    COLOR_FREE = (240, 240, 240)    # Пусто (светло-серый)
+    COLOR_PATH = (255, 150, 150)    # Путь (нежно-красный, чтобы не перекрывал маркеры)
+    COLOR_START = (0, 200, 0)       # Старт (зеленый)
+    COLOR_GOAL = (0, 0, 200)        # Цель (синий)
 
     img = Image.new("RGB", (img_width, img_height), COLOR_FREE)
-    pixels = img.load()
+    draw = ImageDraw.Draw(img)
 
-    # 1. Рисуем стены
+    # 2. Рисуем стены
     for y in range(height):
         for x in range(width):
             if grid[y * width + x] == 1: # 1 - это стена
-                # Закрашиваем квадрат
-                for i in range(cell_size):
-                    for j in range(cell_size):
-                        pixels[x * cell_size + i, y * cell_size + j] = COLOR_WALL
+                shape = [x * cell_size, y * cell_size, (x + 1) * cell_size, (y + 1) * cell_size]
+                draw.rectangle(shape, fill=COLOR_WALL)
 
-    # 2. Рисуем путь
+    # 3. Закрашиваем клетки ПУТИ
     if path:
-        draw = ImageDraw.Draw(img)
-        # Рисуем линию через центры клеток
-        line_points = []
         for (x, y) in path:
-            center_x = x * cell_size + cell_size // 2
-            center_y = y * cell_size + cell_size // 2
-            line_points.append((center_x, center_y))
-        
-        # Рисуем саму линию (шириной 2 пикселя)
-        draw.line(line_points, fill=COLOR_PATH, width=2)
-        
-        # Рисуем старт и финиш кружочками
-        sx, sy = path[0]
-        gx, gy = path[-1]
-        
-        r = cell_size // 3
-        draw.ellipse((sx*cell_size+r, sy*cell_size+r, sx*cell_size+2*r, sy*cell_size+2*r), fill=COLOR_START)
-        draw.ellipse((gx*cell_size+r, gy*cell_size+r, gx*cell_size+2*r, gy*cell_size+2*r), fill=COLOR_GOAL)
+            shape = [x * cell_size, y * cell_size, (x + 1) * cell_size, (y + 1) * cell_size]
+            draw.rectangle(shape, fill=COLOR_PATH)
+
+    # 4. Рисуем маркеры Старта и Финиша (поверх пути)
+    def fill_cell(pos, color):
+        if pos:
+            x, y = pos
+            shape = [x * cell_size, y * cell_size, (x + 1) * cell_size, (y + 1) * cell_size]
+            draw.rectangle(shape, fill=color, outline=(0,0,0), width=1)
+
+    fill_cell(start, COLOR_START)
+    fill_cell(goal, COLOR_GOAL)
 
     img.save(filename)
-    print(f"🖼️ Карта сохранена в {filename}")
+    print(f"🖼️ Карта (плитки) сохранена в {filename}")
 
 def save_cost2go_image(window, filename="cost2go.png"):
     """

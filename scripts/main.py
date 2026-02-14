@@ -155,7 +155,7 @@ def run_visual_logic(args):
 
         if res.found:
             print(f"✅ Found! Len: {res.path_length:.2f} | Nodes: {res.expanded_nodes} | Time: {res.execution_time*1000:.2f}ms")
-            save_map_image(width, height, grid, res.path, filename=path_filename)
+            save_map_image(width, height, grid, res.path, start, goal, filename=path_filename)
             print(f"✅ Результаты сохранены в папку: {viz_dir}")
         else:
             print("❌ Path Not Found")
