@@ -46,6 +46,10 @@ class PathPlanner {
                         AlgorithmType algo,
                         HeuristicType heuristic = HeuristicType::Manhattan,
                         double weight = 1.0, int connectivity = 4);
+  std::vector<std::vector<double>> getCost2GoWindow(int agent_x, int agent_y,
+                                                    int goal_x, int goal_y,
+                                                    int radius,
+                                                    int connectivity = 4);
 
  private:
   int width_, height_;

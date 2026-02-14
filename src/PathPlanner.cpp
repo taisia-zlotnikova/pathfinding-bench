@@ -243,3 +243,87 @@ SearchResult PathPlanner::runAStarLike(int start_id, int goal_id,
   return {path, found, expanded_nodes, found ? cost_so_far[goal_id] : 0.0,
           duration.count()};
 }
+
+// ... (предыдущий код) ...
+
+std::vector<std::vector<double>> PathPlanner::getCost2GoWindow(
+    int agent_x, int agent_y, int goal_x, int goal_y, int radius,
+    int connectivity) {
+  // 1. Определяем границы окна
+  int win_size = 2 * radius + 1;
+  int min_x = agent_x - radius;
+  int max_x = agent_x + radius;
+  int min_y = agent_y - radius;
+  int max_y = agent_y + radius;
+
+  // Инициализируем матрицу окна значением -1.0 (неизвестно/стена)
+  std::vector<std::vector<double>> window(win_size,
+                                          std::vector<double>(win_size, -1.0));
+
+  int goal_id = toIndex(goal_x, goal_y);
+
+  // 2. Настраиваем Обратный Dijkstra
+  // priority_queue хранит Node, сортирует по меньшему f_score (тут f_score =
+  // distance)
+  std::priority_queue<Node, std::vector<Node>, std::greater<Node>> open_set;
+  open_set.push({goal_id, 0.0, 0.0});
+
+  std::unordered_map<int, double> cost_so_far;
+  cost_so_far[goal_id] = 0.0;
+
+  // Счетчик заполненных клеток окна (для оптимизации выхода)
+  int filled_cells = 0;
+  int total_window_cells =
+      win_size * win_size;  // Грубая оценка, можно точнее посчитать проходимые
+
+  while (!open_set.empty()) {
+    Node current = open_set.top();
+    open_set.pop();
+
+    // Lazy deletion: если нашли путь короче раньше
+    if (current.g_score > cost_so_far[current.id] + 1e-9) continue;
+
+    auto [cx, cy] = toCoord(current.id);
+
+    // 3. Если текущая клетка попадает в окно агента — сохраняем значение
+    if (cx >= min_x && cx <= max_x && cy >= min_y && cy <= max_y) {
+      int local_x = cx - min_x;
+      int local_y = cy - min_y;
+
+      // Если мы впервые пишем в эту клетку
+      if (window[local_y][local_x] == -1.0) {
+        window[local_y][local_x] = current.g_score;
+        filled_cells++;
+      }
+    }
+
+    // Условие выхода: если заполнили все достижимые клетки окна
+    // (Примечание: это простая эвристика, для полной гарантии можно убрать
+    // break, но тогда поиск пойдет по всей карте) Если цель очень далеко от
+    // агента, алгоритм все равно будет работать долго, пока волна не дойдет до
+    // окна.
+
+    // 4. Расширяем соседей
+    for (int next : getNeighbors(current.id, connectivity)) {
+      auto [nx, ny] = toCoord(next);
+
+      double move_cost = 1.0;
+      // Если 8-связность и ход по диагонали
+      if (connectivity == 8 && cx != nx && cy != ny) {
+        move_cost = std::sqrt(2.0);
+      }
+
+      double new_cost = cost_so_far[current.id] + move_cost;
+
+      if (cost_so_far.find(next) == cost_so_far.end() ||
+          new_cost < cost_so_far[next]) {
+        cost_so_far[next] = new_cost;
+        open_set.push({next, new_cost, new_cost});
+      }
+    }
+  }
+
+  // Пост-обработка: клетки со стенами внутри окна так и останутся -1.0,
+  // так как getNeighbors их не вернет.
+  return window;
+}

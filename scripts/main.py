@@ -11,9 +11,13 @@ from map_parser import MapParser
 import pathfinding_core as pfc
 
 try:
-    from visualizer import print_ascii_map, save_map_image
+    from visualizer import save_map_image
 except ImportError:
-    print_ascii_map = None
+    save_map_image = None
+try:
+    from visualizer import save_cost2go_image
+except ImportError:
+    save_cost2go_image = None
 
 # --- ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ---
 def get_random_valid_points(width, height, grid, min_dist=2):
@@ -124,18 +128,35 @@ def run_visual_logic(args):
         print("⚠️ Нет задач для выполнения.")
         return
 
+    viz_dir = "visuals"
+    os.makedirs(viz_dir, exist_ok=True)
     for task in tasks_to_run:
+        task_id = task['id']
         start, goal = task["start"], task["goal"]
-        print(f"\n🚀 Run Task #{task['id']}: {start} -> {goal} using {algo_key.upper()}")
         
+        # Генерируем уникальные имена файлов для этой задачи
+        c2g_filename = os.path.join(viz_dir, f"c2g_task_{task_id}.png")
+        path_filename = os.path.join(viz_dir, f"path_task_{task_id}.png")
+        
+        print(f"\n🚀 Run Task #{task_id}: {start} -> {goal}")
+        
+        # --- ГЕНЕРАЦИЯ COST2GO ---
+        try:
+            c2g_window = planner.get_cost2go_window(
+                start[0], start[1], goal[0], goal[1], 
+                5, config.CONNECTIVITY
+            )
+            save_cost2go_image(c2g_window, filename=c2g_filename)
+        except Exception as e:
+            print(f"⚠️ Ошибка cost2go: {e}")
+
         res = planner.find_path(start[0], start[1], goal[0], goal[1], 
                                algo_type, heur_type, weight, config.CONNECTIVITY)
 
         if res.found:
             print(f"✅ Found! Len: {res.path_length:.2f} | Nodes: {res.expanded_nodes} | Time: {res.execution_time*1000:.2f}ms")
-            save_map_image(width, height, grid, res.path)
-            if print_ascii_map and (width + height < 150): 
-                print_ascii_map(width, height, grid, res.path, start, goal)
+            save_map_image(width, height, grid, res.path, filename=path_filename)
+            print(f"✅ Результаты сохранены в папку: {viz_dir}")
         else:
             print("❌ Path Not Found")
 

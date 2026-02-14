@@ -1,51 +1,3 @@
-def print_ascii_map(width, height, grid, path=None, start=None, goal=None):
-    """
-    Рисует карту в консоли.
-    Условные обозначения:
-    . - пусто
-    # - стена
-    S - старт
-    G - цель
-    * - путь
-    """
-    # Преобразуем путь в множество для быстрого поиска (O(1))
-    path_set = set(path) if path else set()
-    
-    # Символы
-    CHAR_EMPTY = '.'
-    CHAR_WALL = '#'
-    CHAR_PATH = '*'
-    CHAR_START = 'S'
-    CHAR_GOAL = 'G'
-    
-    print("-" * (width + 2))
-    
-    for y in range(height):
-        row_str = "|"
-        for x in range(width):
-            idx = y * width + x
-            char_to_print = CHAR_EMPTY
-            
-            # 1. Базовая карта
-            if grid[idx] == 1:
-                char_to_print = CHAR_WALL
-            
-            # 2. Путь (рисуем поверх пустого места)
-            if (x, y) in path_set and grid[idx] == 0:
-                char_to_print = CHAR_PATH
-            
-            # 3. Старт и Цель (рисуем поверх всего)
-            if start and (x, y) == start:
-                char_to_print = CHAR_START
-            elif goal and (x, y) == goal:
-                char_to_print = CHAR_GOAL
-                
-            row_str += char_to_print
-        row_str += "|"
-        print(row_str)
-        
-    print("-" * (width + 2))
-
 from PIL import Image, ImageDraw
 
 def save_map_image(width, height, grid, path, filename="path_viz.png"):
@@ -98,3 +50,63 @@ def save_map_image(width, height, grid, path, filename="path_viz.png"):
 
     img.save(filename)
     print(f"🖼️ Карта сохранена в {filename}")
+
+def save_cost2go_image(window, filename="cost2go.png"):
+    """
+    Рисует тепловую карту Cost-2-Go.
+    window: 2D список (list of lists), который вернул C++.
+    """
+    try:
+        import numpy as np
+    except ImportError:
+        print("⚠️ Для визуализации cost2go нужен numpy")
+        return
+
+    # Преобразуем в массив для удобства
+    grid = np.array(window)
+    height, width = grid.shape
+    
+    # Настройка размера пикселя (сделаем покрупнее, так как окно маленькое, например 11x11)
+    cell_size = 40 
+    img_width = width * cell_size
+    img_height = height * cell_size
+    
+    img = Image.new("RGB", (img_width, img_height), (0, 0, 0))
+    draw = ImageDraw.Draw(img)
+
+    # Нормализация для цветов: найдем макс значение, исключая -1 (стены)
+    valid_values = grid[grid != -1.0]
+    max_val = valid_values.max() if valid_values.size > 0 else 1.0
+    min_val = valid_values.min() if valid_values.size > 0 else 0.0
+
+    for y in range(height):
+        for x in range(width):
+            val = grid[y][x]
+            
+            # Цвет клетки
+            if val == -1.0:
+                color = (0, 0, 0) # Стена/Неизвестно = Черный
+            elif val == 0.0:
+                color = (0, 255, 0) # Цель = Ярко-зеленый
+            else:
+                # Градиент от Синего (близко) к Красному (далеко)
+                # Нормализуем значение от 0 до 1
+                ratio = (val - min_val) / (max_val - min_val + 1e-9)
+                r = int(255 * ratio)
+                b = int(255 * (1 - ratio))
+                color = (r, 0, b)
+            
+            # Рисуем квадрат
+            draw.rectangle(
+                [x * cell_size, y * cell_size, (x + 1) * cell_size, (y + 1) * cell_size],
+                fill=color, outline=(50, 50, 50)
+            )
+            
+            # Пишем число (стоимость) в центре клетки
+            if val != -1.0:
+                text = f"{val:.1f}"
+                # Центрируем текст (примерно)
+                draw.text((x * cell_size + 5, y * cell_size + 15), text, fill=(255, 255, 255))
+
+    img.save(filename)
+    print(f"🖼️ Heatmap сохранен в {filename}")
