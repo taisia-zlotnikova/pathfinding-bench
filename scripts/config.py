@@ -15,9 +15,12 @@ try:
 except ImportError:
     pfc = None
 
+
 # --- 2. ОБЩИЕ НАСТРОЙКИ ---
 CONNECTIVITY = 8                            # 4 или 8
 MAP_TYPES = ['maze', 'random', 'street']    # Типы карт. Добавьте свое, если положили в data
+RADIUS = 5                                  # для окна вокруг агента 11*11 должно быть 5. влияет пока только на подсчет cost2go
+
 
 # --- 3. НАСТРОЙКИ ПО УМОЛЧАНИЮ (DEFAULTS) ---
 
@@ -39,8 +42,9 @@ BENCH_LIMIT = 10 # Лимит задач на сценарий
 # [EXPERIMENTS MODE]
 EXP_SAMPLING_MODE = 'all'                 # 'all', 'uniform', 'first', 'last'
 EXP_SAMPLING_COUNT = 20000                # Количество задач
-EXP_TARGET_MAP = "Moscow_0_512.map"       # Имя карты или None (все). ["maze512-1-0.map", "random512-40-0.map"]
+EXP_TARGET_MAP = "Moscow_0_256.map"       # Имя карты или None (все). ["maze512-1-0.map", "random512-40-0.map"]
 EXPERIMENT_CONNECTIVITIES = [8]           # [4, 8]. Для лабиринта лучше ставить 4
+
 
 # --- 4. РЕЕСТР АЛГОРИТМОВ ---
 if pfc:

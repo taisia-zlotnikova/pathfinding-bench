@@ -16,7 +16,7 @@ double PathPlanner::calculateHeuristic(int idx1, int idx2, HeuristicType type) {
   double dx = std::abs(x1 - x2);
   double dy = std::abs(y1 - y2);
 
-  // [cite: 15, 16, 17] Реализация эвристик
+  // Реализация эвристик
   switch (type) {
     case HeuristicType::Manhattan:
       return dx + dy;

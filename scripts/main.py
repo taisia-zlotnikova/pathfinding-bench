@@ -140,11 +140,11 @@ def run_visual_logic(args):
         
         print(f"\n🚀 Run Task #{task_id}: {start} -> {goal}")
         
-        # --- ГЕНЕРАЦИЯ COST2GO ---
+        # создание карты cost2go
         try:
             c2g_window = planner.get_cost2go_window(
                 start[0], start[1], goal[0], goal[1], 
-                5, config.CONNECTIVITY
+                args.radius, config.CONNECTIVITY
             )
             save_cost2go_image(c2g_window, filename=c2g_filename)
         except Exception as e:
@@ -247,6 +247,8 @@ def main():
                             help='Task ID from scenario (overrides limit)')
     vis_parser.add_argument('--limit', type=int, default=config.DEFAULT_VISUAL_LIMIT, 
                             help='Run N tasks sequentially')
+    vis_parser.add_argument('--radius', type=int, default=config.RADIUS, 
+                            help='Radius of window for cost2go')
 
     # --- 2. BENCH ---
     bench_parser = subparsers.add_parser('bench', help='Quick console benchmark')
