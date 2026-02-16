@@ -1,22 +1,16 @@
 #pragma once
 #include <algorithm>
-#include <chrono>
 #include <cmath>
 #include <iostream>
+#include <limits>
 #include <queue>
-#include <unordered_map>
 #include <vector>
 
 // Типы алгоритмов
 enum class AlgorithmType { BFS, Dijkstra, AStar, WAStar };
 
 // Типы эвристик
-enum class HeuristicType {
-  Manhattan,
-  Euclidean,
-  Octile,
-  Zero  // Для Dijkstra
-};
+enum class HeuristicType { Manhattan, Euclidean, Octile, Zero };
 
 // Структура результата
 struct SearchResult {
@@ -27,44 +21,49 @@ struct SearchResult {
   double execution_time;
 };
 
-// Узел графа для Priority Queue
+// Узел для Priority Queue
 struct Node {
-  int id;  // y * width + x
+  int id;
   double f_score;
-  double g_score;
+  double g_score;  // Вернули g_score для корректной проверки lazy deletion
 
-  // Для priority_queue (меньший f_score имеет приоритет)
-  bool operator>(const Node& other) const { return f_score > other.f_score; }
+  // Priority Queue в C++ по умолчанию max-heap, поэтому для min-heap (меньший f
+  // лучше) оператор должен возвращать true, если текущий элемент "больше"
+  // (имеет меньший приоритет)
+  bool operator>(const Node& other) const {
+    // Если f_score равны, можно сравнивать g_score для тай-брейкинга
+    // (опционально)
+    return f_score > other.f_score;
+  }
 };
 
 class PathPlanner {
  public:
   PathPlanner(int width, int height, const std::vector<int>& grid);
 
-  // Основной метод поиска
   SearchResult findPath(int start_x, int start_y, int goal_x, int goal_y,
                         AlgorithmType algo,
                         HeuristicType heuristic = HeuristicType::Manhattan,
                         double weight = 1.0, int connectivity = 4);
-  std::vector<std::vector<double>> getCost2GoWindow(int agent_x, int agent_y,
-                                                    int goal_x, int goal_y,
-                                                    int radius,
-                                                    int connectivity = 4);
 
  private:
   int width_, height_;
-  std::vector<int> grid_;  // 0 - свободно, 1 - препятствие
+  const std::vector<int>& grid_;  // Ссылка, чтобы не копировать память
 
-  // Вспомогательные методы
+  // Хелперы
   double calculateHeuristic(int idx1, int idx2, HeuristicType type);
-  std::vector<int> getNeighbors(int current_id, int connectivity);
+
+  // Передаем векторы по ссылке, чтобы избежать re-allocation в цикле
+  void getNeighbors(int current_id, int connectivity,
+                    std::vector<int>& out_neighbors,
+                    std::vector<double>& out_costs);
+
   SearchResult runAStarLike(int start_id, int goal_id, HeuristicType h_type,
                             double weight, int connectivity);
   SearchResult runBFS(int start_id, int goal_id, int connectivity);
 
-  // Преобразование координат
-  int toIndex(int x, int y) const { return y * width_ + x; }
-  std::pair<int, int> toCoord(int index) const {
+  inline int toIndex(int x, int y) const { return y * width_ + x; }
+  inline std::pair<int, int> toCoord(int index) const {
     return {index % width_, index / width_};
   }
 };

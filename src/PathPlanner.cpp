@@ -1,110 +1,124 @@
 #include "PathPlanner.h"
 
+#include <chrono>
+
 PathPlanner::PathPlanner(int width, int height, const std::vector<int>& grid)
     : width_(width), height_(height), grid_(grid) {}
 
 double PathPlanner::calculateHeuristic(int idx1, int idx2, HeuristicType type) {
   if (type == HeuristicType::Zero) return 0.0;
 
-  auto [x1, y1] = toCoord(idx1);
-  auto [x2, y2] = toCoord(idx2);
+  int x1 = idx1 % width_;
+  int y1 = idx1 / width_;
+  int x2 = idx2 % width_;
+  int y2 = idx2 / width_;
+
   double dx = std::abs(x1 - x2);
   double dy = std::abs(y1 - y2);
 
-  // [cite: 15, 16, 17]
+  // [cite: 15, 16, 17] Реализация эвристик
   switch (type) {
     case HeuristicType::Manhattan:
       return dx + dy;
     case HeuristicType::Euclidean:
       return std::sqrt(dx * dx + dy * dy);
     case HeuristicType::Octile:
-      return (dx + dy) + (std::sqrt(2) - 2) * std::min(dx, dy);
+      // Формула: (dx + dy) + (sqrt(2) - 2) * min(dx, dy)
+      // Это математически эквивалентно max(dx, dy) + (sqrt(2)-1)*min(dx, dy)
+      return (dx + dy) + (1.41421356 - 2.0) * std::min(dx, dy);
     default:
       return 0.0;
   }
 }
 
-// соседи URDL
-std::vector<int> PathPlanner::getNeighbors(int current_id, int connectivity) {
-  std::vector<int> neighbors;
-  auto [cx, cy] = toCoord(current_id);
+// Оптимизированное получение соседей без лишних аллокаций
+void PathPlanner::getNeighbors(int current_id, int connectivity,
+                               std::vector<int>& out_neighbors,
+                               std::vector<double>& out_costs) {
+  out_neighbors.clear();
+  out_costs.clear();
 
-  // 1. Ортогональные перемещения (Up, Down, Left, Right)
-  // Порядок: Right, Down, Left, Up
-  int dx_orth[] = {1, 0, -1, 0};
-  int dy_orth[] = {0, 1, 0, -1};
+  int cx = current_id % width_;
+  int cy = current_id / width_;
 
-  // Сохраним доступность ортогональных соседей для проверки диагоналей
-  // free_orth[0] -> Right, free_orth[1] -> Down, etc.
+  // Ортогональные сдвиги: Right, Down, Left, Up
+  const int dx_orth[] = {1, 0, -1, 0};
+  const int dy_orth[] = {0, 1, 0, -1};
   bool free_orth[4] = {false, false, false, false};
 
+  // 1. Проверяем ортогональных соседей [cite: 21]
   for (int i = 0; i < 4; ++i) {
     int nx = cx + dx_orth[i];
     int ny = cy + dy_orth[i];
 
     if (nx >= 0 && nx < width_ && ny >= 0 && ny < height_) {
-      int n_idx = toIndex(nx, ny);
+      int n_idx = ny * width_ + nx;
       if (grid_[n_idx] == 0) {
-        neighbors.push_back(n_idx);
-        free_orth[i] = true;  // Запоминаем, что здесь проход свободен
+        out_neighbors.push_back(n_idx);
+        out_costs.push_back(1.0);
+        free_orth[i] = true;
       }
     }
   }
 
-  // 2. Диагональные перемещения (только если connectivity == 8)
+  // 2. Диагональные (только если 8-связность) [cite: 22, 23]
   if (connectivity == 8) {
-    // Направления диагоналей соответствуют комбинациям ортогональных:
-    // 0: Right-Down (+1, +1) -> нужны Orth[0] (Right) и Orth[1] (Down)
-    // 1: Left-Down  (-1, +1) -> нужны Orth[2] (Left)  и Orth[1] (Down)
-    // 2: Left-Up    (-1, -1) -> нужны Orth[2] (Left)  и Orth[3] (Up)
-    // 3: Right-Up   (+1, -1) -> нужны Orth[0] (Right) и Orth[3] (Up)
+    const int dx_diag[] = {1, -1, -1, 1};
+    const int dy_diag[] = {1, 1, -1, -1};
+    const double diag_cost = 1.41421356;  // sqrt(2)
 
-    int dx_diag[] = {1, -1, -1, 1};
-    int dy_diag[] = {1, 1, -1, -1};
-
-    // Индексы ортогональных соседей, которые должны быть свободны
-    int check1[] = {0, 2, 2, 0};  // Right, Left, Left, Right
-    int check2[] = {1, 1, 3, 3};  // Down, Down, Up, Up
+    // Для проверки Corner Cutting: диагональ разрешена, если оба ортогональных
+    // соседа свободны Индексы в free_orth: 0=Right, 1=Down, 2=Left, 3=Up Diag 0
+    // (Right-Down): нужны Right(0) и Down(1) Diag 1 (Left-Down):  нужны Left(2)
+    // и Down(1) Diag 2 (Left-Up):    нужны Left(2)  и Up(3) Diag 3 (Right-Up):
+    // нужны Right(0) и Up(3)
+    const int check1[] = {0, 2, 2, 0};
+    const int check2[] = {1, 1, 3, 3};
 
     for (int i = 0; i < 4; ++i) {
       int nx = cx + dx_diag[i];
       int ny = cy + dy_diag[i];
 
       if (nx >= 0 && nx < width_ && ny >= 0 && ny < height_) {
-        int n_idx = toIndex(nx, ny);
-
-        // Главное условие: сама диагональная клетка свободна
+        int n_idx = ny * width_ + nx;
         if (grid_[n_idx] == 0) {
-          // Проверка Corner Cutting:
-          // Разрешено только если ОБА ортогональных соседа свободны
+          // Corner Cutting check
           if (free_orth[check1[i]] && free_orth[check2[i]]) {
-            neighbors.push_back(n_idx);
+            out_neighbors.push_back(n_idx);
+            out_costs.push_back(diag_cost);
           }
         }
       }
     }
   }
-
-  return neighbors;
 }
 
 SearchResult PathPlanner::findPath(int start_x, int start_y, int goal_x,
                                    int goal_y, AlgorithmType algo,
                                    HeuristicType heuristic, double weight,
                                    int connectivity) {
-  int start_id = toIndex(start_x, start_y);
-  int goal_id = toIndex(goal_x, goal_y);
-
-  // Проверка границ
+  // Валидация координат
   if (start_x < 0 || start_x >= width_ || start_y < 0 || start_y >= height_ ||
       goal_x < 0 || goal_x >= width_ || goal_y < 0 || goal_y >= height_) {
     return {{}, false, 0, 0.0, 0.0};
   }
 
+  int start_id = toIndex(start_x, start_y);
+  int goal_id = toIndex(goal_x, goal_y);
+
+  // Если старт или цель в препятствии — пути нет
+  if (grid_[start_id] != 0 ||
+      grid_[grid_.size() > (size_t)goal_id ? goal_id : 0] != 0) {
+    // Доп. проверка границ массива на всякий случай, хотя start_id проверен
+    // выше
+    if (grid_[start_id] != 0 || grid_[goal_id] != 0)
+      return {{}, false, 0, 0.0, 0.0};
+  }
+
   if (algo == AlgorithmType::BFS) {
     return runBFS(start_id, goal_id, connectivity);
   } else {
-    // Dijkstra - это A* с h=0
+    // [cite: 8] Dijkstra это частный случай A* с h=0
     if (algo == AlgorithmType::Dijkstra) {
       heuristic = HeuristicType::Zero;
       weight = 0.0;
@@ -119,13 +133,20 @@ SearchResult PathPlanner::runBFS(int start_id, int goal_id, int connectivity) {
   std::queue<int> q;
   q.push(start_id);
 
-  std::unordered_map<int, int> came_from;
-  std::unordered_map<int, double> dist_so_far;  // Нужно для длины пути
-  came_from[start_id] = -1;
-  dist_so_far[start_id] = 0.0;
+  // Используем vector вместо map для скорости O(1)
+  std::vector<int> came_from(width_ * height_, -1);
+  std::vector<bool> visited(width_ * height_, false);
+
+  visited[start_id] = true;
 
   int expanded_nodes = 0;
   bool found = false;
+
+  // Предварительное выделение памяти для соседей
+  std::vector<int> neighbors;
+  std::vector<double> costs;
+  neighbors.reserve(8);
+  costs.reserve(8);
 
   while (!q.empty()) {
     int current = q.front();
@@ -137,13 +158,12 @@ SearchResult PathPlanner::runBFS(int start_id, int goal_id, int connectivity) {
       break;
     }
 
-    for (int next : getNeighbors(current, connectivity)) {
-      if (came_from.find(next) == came_from.end()) {
+    getNeighbors(current, connectivity, neighbors, costs);
+
+    for (int next : neighbors) {
+      if (!visited[next]) {
+        visited[next] = true;
         came_from[next] = current;
-        // В BFS на гриде вес ребра всегда 1.0 (для 4-связности)
-        // Для 8-связности BFS не гарантирует кратчайший путь, если есть.
-        // Диагонали sqrt(2) Но реализуем классический BFS по графу
-        dist_so_far[next] = dist_so_far[current] + 1.0;
         q.push(next);
       }
     }
@@ -151,20 +171,35 @@ SearchResult PathPlanner::runBFS(int start_id, int goal_id, int connectivity) {
 
   // Реконструкция пути
   std::vector<std::pair<int, int>> path;
+  double true_length = 0.0;
+
   if (found) {
     int curr = goal_id;
-    while (curr != -1) {
+    while (curr != start_id) {
       path.push_back(toCoord(curr));
-      curr = came_from[curr];
+      int prev = came_from[curr];
+
+      // Считаем точную длину для метрики (даже если BFS искал по ребрам)
+      int cx = curr % width_;
+      int cy = curr / width_;
+      int px = prev % width_;
+      int py = prev / width_;
+
+      if (cx != px && cy != py)
+        true_length += 1.41421356;
+      else
+        true_length += 1.0;
+
+      curr = prev;
     }
+    path.push_back(toCoord(start_id));
     std::reverse(path.begin(), path.end());
   }
 
   auto end_time = std::chrono::high_resolution_clock::now();
   std::chrono::duration<double> duration = end_time - start_time;
 
-  return {path, found, expanded_nodes, found ? dist_so_far[goal_id] : 0.0,
-          duration.count()};
+  return {path, found, expanded_nodes, true_length, duration.count()};
 }
 
 SearchResult PathPlanner::runAStarLike(int start_id, int goal_id,
@@ -172,61 +207,60 @@ SearchResult PathPlanner::runAStarLike(int start_id, int goal_id,
                                        int connectivity) {
   auto start_time = std::chrono::high_resolution_clock::now();
 
+  // Min-heap priority queue
   std::priority_queue<Node, std::vector<Node>, std::greater<Node>> open_set;
-  open_set.push({start_id, 0.0, 0.0});
 
-  std::unordered_map<int, int> came_from;
-  std::unordered_map<int, double> cost_so_far;
+  double h_start = calculateHeuristic(start_id, goal_id, h_type);
+  open_set.push({start_id, weight * h_start, 0.0});
 
-  came_from[start_id] = -1;
+  const double INF = std::numeric_limits<double>::infinity();
+  std::vector<double> cost_so_far(width_ * height_, INF);
+  std::vector<int> came_from(width_ * height_, -1);
+
   cost_so_far[start_id] = 0.0;
 
   int expanded_nodes = 0;
   bool found = false;
 
+  std::vector<int> neighbors;
+  std::vector<double> costs;
+  neighbors.reserve(8);
+  costs.reserve(8);
+
   while (!open_set.empty()) {
     Node current = open_set.top();
     open_set.pop();
 
-    // Lazy deletion: если нашли путь лучше к этому узлу ранее, пропускаем
-    // старую запись
+    // Lazy deletion: если извлеченный путь хуже уже известного, пропускаем
     if (current.g_score > cost_so_far[current.id] + 1e-9) continue;
-
-    expanded_nodes++;
 
     if (current.id == goal_id) {
       found = true;
       break;
     }
 
-    for (int next : getNeighbors(current.id, connectivity)) {
-      // Получаем координаты текущей и следующей клетки для проверки типа хода
-      auto [cx, cy] = toCoord(current.id);
-      auto [nx, ny] = toCoord(next);
+    expanded_nodes++;
 
-      double move_cost;
+    getNeighbors(current.id, connectivity, neighbors, costs);
 
-      // Если изменились обе координаты (и x, и y), значит ход диагональный
-      if (cx != nx && cy != ny) {
-        move_cost = std::sqrt(2.0);  // ~1.414
-      } else {
-        move_cost = 1.0;
-      }
+    for (size_t i = 0; i < neighbors.size(); ++i) {
+      int next = neighbors[i];
+      double move_cost = costs[i];
+      double new_g = cost_so_far[current.id] + move_cost;
 
-      double new_cost = cost_so_far[current.id] + move_cost;
+      if (new_g < cost_so_far[next]) {
+        cost_so_far[next] = new_g;
+        double h = calculateHeuristic(next, goal_id, h_type);
+        // f = g + w*h
+        double new_f = new_g + weight * h;
 
-      if (cost_so_far.find(next) == cost_so_far.end() ||
-          new_cost < cost_so_far[next]) {
-        cost_so_far[next] = new_cost;
-        double priority =
-            new_cost + weight * calculateHeuristic(next, goal_id, h_type);
         came_from[next] = current.id;
-        open_set.push({next, priority, new_cost});
+        open_set.push({next, new_f, new_g});
       }
     }
   }
 
-  // Реконструкция пути
+  // Реконструкция
   std::vector<std::pair<int, int>> path;
   if (found) {
     int curr = goal_id;
@@ -242,88 +276,4 @@ SearchResult PathPlanner::runAStarLike(int start_id, int goal_id,
 
   return {path, found, expanded_nodes, found ? cost_so_far[goal_id] : 0.0,
           duration.count()};
-}
-
-// ... (предыдущий код) ...
-
-std::vector<std::vector<double>> PathPlanner::getCost2GoWindow(
-    int agent_x, int agent_y, int goal_x, int goal_y, int radius,
-    int connectivity) {
-  // 1. Определяем границы окна
-  int win_size = 2 * radius + 1;
-  int min_x = agent_x - radius;
-  int max_x = agent_x + radius;
-  int min_y = agent_y - radius;
-  int max_y = agent_y + radius;
-
-  // Инициализируем матрицу окна значением -1.0 (неизвестно/стена)
-  std::vector<std::vector<double>> window(win_size,
-                                          std::vector<double>(win_size, -1.0));
-
-  int goal_id = toIndex(goal_x, goal_y);
-
-  // 2. Настраиваем Обратный Dijkstra
-  // priority_queue хранит Node, сортирует по меньшему f_score (тут f_score =
-  // distance)
-  std::priority_queue<Node, std::vector<Node>, std::greater<Node>> open_set;
-  open_set.push({goal_id, 0.0, 0.0});
-
-  std::unordered_map<int, double> cost_so_far;
-  cost_so_far[goal_id] = 0.0;
-
-  // Счетчик заполненных клеток окна (для оптимизации выхода)
-  int filled_cells = 0;
-  int total_window_cells =
-      win_size * win_size;  // Грубая оценка, можно точнее посчитать проходимые
-
-  while (!open_set.empty()) {
-    Node current = open_set.top();
-    open_set.pop();
-
-    // Lazy deletion: если нашли путь короче раньше
-    if (current.g_score > cost_so_far[current.id] + 1e-9) continue;
-
-    auto [cx, cy] = toCoord(current.id);
-
-    // 3. Если текущая клетка попадает в окно агента — сохраняем значение
-    if (cx >= min_x && cx <= max_x && cy >= min_y && cy <= max_y) {
-      int local_x = cx - min_x;
-      int local_y = cy - min_y;
-
-      // Если мы впервые пишем в эту клетку
-      if (window[local_y][local_x] == -1.0) {
-        window[local_y][local_x] = current.g_score;
-        filled_cells++;
-      }
-    }
-
-    // Условие выхода: если заполнили все достижимые клетки окна
-    // (Примечание: это простая эвристика, для полной гарантии можно убрать
-    // break, но тогда поиск пойдет по всей карте) Если цель очень далеко от
-    // агента, алгоритм все равно будет работать долго, пока волна не дойдет до
-    // окна.
-
-    // 4. Расширяем соседей
-    for (int next : getNeighbors(current.id, connectivity)) {
-      auto [nx, ny] = toCoord(next);
-
-      double move_cost = 1.0;
-      // Если 8-связность и ход по диагонали
-      if (connectivity == 8 && cx != nx && cy != ny) {
-        move_cost = std::sqrt(2.0);
-      }
-
-      double new_cost = cost_so_far[current.id] + move_cost;
-
-      if (cost_so_far.find(next) == cost_so_far.end() ||
-          new_cost < cost_so_far[next]) {
-        cost_so_far[next] = new_cost;
-        open_set.push({next, new_cost, new_cost});
-      }
-    }
-  }
-
-  // Пост-обработка: клетки со стенами внутри окна так и останутся -1.0,
-  // так как getNeighbors их не вернет.
-  return window;
 }

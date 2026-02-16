@@ -6,7 +6,7 @@
 namespace py = pybind11;
 
 PYBIND11_MODULE(pathfinding_core, m) {
-  m.doc() = "Pathfinding algorithms implemented in C++";
+  m.doc() = "Pathfinding algorithms implemented in C++ optimized";
 
   py::enum_<AlgorithmType>(m, "AlgorithmType")
       .value("BFS", AlgorithmType::BFS)
@@ -34,8 +34,5 @@ PYBIND11_MODULE(pathfinding_core, m) {
       .def("find_path", &PathPlanner::findPath, py::arg("start_x"),
            py::arg("start_y"), py::arg("goal_x"), py::arg("goal_y"),
            py::arg("algo"), py::arg("heuristic") = HeuristicType::Manhattan,
-           py::arg("weight") = 1.0, py::arg("connectivity") = 4)
-      .def("get_cost2go_window", &PathPlanner::getCost2GoWindow,
-           py::arg("agent_x"), py::arg("agent_y"), py::arg("goal_x"),
-           py::arg("goal_y"), py::arg("radius"), py::arg("connectivity") = 4);
+           py::arg("weight") = 1.0, py::arg("connectivity") = 4);
 }
