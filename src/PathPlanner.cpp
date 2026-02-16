@@ -93,6 +93,107 @@ void PathPlanner::getNeighbors(int current_id, int connectivity,
   }
 }
 
+std::vector<std::vector<double>> PathPlanner::getCost2GoWindow(
+    int agent_x, int agent_y, int goal_x, int goal_y, int radius,
+    int connectivity) {
+  // Размер окна
+  int side = 2 * radius + 1;
+  // Инициализируем окно значением -1.0 (обозначает препятствие или
+  // недостижимость)
+  std::vector<std::vector<double>> window(side,
+                                          std::vector<double>(side, -1.0));
+
+  // Проверка координат
+  if (goal_x < 0 || goal_x >= width_ || goal_y < 0 || goal_y >= height_ ||
+      grid_[toIndex(goal_x, goal_y)] != 0) {
+    return window;  // Цель недостижима или некорректна
+  }
+
+  // Определяем границы окна в глобальных координатах
+  int win_min_x = agent_x - radius;
+  int win_max_x = agent_x + radius;
+  int win_min_y = agent_y - radius;
+  int win_max_y = agent_y + radius;
+
+  // Подсчитываем, сколько клеток внутри окна теоретически проходимы.
+  // Это нужно для ранней остановки Dijkstra.
+  int valid_targets_in_window = 0;
+  for (int wy = 0; wy < side; ++wy) {
+    for (int wx = 0; wx < side; ++wx) {
+      int gx = win_min_x + wx;
+      int gy = win_min_y + wy;
+      if (gx >= 0 && gx < width_ && gy >= 0 && gy < height_) {
+        if (grid_[toIndex(gx, gy)] == 0) {
+          valid_targets_in_window++;
+        }
+      }
+    }
+  }
+
+  if (valid_targets_in_window == 0) return window;
+
+  // Запускаем Dijkstra ОТ ЦЕЛИ (Reverse Dijkstra)
+  int goal_id = toIndex(goal_x, goal_y);
+
+  std::priority_queue<Node, std::vector<Node>, std::greater<Node>> open_set;
+  open_set.push({goal_id, 0.0, 0.0});  // f_score = distance
+
+  const double INF = std::numeric_limits<double>::infinity();
+  std::vector<double> dist_matrix(width_ * height_, INF);
+  dist_matrix[goal_id] = 0.0;
+
+  std::vector<int> neighbors;
+  std::vector<double> costs;
+  neighbors.reserve(8);
+  costs.reserve(8);
+
+  int found_in_window_count = 0;
+
+  while (!open_set.empty()) {
+    Node current = open_set.top();
+    open_set.pop();
+
+    if (current.f_score > dist_matrix[current.id] + 1e-9) continue;
+
+    // Координаты текущей клетки
+    auto [cx, cy] = toCoord(current.id);
+
+    // Если текущая клетка попадает в окно агента, записываем результат
+    if (cx >= win_min_x && cx <= win_max_x && cy >= win_min_y &&
+        cy <= win_max_y) {
+      // Преобразуем глобальные в локальные окна
+      int local_x = cx - win_min_x;
+      int local_y = cy - win_min_y;
+
+      // Если мы еще не записывали сюда значение
+      if (window[local_y][local_x] == -1.0) {
+        window[local_y][local_x] = current.f_score;
+        found_in_window_count++;
+      }
+    }
+
+    // Если мы нашли значения для всех свободных клеток окна, можно завершать
+    if (found_in_window_count >= valid_targets_in_window) {
+      break;
+    }
+
+    getNeighbors(current.id, connectivity, neighbors, costs);
+
+    for (size_t i = 0; i < neighbors.size(); ++i) {
+      int next = neighbors[i];
+      double move_cost = costs[i];
+      double new_dist = dist_matrix[current.id] + move_cost;
+
+      if (new_dist < dist_matrix[next]) {
+        dist_matrix[next] = new_dist;
+        open_set.push({next, new_dist, new_dist});
+      }
+    }
+  }
+
+  return window;
+}
+
 SearchResult PathPlanner::findPath(int start_x, int start_y, int goal_x,
                                    int goal_y, AlgorithmType algo,
                                    HeuristicType heuristic, double weight,
@@ -118,7 +219,7 @@ SearchResult PathPlanner::findPath(int start_x, int start_y, int goal_x,
   if (algo == AlgorithmType::BFS) {
     return runBFS(start_id, goal_id, connectivity);
   } else {
-    // [cite: 8] Dijkstra это частный случай A* с h=0
+    // Dijkstra это частный случай A* с h=0
     if (algo == AlgorithmType::Dijkstra) {
       heuristic = HeuristicType::Zero;
       weight = 0.0;
@@ -133,7 +234,6 @@ SearchResult PathPlanner::runBFS(int start_id, int goal_id, int connectivity) {
   std::queue<int> q;
   q.push(start_id);
 
-  // Используем vector вместо map для скорости O(1)
   std::vector<int> came_from(width_ * height_, -1);
   std::vector<bool> visited(width_ * height_, false);
 

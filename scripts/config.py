@@ -22,8 +22,8 @@ MAP_TYPES = ['maze', 'random', 'street']    # Типы карт. Добавьт�
 # --- 3. НАСТРОЙКИ ПО УМОЛЧАНИЮ (DEFAULTS) ---
 
 # [VISUAL MODE]
-DEFAULT_MAP_NAME = "random/random512-10-0.map" # "street/Moscow_0_1024.map"
-DEFAULT_SCEN_NAME = "random/random512-10-0.map.scen" # "street/Moscow_0_1024.map.scen"
+DEFAULT_MAP_NAME = "maze/maze512-1-0.map" # "random/random512-10-0.map" # "street/Moscow_0_1024.map"
+DEFAULT_SCEN_NAME = "maze/maze512-1-0.map.scen" # "random/random512-10-0.map.scen" # "street/Moscow_0_1024.map.scen"
 DEFAULT_ALGO = "astar"
 # Если ID = None, то визуализатор переходит в режим показа серии задач (LIMIT)
 DEFAULT_VISUAL_ID = 1000
