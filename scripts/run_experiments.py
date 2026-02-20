@@ -139,6 +139,7 @@ def run_experiments_logic(sampling_mode=None, sampling_count=None, target_map=No
                 
                 for conn in connectivities:
                     for algo_name, algo_enum, heur_enum, weight in config.EXPERIMENT_ALGORITHMS:
+                        if conn == 8 and algo_name == "BFS": continue
                         for task in current_tasks:
                             res = planner.find_path(
                                 task["start"][0], task["start"][1], 

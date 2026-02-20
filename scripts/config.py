@@ -40,9 +40,9 @@ DEFAULT_SCEN = os.path.join(DATA_DIR, 'scen', DEFAULT_SCEN_NAME)
 BENCH_LIMIT = 10 # Лимит задач на сценарий
 
 # [EXPERIMENTS MODE]
-EXP_SAMPLING_MODE = 'all'                 # 'all', 'uniform', 'first', 'last'
-EXP_SAMPLING_COUNT = 20000                # Количество задач
-EXP_TARGET_MAP = "Moscow_0_256.map"       # Имя карты или None (все). ["maze512-1-0.map", "random512-40-0.map"]
+EXP_SAMPLING_MODE = 'uniform'                 # 'all', 'uniform', 'first', 'last'
+EXP_SAMPLING_COUNT = 2000                # Количество задач
+EXP_TARGET_MAP =  "random512-10-0.map"    # Имя карты или None (все). ["maze512-1-0.map", "random512-40-0.map", "Moscow_0_256.map" ]
 EXPERIMENT_CONNECTIVITIES = [8]           # [4, 8]. Для лабиринта лучше ставить 4
 
 
