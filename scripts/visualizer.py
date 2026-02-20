@@ -45,6 +45,13 @@ def save_map_image(width, height, grid, path=None, start=None, goal=None, filena
             shape = [x * cell_size, y * cell_size, (x + 1) * cell_size, (y + 1) * cell_size]
             draw.rectangle(shape, fill=color, outline=(0,0,0), width=1)
 
+            center_x, center_y = x * cell_size + cell_size // 2, y * cell_size + cell_size // 2
+            radius = cell_size * 5
+            draw.ellipse([center_x - radius, center_y - radius, center_x + radius, center_y + radius], 
+                        fill=None, 
+                        outline=color, 
+                        width=3)
+
     fill_cell(start, COLOR_START)
     fill_cell(goal, COLOR_GOAL)
 
