@@ -172,10 +172,12 @@ std::vector<std::vector<double>> PathPlanner::getCost2GoWindow(
       }
     }
 
-    // Если мы нашли значения для всех свободных клеток окна, можно завершать
-    if (found_in_window_count >= valid_targets_in_window) {
-      break;
-    }
+    // // --------------------------------------------------
+    // // Если мы нашли значения для всех свободных клеток окна, можно завершать
+    // if (found_in_window_count >= valid_targets_in_window) {
+    //   break;
+    // }
+    //  // --------------------------------------------------
 
     getNeighbors(current.id, connectivity, neighbors, costs);
 
