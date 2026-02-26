@@ -27,4 +27,5 @@ pybind11_add_module(pathfinding_core
     src/PathPlanner.cpp
 )
 
-target_include_directories(pathfinding_core PRIVATE src)
+# target_include_directories(pathfinding_core PRIVATE src)
+target_include_directories(pathfinding_core PRIVATE src src/include)
