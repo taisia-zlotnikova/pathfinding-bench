@@ -48,7 +48,8 @@ class PathPlanner {
   std::vector<std::vector<double>> getCost2GoWindow(int agent_x, int agent_y,
                                                     int goal_x, int goal_y,
                                                     int radius,
-                                                    int connectivity);
+                                                    int connectivity, 
+                                                    bool fast_break);
 
  private:
   int width_, height_;

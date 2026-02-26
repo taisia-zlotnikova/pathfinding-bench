@@ -37,5 +37,6 @@ PYBIND11_MODULE(pathfinding_core, m) {
            py::arg("weight") = 1.0, py::arg("connectivity") = 4)
       .def("get_cost2go_window", &PathPlanner::getCost2GoWindow,
            py::arg("agent_x"), py::arg("agent_y"), py::arg("goal_x"),
-           py::arg("goal_y"), py::arg("radius"), py::arg("connectivity") = 4);
+           py::arg("goal_y"), py::arg("radius"), py::arg("connectivity") = 4, 
+           py::arg("fast_break") = true);
 }

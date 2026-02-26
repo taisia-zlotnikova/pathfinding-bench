@@ -95,7 +95,7 @@ void PathPlanner::getNeighbors(int current_id, int connectivity,
 
 std::vector<std::vector<double>> PathPlanner::getCost2GoWindow(
     int agent_x, int agent_y, int goal_x, int goal_y, int radius,
-    int connectivity) {
+    int connectivity, bool fast_break = true) {
   // Размер окна
   int side = 2 * radius + 1;
   // Инициализируем окно значением -1.0 (обозначает препятствие или
@@ -132,7 +132,7 @@ std::vector<std::vector<double>> PathPlanner::getCost2GoWindow(
 
   if (valid_targets_in_window == 0) return window;
 
-  // Запускаем Dijkstra ОТ ЦЕЛИ (Reverse Dijkstra)
+  // Запускаем обратную Дейкстру. от цели до агента (до всех клеток, но может останавливать, когда все окно посчитано)
   int goal_id = toIndex(goal_x, goal_y);
 
   std::priority_queue<Node, std::vector<Node>, std::greater<Node>> open_set;
@@ -173,11 +173,14 @@ std::vector<std::vector<double>> PathPlanner::getCost2GoWindow(
     }
 
     // --------------------------------------------------
-    // Если мы нашли значения для всех свободных клеток окна, можно завершать
-    if (found_in_window_count >= valid_targets_in_window) {
-      break;
+    // зависит от флага. может быть, мы хотим продолжать подсчет не только для окна вокруг агента
+    if (fast_break) {
+      // Если мы нашли значения для всех свободных клеток окна, можно завершать
+      if (found_in_window_count >= valid_targets_in_window) {
+        break;
+      }
     }
-     // --------------------------------------------------
+    // --------------------------------------------------
 
     getNeighbors(current.id, connectivity, neighbors, costs);
 

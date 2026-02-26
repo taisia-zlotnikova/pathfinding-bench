@@ -43,6 +43,7 @@ def calculate_optimal_chunk(width, height, memory_budget_mb=2048):
 def run_benchmarks(args):
     # вывод параметров тестирования
     print(f"\n{C_BOLD}{C_CYAN}🚀 Умный бенчмарк Cost2Go (CPU vs GPU){C_RESET}")
+    print(f"fast_break = {args.fast_break}")
     print(f"Целей на карту: {args.target_tasks} (Uniform) | Радиус: {args.radius} | VRAM Бюджет: {args.vram_mb} MB")
     print(f"{'-'*95}")
     print(f"{'Карта':<25} | {'Размер':<10} | {'Чанк':<6} | {'CPU (сек)':<12} | {'GPU (сек)':<12} | {'Ускорение':<10}")
@@ -107,7 +108,7 @@ def run_benchmarks(args):
             # -----------------
             t0 = time.perf_counter()
             for i in range(B):
-                cpu_planner.get_cost2go_window(agents[i][0], agents[i][1], goals[i][0], goals[i][1], args.radius, 4)
+                cpu_planner.get_cost2go_window(agents[i][0], agents[i][1], goals[i][0], goals[i][1], args.radius, 4, args.fast_break)
             cpu_time = time.perf_counter() - t0
 
             # Вывод результатов
@@ -129,10 +130,12 @@ def run_benchmarks(args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Smart Benchmark Cost2Go CPU vs GPU")
     parser.add_argument('--radius', type=int, default=10, help='Радиус окна')
-    parser.add_argument('--target_tasks', type=int, default=200, help='Количество задач из .scen файла для тестирования')
+    parser.add_argument('--target_tasks', type=int, default=20, help='Количество задач из .scen файла для тестирования')
     parser.add_argument('--vram_mb', type=int, default=2048, help='Бюджет видеопамяти (в мегабайтах)')
     parser.add_argument('--files_limit', type=int, default=3, help='Лимит файлов карт для теста')
     parser.add_argument('--map', type=str, default=None, help='Запуск только для конкретной карты')
+    parser.add_argument('--fast_break', action=argparse.BooleanOptionalAction, default=True, 
+                        help='Останавливать ли подсчет cost2go на cpu (добавьте --no-fast_break чтобы отключить)')
     
     args = parser.parse_args()
     run_benchmarks(args)
