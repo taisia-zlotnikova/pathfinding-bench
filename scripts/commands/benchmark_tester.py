@@ -33,6 +33,10 @@ def run_bench_logic(args):
                 total_nodes = 0
                 success_tasks = 0
 
+                if limit == -1:
+                    end = len(tasks)
+                else:
+                    end = min(limit, len(tasks))
                 for task in tasks[:limit]:
                     res = planner.find_path(task["start"][0], task["start"][1],
                                           task["goal"][0], task["goal"][1],
