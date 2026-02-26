@@ -1,12 +1,12 @@
-🚀 BENCHMARK MODE (Сводка по 500 задачам на карту)
+🚀 BENCHMARK MODE (Сводка по 1000 задачам на карту)
 Map                  | Algo         | Tasks  | Avg Nodes  | Avg Time(ms)
 -----------------------------------------------------------------
-maze512-1-0.map      | BFS          | 500    | 454        | 0.107       
-maze512-1-0.map      | Dijkstra     | 500    | 453        | 0.192       
-maze512-1-0.map      | A* (Octile)  | 500    | 322        | 0.155       
-random512-10-0.map   | BFS          | 500    | 27673      | 9.513       
-random512-10-0.map   | Dijkstra     | 500    | 27727      | 21.014      
-random512-10-0.map   | A* (Octile)  | 500    | 976        | 0.981       
-Moscow_0_256.map     | BFS          | 500    | 15844      | 5.710       
-Moscow_0_256.map     | Dijkstra     | 500    | 16277      | 12.305      
-Moscow_0_256.map     | A* (Octile)  | 500    | 1566       | 1.640       
+maze512-1-0.map      | BFS          | 1000   | 1298       | 0.568       
+maze512-1-0.map      | Dijkstra     | 1000   | 1297       | 1.061       
+maze512-1-0.map      | A* (Octile)  | 1000   | 924        | 0.944       
+random512-10-0.map   | BFS          | 1000   | 80429      | 33.369      
+random512-10-0.map   | Dijkstra     | 1000   | 81420      | 61.881      
+random512-10-0.map   | A* (Octile)  | 1000   | 4652       | 5.281       
+Moscow_0_256.map     | BFS          | 910    | 27885      | 12.283      
+Moscow_0_256.map     | Dijkstra     | 910    | 28986      | 20.943      
+Moscow_0_256.map     | A* (Octile)  | 910    | 5026       | 5.546       
