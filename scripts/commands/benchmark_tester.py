@@ -1,14 +1,13 @@
 import os
-import sys
 import config
-import pathfinding_core as pfc
 from core.map_parser import MapParser
+import pathfinding_core as pfc
 
 def run_bench_logic(args):
-    """Логика режима bench (быстрый консольный прогон)"""
+    """Логика режима bench (агрегированный консольный прогон)"""
     limit = args.limit
-    print(f"🚀 BENCHMARK MODE (Limit: {limit} tasks/scen)")
-    print(f"{'Map':<20} | {'Algo':<12} | {'Len':<8} | {'Nodes':<7} | {'Time(ms)':<8}")
+    print(f"🚀 BENCHMARK MODE (Сводка по {limit} задачам на карту)")
+    print(f"{'Map':<20} | {'Algo':<12} | {'Tasks':<6} | {'Avg Nodes':<10} | {'Avg Time(ms)':<12}")
     print("-" * 65)
 
     for m_type in config.MAP_TYPES:
@@ -28,12 +27,23 @@ def run_bench_logic(args):
             width, height, grid = MapParser.parse_map(os.path.join(map_dir, map_name))
             planner = pfc.PathPlanner(width, height, grid)
             
+            # Тестируем алгоритмы
             for name, algo, heur, w_val in config.EXPERIMENT_ALGORITHMS[:3]:
+                total_time = 0.0
+                total_nodes = 0
+                success_tasks = 0
+
                 for task in tasks[:limit]:
                     res = planner.find_path(task["start"][0], task["start"][1],
                                           task["goal"][0], task["goal"][1],
                                           algo, heur, w_val, config.CONNECTIVITY)
-                    print(f"{map_name[:20]:<20} | {name:<12} | {res.path_length:<8.1f} | {res.expanded_nodes:<7} | {res.execution_time*1000:<8.3f}")
+                    if res.found:
+                        total_time += res.execution_time
+                        total_nodes += res.expanded_nodes
+                        success_tasks += 1
 
-if __name__ == "__main__":
-    pass
+                # Выводим среднее значение, если хоть один путь найден
+                if success_tasks > 0:
+                    avg_time_ms = (total_time / success_tasks) * 1000
+                    avg_nodes = total_nodes / success_tasks
+                    print(f"{map_name[:20]:<20} | {name:<12} | {success_tasks:<6} | {avg_nodes:<10.0f} | {avg_time_ms:<12.3f}")
