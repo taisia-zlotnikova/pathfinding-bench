@@ -55,6 +55,27 @@ class PathPlanner {
   int width_, height_;
   const std::vector<int> grid_;
 
+
+  // --------------------------------------------------
+  // --- НОВЫЕ ПОЛЯ ДЛЯ EPOCH COUNTER ---
+  int current_search_id_ = 0;          // Глобальный счетчик эпохи
+  std::vector<double> dist_matrix_;    // Переиспользуемый массив расстояний
+  std::vector<int> came_from_;         // Переиспользуемый массив предков
+  std::vector<int> search_epoch_;      // Массив "поколений" (когда клетка обновлялась)
+
+  // Кэшированные списки соседей (чтобы не создавать std::vector каждый шаг)
+  std::vector<int> neighbors_cache_;
+  std::vector<double> costs_cache_;
+
+  // Умная обертка для получения расстояния с учетом эпохи
+  inline double getDistance(int id) const {
+    return (search_epoch_[id] == current_search_id_) 
+            ? dist_matrix_[id] 
+            : std::numeric_limits<double>::infinity();
+  }
+
+  // --------------------------------------------------
+
   // Хелперы
   double calculateHeuristic(int idx1, int idx2, HeuristicType type);
 

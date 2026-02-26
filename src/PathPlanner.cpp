@@ -3,7 +3,14 @@
 #include <chrono>
 
 PathPlanner::PathPlanner(int width, int height, const std::vector<int>& grid)
-    : width_(width), height_(height), grid_(grid) {}
+    : width_(width), height_(height), grid_(grid),
+      dist_matrix_(width * height),
+      came_from_(width * height),
+      search_epoch_(width * height, 0) {
+          
+    neighbors_cache_.reserve(8);
+    costs_cache_.reserve(8);
+}
 
 double PathPlanner::calculateHeuristic(int idx1, int idx2, HeuristicType type) {
   if (type == HeuristicType::Zero) return 0.0;
@@ -98,8 +105,7 @@ std::vector<std::vector<double>> PathPlanner::getCost2GoWindow(
     int connectivity, bool fast_break = true) {
   // Размер окна
   int side = 2 * radius + 1;
-  // Инициализируем окно значением -1.0 (обозначает препятствие или
-  // недостижимость)
+  // Инициализируем окно значением -1.0 (обозначает препятствие или недостижимость)
   std::vector<std::vector<double>> window(side,
                                           std::vector<double>(side, -1.0));
 
@@ -139,13 +145,9 @@ std::vector<std::vector<double>> PathPlanner::getCost2GoWindow(
   open_set.push({goal_id, 0.0, 0.0});  // f_score = distance
 
   const double INF = std::numeric_limits<double>::infinity();
-  std::vector<double> dist_matrix(width_ * height_, INF);
-  dist_matrix[goal_id] = 0.0;
-
-  std::vector<int> neighbors;
-  std::vector<double> costs;
-  neighbors.reserve(8);
-  costs.reserve(8);
+  current_search_id_++; // Мгновенно "очищаем" всю память
+  dist_matrix_[goal_id] = 0.0;
+  search_epoch_[goal_id] = current_search_id_;
 
   int found_in_window_count = 0;
 
@@ -153,7 +155,7 @@ std::vector<std::vector<double>> PathPlanner::getCost2GoWindow(
     Node current = open_set.top();
     open_set.pop();
 
-    if (current.f_score > dist_matrix[current.id] + 1e-9) continue;
+    if (current.f_score > getDistance(current.id) + 1e-9) continue;
 
     // Координаты текущей клетки
     auto [cx, cy] = toCoord(current.id);
@@ -182,15 +184,16 @@ std::vector<std::vector<double>> PathPlanner::getCost2GoWindow(
     }
     // --------------------------------------------------
 
-    getNeighbors(current.id, connectivity, neighbors, costs);
+    getNeighbors(current.id, connectivity, neighbors_cache_, costs_cache_);
+    
+    for (size_t i = 0; i < neighbors_cache_.size(); ++i) {
+      int next = neighbors_cache_[i];
+      double move_cost = costs_cache_[i];
+      double new_dist = getDistance(current.id) + move_cost;
 
-    for (size_t i = 0; i < neighbors.size(); ++i) {
-      int next = neighbors[i];
-      double move_cost = costs[i];
-      double new_dist = dist_matrix[current.id] + move_cost;
-
-      if (new_dist < dist_matrix[next]) {
-        dist_matrix[next] = new_dist;
+      if (new_dist < getDistance(next)) {
+        dist_matrix_[next] = new_dist;
+        search_epoch_[next] = current_search_id_; // Отмечаем клетку как актуальную
         open_set.push({next, new_dist, new_dist});
       }
     }
@@ -237,19 +240,11 @@ SearchResult PathPlanner::runBFS(int start_id, int goal_id, int connectivity) {
   std::queue<int> q;
   q.push(start_id);
 
-  std::vector<int> came_from(width_ * height_, -1);
-  std::vector<bool> visited(width_ * height_, false);
-
-  visited[start_id] = true;
+  current_search_id_++; // "Сбрасываем" visited и came_from для всей карты
+  search_epoch_[start_id] = current_search_id_;
 
   int expanded_nodes = 0;
   bool found = false;
-
-  // Предварительное выделение памяти для соседей
-  std::vector<int> neighbors;
-  std::vector<double> costs;
-  neighbors.reserve(8);
-  costs.reserve(8);
 
   while (!q.empty()) {
     int current = q.front();
@@ -261,12 +256,12 @@ SearchResult PathPlanner::runBFS(int start_id, int goal_id, int connectivity) {
       break;
     }
 
-    getNeighbors(current, connectivity, neighbors, costs);
-
-    for (int next : neighbors) {
-      if (!visited[next]) {
-        visited[next] = true;
-        came_from[next] = current;
+    getNeighbors(current, connectivity, neighbors_cache_, costs_cache_);
+    for (int next : neighbors_cache_) {
+      // Если эпоха не совпадает, значит клетка "не посещена" в текущем поиске
+      if (search_epoch_[next] != current_search_id_) {
+        search_epoch_[next] = current_search_id_; // Помечаем как visited
+        came_from_[next] = current;
         q.push(next);
       }
     }
@@ -280,7 +275,7 @@ SearchResult PathPlanner::runBFS(int start_id, int goal_id, int connectivity) {
     int curr = goal_id;
     while (curr != start_id) {
       path.push_back(toCoord(curr));
-      int prev = came_from[curr];
+      int prev = came_from_[curr]; // Берем из глобального кэша
 
       // Считаем точную длину для метрики (даже если BFS искал по ребрам)
       int cx = curr % width_;
@@ -310,32 +305,24 @@ SearchResult PathPlanner::runAStarLike(int start_id, int goal_id,
                                        int connectivity) {
   auto start_time = std::chrono::high_resolution_clock::now();
 
-  // Min-heap priority queue
   std::priority_queue<Node, std::vector<Node>, std::greater<Node>> open_set;
 
   double h_start = calculateHeuristic(start_id, goal_id, h_type);
   open_set.push({start_id, weight * h_start, 0.0});
 
-  const double INF = std::numeric_limits<double>::infinity();
-  std::vector<double> cost_so_far(width_ * height_, INF);
-  std::vector<int> came_from(width_ * height_, -1);
-
-  cost_so_far[start_id] = 0.0;
+  current_search_id_++;
+  dist_matrix_[start_id] = 0.0;
+  search_epoch_[start_id] = current_search_id_;
 
   int expanded_nodes = 0;
   bool found = false;
-
-  std::vector<int> neighbors;
-  std::vector<double> costs;
-  neighbors.reserve(8);
-  costs.reserve(8);
 
   while (!open_set.empty()) {
     Node current = open_set.top();
     open_set.pop();
 
     // Lazy deletion: если извлеченный путь хуже уже известного, пропускаем
-    if (current.g_score > cost_so_far[current.id] + 1e-9) continue;
+    if (current.g_score > getDistance(current.id) + 1e-9) continue;
 
     if (current.id == goal_id) {
       found = true;
@@ -343,21 +330,21 @@ SearchResult PathPlanner::runAStarLike(int start_id, int goal_id,
     }
 
     expanded_nodes++;
+    getNeighbors(current.id, connectivity, neighbors_cache_, costs_cache_);
 
-    getNeighbors(current.id, connectivity, neighbors, costs);
+    for (size_t i = 0; i < neighbors_cache_.size(); ++i) {
+      int next = neighbors_cache_[i];
+      double move_cost = costs_cache_[i];
+      double new_g = getDistance(current.id) + move_cost;
 
-    for (size_t i = 0; i < neighbors.size(); ++i) {
-      int next = neighbors[i];
-      double move_cost = costs[i];
-      double new_g = cost_so_far[current.id] + move_cost;
-
-      if (new_g < cost_so_far[next]) {
-        cost_so_far[next] = new_g;
+      if (new_g < getDistance(next)) {
+        dist_matrix_[next] = new_g;
+        search_epoch_[next] = current_search_id_; // Актуализируем
+        
         double h = calculateHeuristic(next, goal_id, h_type);
-        // f = g + w*h
         double new_f = new_g + weight * h;
 
-        came_from[next] = current.id;
+        came_from_[next] = current.id;
         open_set.push({next, new_f, new_g});
       }
     }
@@ -367,16 +354,18 @@ SearchResult PathPlanner::runAStarLike(int start_id, int goal_id,
   std::vector<std::pair<int, int>> path;
   if (found) {
     int curr = goal_id;
-    while (curr != -1) {
+    // Остановка, когда достигли start_id (потому что мы не пишем -1 в came_from_ при старте, чтобы не нарушить эпоху)
+    while (curr != start_id) {
       path.push_back(toCoord(curr));
-      curr = came_from[curr];
+      curr = came_from_[curr];
     }
+    path.push_back(toCoord(start_id)); // Добавляем старт
     std::reverse(path.begin(), path.end());
   }
 
   auto end_time = std::chrono::high_resolution_clock::now();
   std::chrono::duration<double> duration = end_time - start_time;
 
-  return {path, found, expanded_nodes, found ? cost_so_far[goal_id] : 0.0,
+  return {path, found, expanded_nodes, found ? getDistance(goal_id) : 0.0,
           duration.count()};
 }
