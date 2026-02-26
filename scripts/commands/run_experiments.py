@@ -7,7 +7,7 @@ import config
 
 try:
     import pathfinding_core as pfc
-    from map_parser import MapParser
+    from core.map_parser import MapParser
 except ImportError as e:
     print(f"❌ Ошибка импорта: {e}")
     sys.exit(1)

@@ -2,8 +2,12 @@ import sys
 import os
 
 # --- 1. ПУТИ И ЯДРО ---
+# BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+# PROJECT_ROOT = os.path.dirname(BASE_DIR)
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-PROJECT_ROOT = os.path.dirname(BASE_DIR)
+PROJECT_ROOT = BASE_DIR
+
 BUILD_DIR = os.path.join(PROJECT_ROOT, 'build')
 DATA_DIR = os.path.join(PROJECT_ROOT, 'data')
 RESULTS_DIR = os.path.join(PROJECT_ROOT, 'results')

@@ -2,12 +2,12 @@
 Скрипт сравнивает классический поиск на графах (C++, CPU) и параллельный тензорный поиск в ширину (PyTorch, GPU). Задачи равномерно выбираются из файлов сценариев (.scen), а размер пакета задач для видеокарты рассчитывается динамически, чтобы не допустить переполнения памяти.
 
 
-## Заупск
+## Запуск
 
 ```
 ./setup.sh
 source venv/bin/activate
-python3 ./scripts/bench_c2g.py
+python3 ./scripts/main.py bench-gpu
 ```
 
 ## Аргументы запуска
@@ -37,16 +37,16 @@ python3 ./scripts/bench_c2g.py
 ### Примеры использования:
 Быстрый тест по умолчанию:
 ```Bash
-python3 scripts/bench_c2g.py
+python3 ./scripts/main.py bench-gpu
 ```
 
 Жесткий стресс-тест на 5000 задач с использованием 6 ГБ видеопамяти:
 ```Bash
-python3 scripts/bench_c2g.py --target_tasks 5000 --vram_mb 6144
+python3 ./scripts/main.py bench-gpu --target_tasks 5000 --vram_mb 6144
 ```
 Честное "End-to-End" сравнение полного обхода конкретной карты (отключаем раннюю остановку CPU):
 ```Bash
-python3 scripts/bench_c2g.py --map random512-10-0.map --no-fast_break --target_tasks 500
+python3 ./scripts/main.py bench-gpu --map random512-10-0.map --no-fast_break --target_tasks 500
 ```
 ## Что будет происходить при запуске?
 - Скрипт просканирует ваши директории data/map/ и data/scen/.

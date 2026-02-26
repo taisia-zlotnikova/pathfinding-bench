@@ -1,15 +1,16 @@
 import argparse
 import sys
+import os
+
+root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if root_dir not in sys.path:
+    sys.path.insert(0, root_dir)
 
 import config
-from run_visual import run_visual_logic
-from benchmark_tester import run_bench_logic
-from run_experiments import run_experiments_logic
-
-try:
-    from bench_c2g import run_benchmarks as run_bench_gpu_logic
-except ImportError:
-    run_bench_gpu_logic = None
+from commands.run_visual import run_visual_logic
+from commands.benchmark_tester import run_bench_logic
+from commands.run_experiments import run_experiments_logic
+from commands.bench_c2g import run_benchmarks as run_bench_gpu_logic
 
 def print_hints():
     # Цвета для консоли

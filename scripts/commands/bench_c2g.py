@@ -3,9 +3,9 @@ import time
 import argparse
 import torch
 import config
-from map_parser import MapParser
+from core.map_parser import MapParser
 import pathfinding_core as pfc
-from gpu_planner import GPUPathPlanner
+from gpu.gpu_planner import GPUPathPlanner
 
 # Цвета
 C_RESET  = "\033[0m"

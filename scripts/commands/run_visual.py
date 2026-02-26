@@ -2,11 +2,11 @@ import os
 import random
 from pathlib import Path
 import config
-from map_parser import MapParser
+from core.map_parser import MapParser
 import pathfinding_core as pfc
 
 try:
-    from visualizer import save_map_image, save_cost2go_image
+    from core.visualizer import save_map_image, save_cost2go_image
 except ImportError:
     save_map_image = None
     save_cost2go_image = None

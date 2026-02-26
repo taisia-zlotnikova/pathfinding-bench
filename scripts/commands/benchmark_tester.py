@@ -2,7 +2,7 @@ import os
 import sys
 import config
 import pathfinding_core as pfc
-from map_parser import MapParser
+from core.map_parser import MapParser
 
 def run_bench_logic(args):
     """Логика режима bench (быстрый консольный прогон)"""

@@ -1,6 +1,6 @@
 import torch
 import torch.nn.functional as F
-from bfs import bfs_distance_maps
+from gpu.bfs import bfs_distance_maps
 
 class GPUPathPlanner:
     def __init__(self, width, height, grid):
