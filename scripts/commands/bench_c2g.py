@@ -32,7 +32,7 @@ def get_uniform_tasks(tasks, count):
     indices = sorted(list(set([int(i * step) for i in range(count)])))
     return [tasks[i] for i in indices]
 
-def calculate_optimal_chunk(width, height, memory_budget_mb=2048):
+def calculate_optimal_batch(width, height, memory_budget_mb=2048):
     """
     memory_budget_mb - сколько мегабайт видеопамяти разрешено использовать.
     Используя ограничение и размер карты считаем более подходящий размер батча
@@ -40,16 +40,16 @@ def calculate_optimal_chunk(width, height, memory_budget_mb=2048):
 
     bytes_per_map = width * height * 8
     budget_bytes = memory_budget_mb * 1024 * 1024
-    chunk_size = int(budget_bytes // bytes_per_map)
+    batch_size = int(budget_bytes // bytes_per_map)
 
-    return max(1, min(2048, chunk_size))
+    return max(1, min(2048, batch_size))
 
 def run_benchmarks(args):
     print(f"\n{C_BOLD}{C_CYAN}🚀 Умный бенчмарк Cost2Go (CPU vs GPU){C_RESET}")
     print(f"fast_break = {args.fast_break}")
     print(f"Целей на карту: {args.target_tasks} (Uniform) | Радиус: {args.radius} | VRAM Бюджет: {args.vram_mb} MB")
     print(f"{'-'*95}")
-    print(f"{'Карта':<25} | {'Размер':<10} | {'Чанк':<6} | {'CPU (сек)':<12} | {'GPU (сек)':<12} | {'Ускорение':<10}")
+    print(f"{'Карта':<25} | {'Размер':<10} | {'Batch_size':<10} | {'CPU (сек)':<12} | {'GPU (сек)':<12} | {'Ускорение':<10}")
     print(f"{'-'*95}")
 
     total_cpu_time = 0.0
@@ -83,13 +83,16 @@ def run_benchmarks(args):
             B = len(agents)
             if B == 0: continue
 
-            # Подбираем нужный ращмер чанка
-            chunk_size = calculate_optimal_chunk(width, height, memory_budget_mb=args.vram_mb)
+            # Подбираем нужный batch_size
+            batch_size = calculate_optimal_batch(width, height, memory_budget_mb=args.vram_mb)
 
             cpu_planner = pfc.PathPlanner(width, height, grid)
             gpu_planner = GPUPathPlanner(width, height, grid)
 
-            # Прогрев GPU
+            """
+            Прогрев GPU
+            Он точно работает, проверялось
+            """
             gpu_planner.get_cost2go_windows_batch([agents[0]], [goals[0]], args.radius)
             sync_gpu(gpu_planner.device)
 
@@ -97,12 +100,12 @@ def run_benchmarks(args):
             #        GPU
             # -----------------
             gpu_time = 0.0
-            for i in range(0, B, chunk_size):
-                chunk_agents = agents[i : i + chunk_size]
-                chunk_goals = goals[i : i + chunk_size]
+            for i in range(0, B, batch_size):
+                batch_agents = agents[i : i + batch_size]
+                batch_goals = goals[i : i + batch_size]
                 
                 t0 = time.perf_counter()
-                gpu_planner.get_cost2go_windows_batch(chunk_agents, chunk_goals, args.radius)
+                gpu_planner.get_cost2go_windows_batch(batch_agents, batch_goals, args.radius)
                 sync_gpu(gpu_planner.device)
                 gpu_time += time.perf_counter() - t0
 
@@ -118,7 +121,7 @@ def run_benchmarks(args):
             speedup = cpu_time / gpu_time if gpu_time > 0 else 0
             color = C_GREEN if speedup > 1 else C_YELLOW
             size_str = f"{width}x{height}"
-            print(f"{map_name[:25]:<25} | {size_str:<10} | {chunk_size:<6} | {cpu_time:<12.4f} | {gpu_time:<12.4f} | {color}{speedup:.2f}x{C_RESET}")
+            print(f"{map_name[:25]:<25} | {size_str:<10} | {batch_size:<10} | {cpu_time:<12.4f} | {gpu_time:<12.4f} | {color}{speedup:.2f}x{C_RESET}")
 
             total_cpu_time += cpu_time
             total_gpu_time += gpu_time
