@@ -98,7 +98,7 @@ def run_visual_logic(args):
         print("⚠️ Нет задач для выполнения.")
         return
 
-    viz_dir = "visuals"
+    viz_dir = "results/visuals"
     os.makedirs(viz_dir, exist_ok=True)
     for task in tasks_to_run:
         task_id = task['id']
