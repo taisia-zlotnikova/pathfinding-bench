@@ -174,7 +174,6 @@ std::vector<std::vector<double>> PathPlanner::getCost2GoWindow(
       }
     }
 
-    // --------------------------------------------------
     // зависит от флага. может быть, мы хотим продолжать подсчет не только для окна вокруг агента
     if (fast_break) {
       // Если мы нашли значения для всех свободных клеток окна, можно завершать
@@ -182,7 +181,6 @@ std::vector<std::vector<double>> PathPlanner::getCost2GoWindow(
         break;
       }
     }
-    // --------------------------------------------------
 
     getNeighbors(current.id, connectivity, neighbors_cache_, costs_cache_);
     

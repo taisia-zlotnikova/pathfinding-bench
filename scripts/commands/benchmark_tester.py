@@ -3,8 +3,12 @@ import config
 from core.map_parser import MapParser
 import pathfinding_core as pfc
 
+"""
+Прогоняем нахождение разынх задачах.
+Используем отльно для проверки или для тестирования и сравнения с gpu
+"""
+
 def run_bench_logic(args):
-    """Логика режима bench (агрегированный консольный прогон)"""
     limit = args.limit
     print(f"🚀 BENCHMARK MODE (Сводка по {limit} задачам на карту)")
     print(f"{'Map':<20} | {'Algo':<12} | {'Tasks':<6} | {'Avg Nodes':<10} | {'Avg Time(ms)':<12}")
@@ -27,7 +31,11 @@ def run_bench_logic(args):
             width, height, grid = MapParser.parse_map(os.path.join(map_dir, map_name))
             planner = pfc.PathPlanner(width, height, grid)
             
-            # Тестируем алгоритмы
+            """
+            Тестируем алгоритмы
+            Прогоняем только первые 3: Bfs, Dijkstra, A* (Octile)
+            Можно и другие, но остановились пока так. 
+            """
             for name, algo, heur, w_val in config.EXPERIMENT_ALGORITHMS[:3]:
                 total_time = 0.0
                 total_nodes = 0

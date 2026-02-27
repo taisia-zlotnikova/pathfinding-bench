@@ -85,10 +85,7 @@ def main():
     elif args.command == 'exp':
         run_experiments_logic(sampling_mode=args.mode, sampling_count=args.count, target_map=args.map)
     elif args.command == 'bench-gpu':
-        if run_bench_gpu_logic:
-            run_bench_gpu_logic(args)
-        else:
-            print("❌ Ошибка: Не удалось импортировать логику бенчмарка GPU. Убедитесь, что bench_c2g.py существует.")
+        run_bench_gpu_logic(args)
 
 if __name__ == "__main__":
     main()

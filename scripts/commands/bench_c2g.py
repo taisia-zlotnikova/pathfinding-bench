@@ -15,33 +15,36 @@ C_YELLOW = "\033[33m"
 C_CYAN   = "\033[36m"
 
 def sync_gpu(device):
-    # Просто выбор девайса
     if device.type == "cuda":
         torch.cuda.synchronize()
     elif device.type == "mps":
         torch.mps.synchronize()
 
 def get_uniform_tasks(tasks, count):
-    # Хотим выбрать раномерно нужное кол-во сценариев
+    """
+    Хотим выбрать раномерно нужное кол-во сценариев
+    Можно передать -1 и будут проходить все сценарии
+    """
     total = len(tasks)
-    if total <= count or count is None:
+    if total <= count or count == -1:
         return tasks
     step = total / count
     indices = sorted(list(set([int(i * step) for i in range(count)])))
     return [tasks[i] for i in indices]
 
 def calculate_optimal_chunk(width, height, memory_budget_mb=2048):
-    # memory_budget_mb - сколько мегабайт видеопамяти разрешено использовать.
-    # Используя ограничение и размер карты считаем более подходящий размер батча
+    """
+    memory_budget_mb - сколько мегабайт видеопамяти разрешено использовать.
+    Используя ограничение и размер карты считаем более подходящий размер батча
+    """
 
-    bytes_per_map = width * height * 8  # ~8 байт на клетку со всеми тензорами
+    bytes_per_map = width * height * 8
     budget_bytes = memory_budget_mb * 1024 * 1024
     chunk_size = int(budget_bytes // bytes_per_map)
 
     return max(1, min(2048, chunk_size))
 
 def run_benchmarks(args):
-    # вывод параметров тестирования
     print(f"\n{C_BOLD}{C_CYAN}🚀 Умный бенчмарк Cost2Go (CPU vs GPU){C_RESET}")
     print(f"fast_break = {args.fast_break}")
     print(f"Целей на карту: {args.target_tasks} (Uniform) | Радиус: {args.radius} | VRAM Бюджет: {args.vram_mb} MB")
