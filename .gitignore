@@ -15,6 +15,7 @@ __pycache__/
 venv/
 env/
 .pytest_cache/
+*_env/
 
 # IDE settings (VS Code, CLion, etc.)
 .vscode/

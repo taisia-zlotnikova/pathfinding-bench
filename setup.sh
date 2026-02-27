@@ -17,14 +17,14 @@ if ! command -v make &> /dev/null; then
 fi
 
 # 3. Создаем виртуальное окружение Python (рекомендуется)
-if [ ! -d "venv" ]; then
-    echo "🐍 Создаем виртуальное окружение (venv)..."
-    python3 -m venv venv
+if [ ! -d "pathfinding_env" ]; then
+    echo "🐍 Создаем виртуальное окружение (pathfinding_env)..."
+    python3 -m venv pathfinding_env
 fi
 
 # 4. Активируем окружение и ставим зависимости
 echo "📦 Устанавливаем Python-зависимости..."
-source venv/bin/activate
+source pathfinding_env/bin/activate
 pip install --upgrade pip
 pip install -r requirements.txt
 
@@ -36,10 +36,10 @@ mkdir build
 cd build
 
 # Запуск CMake
-# python3 -m pybind11 --cmakedir помогает CMake найти pybind11 внутри venv
+# python3 -m pybind11 --cmakedir помогает CMake найти pybind11 внутри pathfinding_env
 cmake -DCMAKE_PREFIX_PATH=$(python3 -m pybind11 --cmakedir) ..
 make
 
 echo "✅ Установка завершена!"
-echo "👉 Чтобы начать работу, активируйте окружение: source venv/bin/activate"
+echo "👉 Чтобы начать работу, активируйте окружение: source pathfinding_env/bin/activate"
 echo "👉 Читайте в README.md что можно запускать и как тестировать"

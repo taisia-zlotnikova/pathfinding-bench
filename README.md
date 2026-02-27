@@ -65,7 +65,7 @@
     ```
 4.  **Активация виртуального окружения:**
     ```bash
-    source venv/bin/activate
+    source pathfinding_env/bin/activate
     ```
 
 ---
