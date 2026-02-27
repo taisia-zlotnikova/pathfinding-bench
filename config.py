@@ -22,7 +22,7 @@ except ImportError:
 
 # --- 2. ОБЩИЕ НАСТРОЙКИ ---
 CONNECTIVITY = 8                            # 4 или 8
-MAP_TYPES = ['maze', 'random', 'street']    # Типы карт. Добавьте свое, если положили в data
+MAP_TYPES = ['maze', 'random', 'my_random']    # Типы карт. Добавьте свое, если положили в data
 RADIUS = 5                                  # для окна вокруг агента 11*11 должно быть 5. влияет пока только на подсчет cost2go
 
 

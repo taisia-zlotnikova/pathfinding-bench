@@ -32,22 +32,10 @@ def get_uniform_tasks(tasks, count):
     indices = sorted(list(set([int(i * step) for i in range(count)])))
     return [tasks[i] for i in indices]
 
-def calculate_optimal_batch(width, height, memory_budget_mb=2048):
-    """
-    memory_budget_mb - сколько мегабайт видеопамяти разрешено использовать.
-    Используя ограничение и размер карты считаем более подходящий размер батча
-    """
-
-    bytes_per_map = width * height * 8
-    budget_bytes = memory_budget_mb * 1024 * 1024
-    batch_size = int(budget_bytes // bytes_per_map)
-
-    return max(1, min(2048, batch_size))
-
 def run_benchmarks(args):
     print(f"\n{C_BOLD}{C_CYAN}🚀 Умный бенчмарк Cost2Go (CPU vs GPU){C_RESET}")
     print(f"fast_break = {args.fast_break}")
-    print(f"Целей на карту: {args.target_tasks} (Uniform) | Радиус: {args.radius} | VRAM Бюджет: {args.vram_mb} MB")
+    print(f"Целей на карту: {args.target_tasks} (Uniform) | Радиус: {args.radius} | Batch_size: {args.batch_size}")
     print(f"{'-'*95}")
     print(f"{'Карта':<25} | {'Размер':<10} | {'Batch_size':<10} | {'CPU (сек)':<12} | {'GPU (сек)':<12} | {'Ускорение':<10}")
     print(f"{'-'*95}")
@@ -55,7 +43,8 @@ def run_benchmarks(args):
     total_cpu_time = 0.0
     total_gpu_time = 0.0
 
-    for map_type in config.MAP_TYPES:
+    # for map_type in config.MAP_TYPES:
+    for map_type in ["my_random"]:
         scen_dir = os.path.join(config.DATA_DIR, 'scen', map_type)
         map_dir = os.path.join(config.DATA_DIR, 'map', map_type)
         if not os.path.exists(scen_dir): continue
@@ -84,7 +73,7 @@ def run_benchmarks(args):
             if B == 0: continue
 
             # Подбираем нужный batch_size
-            batch_size = calculate_optimal_batch(width, height, memory_budget_mb=args.vram_mb)
+            batch_size = args.batch_size
 
             cpu_planner = pfc.PathPlanner(width, height, grid)
             gpu_planner = GPUPathPlanner(width, height, grid)
@@ -133,15 +122,15 @@ def run_benchmarks(args):
         print(f"Общее время GPU: {C_GREEN}{total_gpu_time:.4f} сек{C_RESET}")
         print(f"Среднее ускорение: {C_BOLD}{C_CYAN}{(total_cpu_time / total_gpu_time):.2f}x{C_RESET}")
 
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Smart Benchmark Cost2Go CPU vs GPU")
-    parser.add_argument('--radius', type=int, default=10, help='Радиус окна')
-    parser.add_argument('--target_tasks', type=int, default=20, help='Количество задач из .scen файла для тестирования')
-    parser.add_argument('--vram_mb', type=int, default=2048, help='Бюджет видеопамяти (в мегабайтах)')
-    parser.add_argument('--files_limit', type=int, default=3, help='Лимит файлов карт для теста')
-    parser.add_argument('--map', type=str, default=None, help='Запуск только для конкретной карты')
-    parser.add_argument('--fast_break', action=argparse.BooleanOptionalAction, default=True, 
-                        help='Останавливать ли подсчет cost2go на cpu (добавьте --no-fast_break чтобы отключить)')
+# if __name__ == "__main__":
+#     parser = argparse.ArgumentParser(description="Smart Benchmark Cost2Go CPU vs GPU")
+#     parser.add_argument('--radius', type=int, default=10, help='Радиус окна')
+#     parser.add_argument('--target_tasks', type=int, default=20, help='Количество задач из .scen файла для тестирования')
+#     parser.add_argument('--batch_size', type=int, default=128, help='Размер батчей')
+#     parser.add_argument('--files_limit', type=int, default=3, help='Лимит файлов карт для теста')
+#     parser.add_argument('--map', type=str, default=None, help='Запуск только для конкретной карты')
+#     parser.add_argument('--fast_break', action=argparse.BooleanOptionalAction, default=True, 
+#                         help='Останавливать ли подсчет cost2go на cpu (добавьте --no-fast_break чтобы отключить)')
     
-    args = parser.parse_args()
-    run_benchmarks(args)
+#     args = parser.parse_args()
+#     run_benchmarks(args)

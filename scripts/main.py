@@ -70,7 +70,7 @@ def main():
     gpu_parser = subparsers.add_parser('bench-gpu', help='Умный бенчмарк Cost2Go: CPU vs GPU')
     gpu_parser.add_argument('--radius', type=int, default=10, help='Радиус окна')
     gpu_parser.add_argument('--target_tasks', type=int, default=20, help='Количество задач из .scen файла для тестирования')
-    gpu_parser.add_argument('--vram_mb', type=int, default=2048, help='Бюджет видеопамяти (в мегабайтах)')
+    gpu_parser.add_argument('--batch_size', type=int, default=128, help='Размер батчей')
     gpu_parser.add_argument('--files_limit', type=int, default=3, help='Лимит файлов карт для теста')
     gpu_parser.add_argument('--map', type=str, default=None, help='Запуск только для конкретной карты')
     gpu_parser.add_argument('--fast_break', action=argparse.BooleanOptionalAction, default=True, 
