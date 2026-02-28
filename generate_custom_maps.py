@@ -71,9 +71,9 @@ if __name__ == "__main__":
     generate_movingai_dataset(
         map_dir=MAP_DIR,
         scen_dir=SCEN_DIR,
-        map_name="random1024-25-custom.map",
+        map_name="random1024-35-custom.map",
         width=1024,
         height=1024,
-        obstacle_prob=0.25,
+        obstacle_prob=0.35,
         num_tasks=2000
     )

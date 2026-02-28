@@ -121,16 +121,3 @@ def run_benchmarks(args):
         print(f"Общее время CPU: {C_YELLOW}{total_cpu_time:.4f} сек{C_RESET}")
         print(f"Общее время GPU: {C_GREEN}{total_gpu_time:.4f} сек{C_RESET}")
         print(f"Среднее ускорение: {C_BOLD}{C_CYAN}{(total_cpu_time / total_gpu_time):.2f}x{C_RESET}")
-
-# if __name__ == "__main__":
-#     parser = argparse.ArgumentParser(description="Smart Benchmark Cost2Go CPU vs GPU")
-#     parser.add_argument('--radius', type=int, default=10, help='Радиус окна')
-#     parser.add_argument('--target_tasks', type=int, default=20, help='Количество задач из .scen файла для тестирования')
-#     parser.add_argument('--batch_size', type=int, default=128, help='Размер батчей')
-#     parser.add_argument('--files_limit', type=int, default=3, help='Лимит файлов карт для теста')
-#     parser.add_argument('--map', type=str, default=None, help='Запуск только для конкретной карты')
-#     parser.add_argument('--fast_break', action=argparse.BooleanOptionalAction, default=True, 
-#                         help='Останавливать ли подсчет cost2go на cpu (добавьте --no-fast_break чтобы отключить)')
-    
-#     args = parser.parse_args()
-#     run_benchmarks(args)
